@@ -7,7 +7,7 @@ menu.onclick = () =>{
     navbar.classList.toggle('active');
 }
 
-var swiper = new Swiper(". home-slider", {
+var swiper = new swiper(". home-slider", {
     spaceBetween: 30,
     centeredSlides: true,
     autoplay: {

@@ -24,6 +24,10 @@ html{
     scroll-behavior:smooth;
 
 }
+section{
+    /* me e shiku kete version */
+    padding:2rem 9%;
+}
 
 header{
     position:fixed;
@@ -87,11 +91,8 @@ header .icons #menu-bars{
 }
 
 /*dAfina B*/
+/*SECTION E QOVA NALT*/
 
-section{
-    /* me e shiku kete version */
-    padding:2rem 9%;
-}
 section:nth-child(even){
     background: #eee;
 
