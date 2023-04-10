@@ -24,10 +24,6 @@ html{
     scroll-behavior:smooth;
 
 }
-section{
-    /* me e shiku kete version */
-    padding:2rem 9%;
-}
 
 header{
     position:fixed;
@@ -43,6 +39,7 @@ header{
 }
 
 header .logo{
+margin: 10px;
 color:var(--black);
 font-size: 2.5rem;
 font-weight:bolder;
@@ -55,7 +52,7 @@ header .logo i{
 header .navbar a{
 font-size: 1.7rem;
 border-radius: .5rem;
-padding: .5rem 1.5rem;
+padding: 1rem 1.5rem;
 color:var(--light-color);
 }
 
@@ -67,6 +64,7 @@ header .navbar a:hover{
 
 header .icons i,
 header .icons a{
+margin:5px;
 cursor:pointer;
 margin-left: .5rem;
 height:4.5rem;
@@ -87,6 +85,7 @@ transform:rotate(360deg);
 }
 
 header .icons #menu-bars{
+
     display:none;
 }
 
