@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-    <link rel="stylesheet" href="home.css">
+    <script src="home.js"></script> 
+
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
-</head>
+   
 <body>
     <!--Home section-->
     <section class="home" id="home">
@@ -25,7 +28,7 @@
 
                     </div>
                     <div class="image">
-                        <img src="images/grey.png" alt="">
+                        <img src="images/bird.jpg" alt="">
                     </div>
                 </div>
                 <div class="swiper-slide slide">
@@ -37,7 +40,7 @@
 
                     </div>
                     <div class="image">
-                        <img src="images/grey.png" alt="">
+                        <img src="images/bird.jpg" alt="">
                     </div>
                 </div>
                 <div class=" swiper-slide slide">
@@ -49,11 +52,14 @@
 
                     </div>
                     <div class="image">
-                        <img src="image/grey.png" alt="">
+                        <img src="images/bird.jpg" alt="">
                     </div>
                 </div>
             </div>
             <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+             <div class="swiper-pagination"></div>
         </div>
         
 
@@ -62,10 +68,27 @@
 
 
     <!--skripta per swiper-->
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
-    <script src="home.js"></script>
-    <script src="navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+   
+  <!-- <script src="home.js"></script>--> 
+    <script>
+        var swiper = new Swiper(".home-slider", {
+          spaceBetween: 30,
+          centeredSlides: true,
+          autoplay: {
+            delay: 7500,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+        });
+      </script>
+    
 </body>
 </html>

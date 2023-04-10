@@ -7,17 +7,3 @@ menu.onclick = () =>{
     navbar.classList.toggle('active');
 }
 
-//spelling po del gabim, me bp me te vogel po thot ama su ndreq sen
-var swiper = new Swiper(". home-slider", {
-  spaceBetween: 30,
-  centeredSlides: true,
-  autoplay: {
-    delay: 7500,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  loop:true,
-});

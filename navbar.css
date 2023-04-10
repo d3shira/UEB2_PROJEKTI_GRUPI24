@@ -91,7 +91,7 @@ header .icons #menu-bars{
 }
 
 /*dAfina B*/
-/*SECTION E QOVA NALT*/
+/*SECTION E QOVA NALT
 
 section:nth-child(even){
     background: #eee;
@@ -128,6 +128,10 @@ section:nth-child(even){
     flex: 1 1 45rem;
 
 }
+.home.home-slider.slide.image{
+    flex:1 1 45rem;
+     
+ }
 .home.home-slider.slide.image img{
    width:100%;
     
@@ -156,7 +160,7 @@ swiper-pagination-bullet-active{
     
     font-size: 5rem;
 }
-
+*/
 
 
 

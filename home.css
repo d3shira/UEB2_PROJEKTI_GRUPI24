@@ -38,6 +38,10 @@ section:nth-child(even){
     flex: 1 1 45rem;
 
 }
+/*Ndryshim*/
+.home.home-slider.slide.image{
+    flex: 1 1 45rem;
+}
 .home.home-slider.slide.image img{
    width:100%;
     
