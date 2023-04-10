@@ -7,7 +7,8 @@ menu.onclick = () =>{
     navbar.classList.toggle('active');
 }
 
-var swiper = new swiper(". home-slider", {
+//spelling po del gabim, me bp me te vogel po thot ama su ndreq sen
+var swiper = new Swiper(". home-slider", {
   spaceBetween: 30,
   centeredSlides: true,
   autoplay: {
