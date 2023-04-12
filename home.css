@@ -1,7 +1,7 @@
 
 section{
     /* me e shiku kete version */
-    padding:7.5rem 9%;
+    padding:9rem 9%;
 }
 section:nth-child(even){
     background: #eee;
