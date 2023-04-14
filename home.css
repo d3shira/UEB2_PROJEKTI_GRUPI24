@@ -2,6 +2,8 @@
 section{
     /* me e shiku kete version */
     padding:9rem 9%;
+    text-align:center;
+    position: relative;
 }
 section:nth-child(even){
     background: #eee;
@@ -67,7 +69,8 @@ swiper-pagination-bullet-active{
 }
 
 .home.home-slider.slide.content h3{
-    
     font-size: 5rem;
 }
+
+
 
