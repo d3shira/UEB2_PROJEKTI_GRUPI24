@@ -4,6 +4,8 @@ section{
     padding:9rem 9%;
     text-align:center;
     position: relative;
+    padding:2rem 9%;
+
 }
 section:nth-child(even){
     background: #eee;
@@ -74,3 +76,15 @@ swiper-pagination-bullet-active{
 
 
 
+.swiper-slide.slide{
+    position: relative;
+    text-align: center;
+    color: white
+}
+
+.content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
