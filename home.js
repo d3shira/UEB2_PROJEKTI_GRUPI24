@@ -33,7 +33,6 @@ var swiper = new Swiper(". home-slider", {
     loop:true,
   });
 
-<<<<<<< HEAD
 
 
 
@@ -55,7 +54,6 @@ var swiper = new Swiper(". home-slider", {
     top:110%;
     opacity:0;
   }
-=======
 /*Blerta -mduhet qetu me shtu si ne video ama ka edhe diqka nalt qesaj temes edhe posht qasaj qe koka garant qikat e shtojne*/
 
 var swiper = new Swiper(".review-slider", {
@@ -81,4 +79,3 @@ var swiper = new Swiper(".review-slider", {
    },
   },
  });
->>>>>>> 447f1cf1ea399eed34722d9c5f173b0b87595c05
