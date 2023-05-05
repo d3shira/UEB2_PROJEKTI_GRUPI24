@@ -1,0 +1,257 @@
+
+section{
+    /* me e shiku kete version */
+    padding:9rem 9%;
+    text-align:center;
+    position: relative;
+    padding:2rem 9%;
+
+}
+section:nth-child(even){
+    background: #fff;
+
+}
+.btn{
+    margin-top:1rem;
+    display:inline-block;
+    font-size: 1.7rem;
+    color:#fff;
+    background:var(--black) ;
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: .8rem 3rem;
+
+
+}
+
+.btn:hover{
+    background: var(--green);
+    letter-spacing: .1rem;
+
+}
+
+.home.home-slider.slide{
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 9rem;
+
+}
+.home.home-slider.slide.aboutuscontent{
+    flex: 1 1 45rem;
+
+}
+/*Ndryshim*/
+.home.home-slider.slide.image{
+    flex: 1 1 45rem;
+}
+.home.home-slider.slide.image img{
+   width:100%;
+    
+}
+.home.home-slider.slide.aboutuscontent span{
+    color:var(--green);
+    font-size: 2.5rem;
+}
+.home.home-slider.slide.aboutuscontent h3{
+    color:var(--black);
+    font-size: 7rem;
+}
+
+.home.home-slider.slide.aboutuscontent p{
+    color:var(--light-color);
+    font-size: 2.2rem;
+    padding: .5rem 0;
+    line-height: 1.5;
+}
+
+swiper-pagination-bullet-active{
+    background:var(--green);
+}
+
+.home.home-slider.slide.aboutuscontent h3{
+    font-size: 5rem;
+}
+
+
+
+.swiper-slide.slide{
+    position: relative;
+    text-align: center;
+    color: white
+}
+
+.aboutuscontent{
+    position: relative;
+}
+
+.about .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+.about .row .image{
+  flex: 1 1 45rem;
+}
+.about .row .image .img{
+    width: 50%;
+  }
+.about .row .aboutuscontent {   
+    flex: 1 1 45rem;
+}
+
+.about .row .aboutuscontent h3{
+    color: var(--black);
+    font-size: 4rem;
+    padding: .5rem 0;
+}
+
+.about .row .aboutuscontent p{
+    color: var(--light -color);
+    font-size: 1.5rem;
+    padding: .5rem 0;
+    line-height: 2;
+}
+.about .row .aboutuscontent .icons-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    margin-top: .5rem;
+
+}
+.about .row .aboutuscontent .icons-container .icons{
+    background: #eee;
+    border-radius: .5rem;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex: 1 1 17rem;
+
+}
+.about .row .aboutuscontent .icons-container .icons i {
+    font-size: 2.5rem;
+    color: var(--green);
+}
+.about .row .aboutuscontent .icons-container .icons span {
+    font-size: 1.5rem;
+    color: var(--black);
+}
+section {
+    padding: 9rem 9%;
+    text-align: center;
+    position: relative;
+    padding: 2rem 9%;
+  }
+  
+  section:nth-child(even) {
+    background: #eee;
+  }
+  
+  .btn {
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--black);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 0.8rem 3rem;
+  }
+  
+  .btn:hover {
+    background: var(--green);
+    letter-spacing: 0.1rem;
+  }
+  
+  .home.home-slider.slide {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 9rem;
+  }
+  
+  .home.home-slider.slide.aboutuscontent {
+    flex: 1 1 45rem;
+  }
+  
+  /* Ndryshim */
+  .home.home-slider.slide.image {
+    flex: 1 1 45rem;
+  }
+  
+  .home.home-slider.slide.image img {
+    width: 100%;
+  }
+  
+  .home.home-slider.slide.aboutuscontent span {
+    color: var(--green);
+    font-size: 2.5rem;
+  }
+  
+  .home.home-slider.slide.aboutuscontent h3 {
+    color: var(--black);
+    font-size: 7rem;
+  }
+  
+  .home.home-slider.slide.aboutuscontent p {
+    color: var(--light-color);
+    font-size: 2.2rem;
+    padding: 0.5rem 0;
+    line-height: 1.5;
+  }
+  
+  swiper-pagination-bullet-active {
+    background: var(--green);
+  }
+  
+  .home.home-slider.slide.aboutuscontent h3 {
+    font-size: 5rem;
+  }
+  
+  .swiper-slide.slide {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  
+  .about .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
+  .about .row .image {
+    flex: 1 1 45rem;
+  }
+  
+  .about .row .aboutuscontent {
+    flex: 1 1 45rem;
+  }
+  
+  .aboutuscontent h3 {
+    font-size: 3rem;
+  }
+  
+  .aboutuscontent p {
+    font-size: 1.8rem;
+  }
+  
+  .about .row .aboutuscontent h3 {
+    color: var(--black);
+    padding: 0.5rem 0;
+  }
+  
+  .about .row .aboutuscontent p {
+    color: var(--light-color);
+    padding: 0.5rem 0;
+    line-height: 2;
+  }
+  
+ 

@@ -8,7 +8,7 @@ section{
 
 }
 section:nth-child(even){
-    background: #eee;
+    background: #fff;
 
 }
 .btn{
