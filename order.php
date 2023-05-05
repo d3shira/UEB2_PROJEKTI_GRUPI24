@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link rel="stylesheet" href="order.css">
+<script src="order.js"></script> 
+<link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 </head>
 
 <body>
@@ -49,13 +54,13 @@
 
 <!-- footer section ends -->
 
-<!-- loader part -->
-<div class="loader-container">
+<!-- LOADER PART -->
+<!-- <div class="loader-container">
     <img src="images/loader.gif">
-</div>
+</div> -->
 
 
-<!-- <--Order section starts--> -->
+<!-- <--Order section starts--> -
 <section class="order" id="order">
 
     <h3 class="sub-heading">order now</h3>
@@ -95,20 +100,19 @@
         <div class="inputBox">
             <div class="input">
                 <span>your address</span>
-            <textarea name="" placeholder="enter your address" id="" cols="30" rows="10"></textarea>
+            <textarea name=" ." placeholder="enter your address" id=" 1" cols="30" rows="10"></textarea>
             </div>
             <div class="input">
                 <span>your message</span>
-            <textarea name="" placeholder="enter you message" id="" cols="30" rows="10"></textarea>
+            <textarea name="." placeholder="enter you message" id="" cols="30" rows="10"></textarea>
             </div>
         </div>
-
         <input type="submit" value="order now" class="btn">
     </form>
 
 </section>
 
-<!-- <--Order section ends--> -->
+<!-- <--Order section ends--> 
 
 </body>
 </html>

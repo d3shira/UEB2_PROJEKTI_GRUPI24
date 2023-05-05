@@ -1,6 +1,6 @@
 <!-- <-- menu section ends-->
-<!-- <-- review section start--> --> -->
-<!-- <-- BLERTA-jom tu punu qetu e ja lash qet emer edhe html edhe css edhe te home.js kom shtu diqka--> -->
+<!-- <-- review section start-->
+<!-- <-- BLERTA-jom tu punu qetu e ja lash qet emer edhe html edhe css edhe te home.js kom shtu diqka-->
 <section class="review" id="review">
     <h3 class="sub-heading">customer's review</h3>
     <h1 class="heading">what they say</h1>
@@ -79,6 +79,6 @@
         </div>
     </div>
 </section>
-<!-- <-- review section ends--> -->
+<!-- <-- review section ends--> 
 
 <!-- order section ends -->
