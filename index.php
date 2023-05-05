@@ -81,7 +81,6 @@
 </section>
 <-- review section ends-->
 
-<<<<<<< HEAD
 <!-- order section ends -->
 
 <!-- footer section starts -->
@@ -132,7 +131,6 @@
     <img src="images/loader.gif">
 </div>
 
-=======
 
 <--Order section starts-->
 <section class="order" id="order">
@@ -188,4 +186,3 @@
 </section>
 
 <--Order section ends-->
->>>>>>> 447f1cf1ea399eed34722d9c5f173b0b87595c05
