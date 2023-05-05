@@ -81,6 +81,56 @@
 </section>
 <-- review section ends-->
 
+<!-- order section ends -->
+
+<!-- footer section starts -->
+<section class="footer">
+    <div class="box-container">
+        <div class="box">
+            <h3>locations</h3>
+            <a href="#">india</a>
+            <a href="#">japan</a>
+            <a href="#">russia</a>
+            <a href="#">USA</a>
+            <a href="#">france</a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">dishes</a>
+            <a href="#">about</a>
+            <a href="#">menu</a>
+            <a href="#">review</a>
+            <a href="#">order</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#">+383-123-123</a>
+            <a href="#">+383-111-222</a>
+            <a href="#">email1</a>
+            <a href="#">email2</a>
+            <a href="#">prishtine, kosove -10000</a>
+    </div>
+    <div class="box">
+        <h3>follow us</h3>
+        <a href="#">facebook</a>
+        <a href="#">twitter</a>
+        <a href="#">instagram</a>
+        <a href="#">linkedin</a>
+</div>
+
+<div class="credit">copyright @ 2021 by <span>mr. web designer</span></div>
+</section>
+
+<!-- footer section ends -->
+
+<!-- loader part -->
+<div class="loader-container">
+    <img src="images/loader.gif">
+</div>
+
 
 <--Order section starts-->
 <section class="order" id="order">

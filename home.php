@@ -14,6 +14,7 @@
    
 <body>
     <!--Home section-->
+    <?php @include 'navbar.php' ?>
     <section class="home" id="home">
 
         <div class="swiper home-slider">
@@ -27,7 +28,7 @@
 
                     </div>
                     <div class="image">
-                        <img src="images/bird.jpg" alt="">
+                        <img src="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg" style="width:90%;height:auto;" alt="">
                     </div>
                 </div>
                 <div class="swiper-slide slide">
@@ -39,7 +40,7 @@
 
                     </div>
                     <div class="image">
-                        <img src="images/bird.jpg" alt="">
+                        <img src="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg" alt="">
                     </div>
                 </div>
                 <div class=" swiper-slide slide">
@@ -51,7 +52,7 @@
 
                     </div>
                     <div class="image">
-                        <img src="images/bird.jpg" alt="">
+                        <img src="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -60,9 +61,40 @@
             <div class="swiper-button-prev"></div>
              <div class="swiper-pagination"></div>
         </div>
+    </section>
+    
+    <!--ABOUT US-->
+    <section class="about" id="about">
+        <h3 class="sub-heading"> about us</h3>
+        <h1 class="heading"> why choose us? </h1>
         
+        <div class="row">
+          
+            <div class="image">
+                <img src="images/food.jpg" alt="">
+            </div>
 
-
+            <div class="content">
+                <h3> Best food in the country</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In, mollitia cum aliquam voluptatem expedita dolorum quidem delectus, officia ad quas beatae optio modi commodi iste voluptatibus perferendis ea enim. Iste?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias deserunt dolorem, minus illo tenetur, praesentium eos consequatur assumenda rem molestiae perspiciatis non accusamus vel a, nemo consectetur tempore atque ullam.</p>
+                <div class="icons-container">
+                    <div class="icons">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>free delivery</span>
+                    </div>
+                    <div class="icons">
+                        <i class="fas fas fa-dollar-sign"></i>
+                        <span>easy payments </span>
+                    </div>
+                    <div class="icons">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 service</span>
+                    </div>
+                </div>
+                <a href="#" class="btn"> learn more</a>
+            </div>
+        </div>
     </section>
 
 
