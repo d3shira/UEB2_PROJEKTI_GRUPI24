@@ -53,58 +53,11 @@
 
 <!--SEARCH BAR-->
 
-   <!--HOME SECTION-->
-   <section class="home" id="home">
 
-    <div class="swiper home-slider">
-        <div class="swiper-wrapper wrapper">
-            <div class="swiper-slide slide">
-                <div class="content">
-                    <span>our special dish</span>
-                    <h3>spicy noodles</h3>
-                    <p style="align-items: center;">lorem memsmammdmdfmdfmsdm?</p>
-                    <a href="#" class="btn">order now</a>
-
-                </div>
-                <div class="image">
-                    <img   src="images/bird.jpg" alt="">
-                </div>
-            </div>
-            <div class="swiper-slide slide">
-                <div class="content">
-                    <span>our special dish</span>
-                    <h3>fried chicken</h3>
-                    <p>lorem memsmammdmdfmdfmsdm?</p>
-                    <a href="#" class="btn">order now</a>
-
-                </div>
-                <div class="image">
-                    <img src="images/bird.jpg" alt="">
-                </div>
-            </div>
-            <div class=" swiper-slide slide">
-                <div class="content">
-                    <span>our special dish</span>
-                    <h3>pizza</h3>
-                    <p>lorem memsmammdmdfmdfmsdm?</p>
-                    <a href="#" class="btn">order now</a>
-
-                </div>
-                <div class="image">
-                    <img src="images/bird.jpg" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-         <div class="swiper-pagination"></div>
-    </div>
-</section>
 
 
     <!--ABOUT US-->
-    <section class="about" id="about">
+    <!--<section class="about" id="about">
         <h3 class="sub-heading"> about us</h3>
         <h1 class="heading"> why choose us? </h1>
         
@@ -134,38 +87,8 @@
                 </div>
                 <a href="#" class="btn"> learn more</a>
             </div>
-        </div>
+        </div>-->
 
 
 
     </section>
-
-    <!--skripta per swiper-->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-   
-  <!-- <script src="home.js"></script>--> 
-    <script>
-        var swiper = new Swiper(".home-slider", {
-          spaceBetween: 30,
-          centeredSlides: true,
-          autoplay: {
-            delay: 7500,
-            disableOnInteraction: false,
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-        });
-      </script>
- 
-  <!--javascript-->
-  <script src="navbar.js"></script>
-</body>
-
-
-</html>

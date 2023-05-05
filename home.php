@@ -14,6 +14,7 @@
    
 <body>
     <!--Home section-->
+    <?php @include 'navbar.php' ?>
     <section class="home" id="home">
 
         <div class="swiper home-slider">
@@ -27,7 +28,7 @@
 
                     </div>
                     <div class="image">
-                        <img src="images/bird.jpg" alt="">
+                        <img src="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg" style="width:90%;height:auto;" alt="">
                     </div>
                 </div>
                 <div class="swiper-slide slide">
@@ -39,7 +40,7 @@
 
                     </div>
                     <div class="image">
-                        <img src="images/bird.jpg" alt="">
+                        <img src="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg" alt="">
                     </div>
                 </div>
                 <div class=" swiper-slide slide">
@@ -51,7 +52,7 @@
 
                     </div>
                     <div class="image">
-                        <img src="images/bird.jpg" alt="">
+                        <img src="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg" alt="">
                     </div>
                 </div>
             </div>
