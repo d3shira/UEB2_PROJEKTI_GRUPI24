@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="order.css">
-<script src="order.js"></script> 
+<link rel="stylesheet" href="footer.css">
+<script src="footer.js"></script> 
 <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
