@@ -27,11 +27,12 @@
 <header>
     <a href="#" class="logo"><i class="fas fa-utensils"></i>FitYou</a>
     <nav class="navbar">
-        <a class="active" href="#home">Home</a>
+        <a class="active" href="home.php">Home</a>
         <a href="aboutus.php">About Us</a>
-        <a href="#diets">Diets</a>
+        <a href="menu.php">Diets</a>
         <a href="#review">Review</a>
         <a href="#order">Order</a>
+        
     </nav>
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
