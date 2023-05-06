@@ -1,5 +1,4 @@
 
-
 var swiper = new Swiper(". home-slider", {
     spaceBetween: 20,
     centeredSlides: true,
@@ -13,11 +12,6 @@ var swiper = new Swiper(". home-slider", {
     },
     loop:true,
   });
-
-
-
-
-
 
 
 

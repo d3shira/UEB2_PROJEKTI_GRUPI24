@@ -13,12 +13,12 @@
     <!--MISBELA
     ABOUT US-->
 <section class="about" id="about">
-        <h3 class="sub-heading"> about us</h3>
-        <h1 class="heading"> why choose us? </h1>
+        <h1 class="sub-heading" style="font-size: 5rem; color:#192a56">About Us</h1>
+        <h2 class="heading" style="font-size: 3rem; color:#192a56"></h2>
         
         <div class="row">
           <div class="aboutuscontent">
-                <h3> Best food in the country</h3>
+                <h3>Why choose us?</h3>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In, mollitia cum aliquam voluptatem expedita dolorum quidem delectus, officia ad quas beatae optio modi commodi iste voluptatibus perferendis ea enim. Iste?</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias deserunt dolorem, minus illo tenetur, praesentium eos consequatur assumenda rem molestiae perspiciatis non accusamus vel a, nemo consectetur tempore atque ullam.</p>
                 <div class="icons-container">
