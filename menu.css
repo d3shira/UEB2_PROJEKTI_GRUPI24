@@ -1,12 +1,13 @@
 .menu .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem,1fr));
-    gap: 1.5rem;
+    gap: 2rem;
+    padding:2rem;
   
 }
 .menu .box-container .box {
     background: #fff;
-    border: 1rem solid rgba(0,0,0,.2);
+    border: 0.5rem solid rgba(0,0,0,.2);
     border-radius: .5rem ;
    height: auto;
     
@@ -76,8 +77,19 @@
 }
 .menu .box-container .box .content .price {
     color: var(--green);
-    margin-left: 1rem;
+    margin: 1rem;
     font-size: 2.1rem;
+    padding: 1rem;
     
 
 }
+p {
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid black;
+    width: 200px;
+    height: 100px;
+    text-transform:initial;
+  }
+  

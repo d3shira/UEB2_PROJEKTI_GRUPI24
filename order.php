@@ -15,8 +15,8 @@
 <?php @include 'navbar.php' ?>
 <section class="order" id="order">
 
-<h3 class="sub-heading">order now</h3>
-<h1 class="heading">free and fast</h1>
+<h3 class="sub-heading" style="font-size: 4rem; color:#192a56"> order now</h3>
+<h1 class="heading" style="font-size: 3.5rem; color:#192a56"> free and fast</h1>
 
 <form action="">
     <div class="inputBox">

@@ -14,9 +14,13 @@
     text-decoration: none;
     outline: none;
     border:none;
-    text-transform: capitalize; 
     transition:all .2s linear;
 }
+
+p {
+    text-transform: initial;
+  }
+  
 
 html{
     font-size: 72.5%;
