@@ -9,9 +9,10 @@ position:relative;
 
 .review .slide .fa-quote-right{
 position:absolute;
-top:2rem,right:2rem;
+top:2rem ;
+right: 2rem;
 font-size:6rem ;
-color:#ccc.;
+color:#ccc;
 }
 
 .review.slide.user{
@@ -44,5 +45,18 @@ font-size:1.5 rem;
 line-height:1.8;
 color:var(--light-color);
 }
-
+.review .slide.user {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    padding-bottom: 1.5rem;
+  }
+  
+  .review .slide.user img {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
 
