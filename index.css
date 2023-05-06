@@ -8,6 +8,7 @@ position: relative;
 flex-direction: column;
 }
 
+
 .review .slide .fa-quote-right{
 position: absolute;
 top: 2rem ;
@@ -43,7 +44,7 @@ font-size: 1.3rem;
 color: var(--green);
 }
 
-.revew .slide p{
+.review .slide p{
 font-size: 1.5rem;
 line-height: 1.8;
 color: var(--light-color);
@@ -53,7 +54,8 @@ padding-top: 1.5rem;
     display :flex;
     gap :1.5rem;
     align-items :center;
-    padding-bottom :1.5rem;
+    padding-bottom:1.5rem;
+    
   }
   
   .review .slide .user img {
