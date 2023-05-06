@@ -1,17 +1,18 @@
 .review .slide{
 padding:2rem;
 box-shadow:var(--box-shadow);
-border:.1rem solid rgba(0,0,0,.2);
-border-radius:.5rem;
-position: relative;
+border:0.1rem solid rgba(0,0,0,.2);
+border-radius:0.9rem;
 
+position: relative;
+flex-direction: column;
 }
+
 
 .review .slide .fa-quote-right{
 position: absolute;
 top: 2rem ;
 right: 2rem;
-top:2rem; right:2rem;
 font-size: 6rem ;
 color: #ccc;
 }
@@ -21,6 +22,8 @@ display: flex;
 gap: 1.5rem;
 align-items: center;
 padding-bottom: 1.5rem;
+margin-top: 1.5rem;
+
 }
 
 .review .slide .user img{
@@ -33,7 +36,7 @@ object-fit: cover;
 .review .slide .user h3{
 color: var(--black);
 font-size: 2rem;
-padding-bottom: .5rem;
+padding-bottom: 0.5rem;
 }
 
 .review .slide .user i{
@@ -41,16 +44,18 @@ font-size: 1.3rem;
 color: var(--green);
 }
 
-.revew .slide p{
+.review .slide p{
 font-size: 1.5rem;
 line-height: 1.8;
 color: var(--light-color);
+padding-top: 1.5rem;
 }
 .review .slide .user {
     display :flex;
     gap :1.5rem;
     align-items :center;
-    padding-bottom :1.5rem;
+    padding-bottom:1.5rem;
+    
   }
   
   .review .slide .user img {
@@ -60,4 +65,3 @@ color: var(--light-color);
     object-fit: cover;
   }
   
-

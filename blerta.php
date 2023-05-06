@@ -23,7 +23,7 @@
     <h3 class="sub-heading">customer's review</h3>
     <h1 class="heading">what they say</h1>
     <div class="swiper-container review-slider">
-        <div class="swiper wrapper">
+        <div class="swiper-wrapper wrapper">
             <div class="swiper-slider slide">
                 <i class="fas fa-quote-right"></i>
                 <div class="user">
@@ -43,7 +43,7 @@
             </div>
 
             <div class="swiper-slider slide">
-                <i class="fas fa-quote-right"></i>
+                <i class="fas fa-quote-right" id="nje"></i>
                 <div class="user">
                     <img src="https://assets.entrepreneur.com/content/3x2/2000/20170710193708-GettyImages-499778755.jpeg">
                     <div class="user-info">
