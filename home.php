@@ -23,36 +23,42 @@
                     <div class="content">
                         <span>our special dish</span>
                         <h3>spicy noodles</h3>
-                        <p>lorem memsmammdmdfmdfmsdm?</p>
+                        <p ><b>Improve your mood by eating healthy food!
+                        Forget the junk hype and only eat foods that are fresh and ripe
+                       Eat fruits plenty, keep your body healthy
+                        Eating healthy keeps your heart beating!</b></p>
                         <a href="#" class="btn">order now</a>
 
                     </div>
                     <div class="image">
-                        <img src="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg" style="width:90%;height:auto;" alt="">
+                        <img src="images/img2.jpeg" style="width:90%;height:auto;" alt="">
                     </div>
                 </div>
                 <div class="swiper-slide slide">
                     <div class="content">
                         <span>our special dish</span>
                         <h3>fried chicken</h3>
-                        <p>lorem memsmammdmdfmdfmsdm?</p>
+                        <p>Check out our diet plans: If you are looking for a structured approach to your diet, 
+                            we offer a range of diet plans to suit different goals and lifestyles.
+                             Whether you are looking to lose weight, build muscle, or simply improve your overall health,
+                              we have a plan for you.</p>
                         <a href="#" class="btn">order now</a>
 
                     </div>
                     <div class="image">
-                        <img src="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg" alt="">
+                        <img src="images/firstImg3.jpg"style="width:90%;height:auto;" alt="">
                     </div>
                 </div>
                 <div class=" swiper-slide slide">
                     <div class="content">
                         <span>our special dish</span>
-                        <h3>pizza</h3>
-                        <p>lorem memsmammdmdfmdfmsdm?</p>
+                        <h3>Reviews</h3>
+                        <p>Don't just take our word for it - see what our satisfied clients have to say! </p>
                         <a href="#" class="btn">order now</a>
 
                     </div>
                     <div class="image">
-                        <img src="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg" alt="">
+                        <img src="images/img3.jpg" alt="">
                     </div>
                 </div>
             </div>
