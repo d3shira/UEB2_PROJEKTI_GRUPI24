@@ -26,7 +26,6 @@
     <!--me nderru disa icons dhe menu-->
 <header>
     <a href="#" class="logo"><i class="fas fa-utensils"></i>FitYou</a>
-    <a href="#" class="logo"><i class="fas fa-utensils"></i>FitYou</a>
 <nav class="navbar">
   <a href="/home.php" onclick="toggleActiveClass(event, this)">Home</a>
   <a href="/aboutus.php" onclick="toggleActiveClass(event, this)">About Us</a>
