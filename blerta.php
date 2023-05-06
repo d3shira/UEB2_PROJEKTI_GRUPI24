@@ -20,8 +20,8 @@
 <body>
 <?php @include 'navbar.php' ?>
 <section class="review" id="review">
-    <h3 class="sub-heading">customer's review</h3>
-    <h1 class="heading">what they say</h1>
+    <h3 class="sub-heading"  style="font-size: 3rem; color:#192a56">customer's review</h3>
+    <h1 class="heading"  style="font-size: 2rem; color:#192a56">what they say</h1>
     <div class="swiper-container review-slider">
         <div class="swiper-wrapper wrapper">
             <div class="swiper-slider slide">
@@ -99,9 +99,9 @@
 </section>
 <!-- review section ends-->
 
-<!-- loader part -->
+<!-- loader part 
 <div class="loader-container">
     <img src="images/loader.gif">
-</div>
+</div>-->
 </body>
 </html>
