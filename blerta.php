@@ -1,16 +1,12 @@
-<<<<<<< Updated upstream
-<!-- <-- menu section ends-->
-<!-- <-- review section start-->
-<!-- <-- BLERTA-jom tu punu qetu e ja lash qet emer edhe html edhe css edhe te home.js kom shtu diqka-->
-=======
-<<<<<<< HEAD
-
-=======
-<!-- <-- menu section ends-->
-<!-- <-- review section start-->
-<!-- <-- BLERTA-jom tu punu qetu e ja lash qet emer edhe html edhe css edhe te home.js kom shtu diqka-->
->>>>>>> e0805dd1c0e830dfb06fc8bedae36a65837d45cb
->>>>>>> Stashed changes
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 <section class="review" id="review">
     <h3 class="sub-heading">customer's review</h3>
     <h1 class="heading">what they say</h1>
@@ -89,12 +85,9 @@
         </div>
     </div>
 </section>
-<!-- <-- review section ends--> 
+<-- review section ends-->
 
 <!-- order section ends -->
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 
 <!-- footer section starts -->
 <section class="footer">
@@ -197,7 +190,5 @@
     </form>
 
 </section>
-
-=======
->>>>>>> e0805dd1c0e830dfb06fc8bedae36a65837d45cb
->>>>>>> Stashed changes
+</body>
+</html>
