@@ -26,14 +26,17 @@
     <!--me nderru disa icons dhe menu-->
 <header>
     <a href="#" class="logo"><i class="fas fa-utensils"></i>FitYou</a>
-    <nav class="navbar">
-        <a class="active" href="home.php">Home</a>
-        <a href="aboutus.php">About Us</a>
-        <a href="menu.php">Diets</a>
-        <a href="#review">Review</a>
-        <a href="#order">Order</a>
-        
-    </nav>
+    <a href="#" class="logo"><i class="fas fa-utensils"></i>FitYou</a>
+<nav class="navbar">
+  <a href="/home.php" onclick="toggleActiveClass(event, this)">Home</a>
+  <a href="/aboutus.php" onclick="toggleActiveClass(event, this)">About Us</a>
+  <a href="/menu.php" onclick="toggleActiveClass(event, this)">Diets</a>
+  <a href="review.php" onclick="toggleActiveClass(event, this)">Review</a>
+  <a href="order.php" onclick="toggleActiveClass(event, this)">Order</a>
+  <a href="faq.php" onclick="toggleActiveClass(event, this)">FAQs</a>
+</nav>
+
+    
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
         <i class="fas fa-search" id="search-icon"></i>
@@ -48,7 +51,22 @@
     <input type="search" placeholder="search here..." name="" id="search-box">
     <label for="search-box" class="fas fa-search"></label>
     <i class="fas fa-times" id="close"></i>
-    
-
 </form>
     </section>
+
+</body>
+<script>
+function toggleActiveClass(event, element) {
+  event.preventDefault(); // prevent the default behavior of the link
+
+  // remove the active class from all links
+  var links = document.getElementsByClassName("active");
+  for (var i = 0; i < links.length; i++) {
+    links[i].classList.remove("active");
+  }
+
+  // add the active class to the clicked link
+  element.classList.add("active");
+}
+</script>
+</html>
