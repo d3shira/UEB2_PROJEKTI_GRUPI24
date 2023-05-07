@@ -64,11 +64,9 @@
                 </div>
                 <a href="#" class="btn"> learn more</a>
             </div>
-      
-
-            
         </div>
     </section>
+    <?php @include 'footer.php' ?>
 
 </body>
 </html>
