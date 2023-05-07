@@ -1,15 +1,16 @@
 .menu .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(35rem,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(31rem,1fr));
     gap: 2rem;
     padding:2rem;
-  
+    height:10rem;
+
 }
 .menu .box-container .box {
     background: #fff;
     border: 0.5rem solid rgba(0,0,0,.2);
     border-radius: .5rem ;
-   height: auto;
+    height: auto;
     
 }
 .menu .box-container .box .image {
@@ -46,16 +47,17 @@
 
 }
 .menu .box-container .box .content{
-    
     display: inline;
     position: relative;
     top: 0rem;
-    left: 3rem;
-    right: 5rem;
+    bottom:2rem;
+    justify-self: center;
     
 }
 .menu .box-container .box .content .stars{
-    padding-bottom: 1rem ;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    padding-right:17rem;
     
 }
 .menu .box-container .box .content .stars i{
@@ -66,31 +68,32 @@
     color: var(--black);
     font-size: 2.5rem;
     text-align:center;  /*try left later*/
+    padding-right:12rem;
 
 }
 
 .menu .box-container .box .content p {
     color: var(--light-color);
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     padding: .5rem 0;
-    line-height:1.5 ;
+    line-height:1.9rem;
     box-sizing: border-box;
+    text-align: center;
+    padding-right:12rem;
+    /*width: 200px;
+    height: 100px;*/
 
 }
 .menu .box-container .box .content .price {
     color: var(--green);
     margin: 1rem;
-    font-size: 2.1rem;
-    padding: 1rem;
-    
-
+    font-size: 1.5rem;
+    padding: 0.5rem;
 }
-p {
-    text-align: center;
-    box-sizing: border-box;
-    padding: 10px;
-    width: 200px;
-    height: 100px;
-    text-transform:initial;
-  }
+
+
+
+
+  
+
   

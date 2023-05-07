@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     </head>
     <body>
-      <?php @include 'navbar.php'  ?>
+      <?php @include 'navbar.php' ?>
         <section class="menu" id="menu">
            <h3 class="sub-heading" style="font-size: 4rem; color:#192a56"> Our menu</h3>
            <h1 class="heading" style="font-size: 3.5rem; color:#192a56">Choose your diet plan!</h1> 
@@ -30,10 +30,10 @@
                         <i class="fas fas fa-star-half-alt"></i>
                     </div>
                     <h3>Mediterranean Diet</h3>
-                    <p>Based on the eating habits of people from countries bordering the Mediterranean Sea,
-                      this diet emphasizes whole foods, healthy fats, and seafood while limiting processed foods,
-                      red meat, and added sugars.</p>
-                    <a href="#" class="btn">Add to diet plan</a>
+                    <p>Based on the eating habits of people from Mediterranean countries,
+                      this diet emphasizes whole foods, healthy fats, and seafood while limiting processed foods, red meat,
+                      and added sugars.</p>
+                    <a href="#" class="btn">Add</a>
                     <span class="price">$12.99</span>
                  </div>
              </div>
@@ -54,7 +54,7 @@
                   <h3>Zone Diet</h3>
                   <p>This diet focuses on balancing macronutrients, specifically consuming a specific ratio of carbohydrates,
                       proteins, and fats in every meal to regulate insulin levels and promote weight loss. </p>
-                  <a href="#" class="btn">Add to diet plan</a>
+                  <a href="#" class="btn">Add</a>
                   <span class="price">$12.99</span>
                 </div>
               </div>
@@ -74,7 +74,7 @@
                   <h3>Paleo Diet</h3>
                   <p>Based on the concept of eating like our ancestors, this diet emphasizes whole foods such as meats,
                       vegetables, and fruits while eliminating processed foods, dairy, and grains. </p>
-                  <a href="#" class="btn">Add to diet plan</a>
+                  <a href="#" class="btn">Add</a>
                   <span class="price">$12.99</span>
                </div>
              </div>
@@ -94,7 +94,7 @@
                   <h3>Flexitarian Diet</h3>
                   <p>A flexible approach to vegetarianism, this diet promotes plant-based eating while allowing for occasional
                       consumption of meat or animal products. </p>
-                  <a href="#" class="btn">Add to diet plan</a>
+                  <a href="#" class="btn">Add</a>
                   <span class="price">$12.99</span>
                </div>
               </div>
@@ -113,7 +113,7 @@
                   </div>
                   <h3>Vegan diet</h3>
                   <p>A plant-based diet that excludes all animal products, including meat, dairy, and eggs. </p>
-                  <a href="#" class="btn">Add to diet plan</a>
+                  <a href="#" class="btn">Add</a>
                   <span class="price">$12.99</span>
                </div>
              </div>
@@ -133,7 +133,7 @@
                   <h3>Dash Diet</h3>
                   <p>Originally developed to help lower blood pressure, this diet emphasizes whole foods, fruits,
                       vegetables, lean proteins, and whole grains while limiting salt, sugar, and saturated fats. </p>
-                  <a href="#" class="btn">Add to diet plan</a>
+                  <a href="#" class="btn">Add</a>
                   <span class="price">$12.99</span>
                </div>
               </div>
@@ -152,7 +152,7 @@
                   </div>
                   <h3>Pescatarian Diet</h3>
                   <p>A plant-based diet that includes fish and seafood while excluding meat and poultry. </p>
-                  <a href="#" class="btn">Add to diet plan</a>
+                  <a href="#" class="btn">Add</a>
                   <span class="price">$12.99</span>
                </div>
              </div>
@@ -172,7 +172,7 @@
                   <h3>Ornish Diet</h3>
                   <p>This diet focuses on whole foods, specifically plant-based foods, and limiting the intake of fat
                       and animal products to improve heart health and promote weight loss. </p>
-                  <a href="#" class="btn">Add to diet plan</a>
+                  <a href="#" class="btn">Add</a>
                   <span class="price">$12.99</span>
                </div>
              </div>
@@ -192,7 +192,7 @@
                   <h3>MIND Diet</h3>
                   <p>Combining aspects of the Mediterranean and DASH diets, this diet focuses on whole foods and specifically
                       promotes consumption of brain-healthy foods such as berries, nuts, and leafy greens.</p>
-                  <a href="#" class="btn">Add to diet</a>
+                  <a href="#" class="btn">Add</a>
                   <span class="price">$12.99</span>
                </div>
              </div>
