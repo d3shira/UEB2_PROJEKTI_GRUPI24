@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="order.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
@@ -15,52 +16,52 @@
 <?php @include 'navbar.php' ?>
 <section class="order" id="order">
 
-<h3 class="sub-heading" style="font-size: 4rem; color:#192a56"> order now</h3>
-<h1 class="heading" style="font-size: 3.5rem; color:#192a56"> free and fast</h1>
+<h3 class="sub-heading" style="font-size: 2rem; color:green" > Order Now</h3>
+<h1 class="heading" style="font-size: 2.8rem; color:#192a56"> FREE AND FAST</h1>
 
 <form action="">
     <div class="inputBox">
         <div class="input">
-            <span>your name</span>
-            <input type="text" placeholder="enter your name">
+            <span>Your name</span>
+            <input type="text" placeholder="Enter your name">
         </div>
         <div class="input">
-            <span>your number</span>
-            <input type="number" placeholder="enter your number">
+            <span>Your number</span>
+            <input type="number" placeholder="Enter your number">
         </div>
     </div>
     <div class="inputBox">
         <div class="input">
-            <span>your order</span>
-            <input type="text" placeholder="enter food name">
+            <span>Your order</span>
+            <input type="text" placeholder="Enter food name">
         </div>
         <div class="input">
-            <span>additional food</span>
-            <input type="test" placeholder="extra with food">
+            <span>Additional food</span>
+            <input type="test" placeholder="Extra with food">
         </div>
     </div>
     <div class="inputBox">
         <div class="input">
             <span>How much</span>
-            <input type="number" placeholder="how many orders">
+            <input type="number" placeholder="How many orders">
         </div>
         <div class="input">
-            <span>date and time</span>
+            <span>Date and time</span>
             <input type="datetime-local">
         </div>
     </div>
     <div class="inputBox">
         <div class="input">
-            <span>your address</span>
-        <textarea name="" placeholder="enter your address" id="" cols="30" rows="10"></textarea>
+            <span>Your address</span>
+        <textarea name="" placeholder="Enter your address" id="" cols="30" rows="10"></textarea>
         </div>
         <div class="input">
-            <span>your message</span>
-        <textarea name="" placeholder="enter you message" id="" cols="30" rows="10"></textarea>
+            <span>Additional request</span>
+        <textarea name="" placeholder="Enter you message" id="" cols="30" rows="10"></textarea>
         </div>
     </div>
 
-    <input type="submit" value="order now" class="btn">
+    <input type="submit" value="Order now" class="btn">
 </form>
 
 </section>
