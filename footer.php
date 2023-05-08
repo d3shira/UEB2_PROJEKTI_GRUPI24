@@ -19,11 +19,11 @@
     <div class="box-container">
         <div class="box">
             <h3>locations</h3>
-            <a href="#">india</a>
-            <a href="#">japan</a>
-            <a href="#">russia</a>
-            <a href="#">USA</a>
-            <a href="#">france</a>
+            <a href="#">Prishtine</a>
+            <a href="#">Peje</a>
+            <a href="#">Prizren</a>
+            <a href="#">Gjakove</a>
+            <a href="#">Gjilan</a>
         </div>
 
         <div class="box">
