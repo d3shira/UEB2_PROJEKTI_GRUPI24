@@ -33,7 +33,7 @@
         <a class="" href="menu.php">Diets</a>
         <a class="" href="blerta.php">Review</a>
         <a class="" href="order.php">Order</a>
-        <a class="" href="#">FAQs</a>
+        <a class="" href="faqs.php">FAQs</a>
     </nav>
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
