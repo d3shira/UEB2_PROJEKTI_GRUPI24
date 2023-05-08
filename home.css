@@ -58,12 +58,12 @@ section:nth-child(even){
 }
 .home .home-slider .slide .content h3{
     color:rgba(0, 0, 0, 0.491);
-    font-size: 4rem;
+    font-size: 7rem;
 }
 
 .home .home-slider .slide .content p{
     color:var(--light-color);
-    font-size: 1.1rem;
+    font-size: 20rem;
     padding: .5rem 0;
     line-height: 1.5;
 
@@ -74,7 +74,7 @@ swiper-pagination-bullet-active{
 }
 
 .home .home-slider .slide .content h3{
-    font-size: 4.3rem;
+    font-size: 5rem;
 }
 
 
