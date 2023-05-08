@@ -25,43 +25,45 @@ section:nth-child(even){
 }
 
 .btn:hover{
-    background: var(--green);
+    background:white;
     letter-spacing: .1rem;
 
 }
 
-.home.home-slider.slide{
+.home .home-slider .slide{
     display:flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
     padding-top: 9rem;
+    
 
 }
-.home.home-slider.slide.content{
+.home .home-slider .slide .content{
     flex: 1 1 45rem;
 
 }
 /*Ndryshim*/
-.home.home-slider.slide.image{
+.home .home-slider .slide .image{
     flex: 1 1 45rem;
 }
-.home.home-slider.slide.image img{
+.home .home-slider .slide .image img{
    width:100%;
     
 }
-.home.home-slider.slide.content span{
-    color:var(--green);
+.home .home-slider .slide .content span{
+    color:white;
     font-size: 2.5rem;
+    
 }
-.home.home-slider.slide.content h3{
-    color:var(--black);
-    font-size: 7rem;
+.home .home-slider .slide .content h3{
+    color:rgba(0, 0, 0, 0.491);
+    font-size: 4rem;
 }
 
-.home.home-slider.slide.content p{
+.home .home-slider .slide .content p{
     color:var(--light-color);
-    font-size: 20rem;
+    font-size: 1.1rem;
     padding: .5rem 0;
     line-height: 1.5;
 
@@ -71,13 +73,13 @@ swiper-pagination-bullet-active{
     background:var(--green);
 }
 
-.home.home-slider.slide.content h3{
-    font-size: 5rem;
+.home .home-slider .slide .content h3{
+    font-size: 4.3rem;
 }
 
 
 
-.swiper-slide.slide{
+.swiper-slide .slide{
     position: relative;
     text-align: center;
     color:#8fb977;
