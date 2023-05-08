@@ -47,28 +47,10 @@
                         <div class="image">
                 <img style="border-radius:1rem" src="images/aboutus1.jpg" alt="">
             </div>
-
-                <div class="icons-container">
-                    <div class="icons">
-                        <i class="fas fa-shipping-fast"></i>
-                        <span>free delivery</span>
-                    </div>
-                    <div class="icons">
-                        <i class="fas fas fa-dollar-sign"></i>
-                        <span>easy payments </span>
-                    </div>
-                    <div class="icons">
-                        <i class="fas fa-headset"></i>
-                        <span>24/7 service</span>
-                    </div>
-                </div>
-                <a href="#" class="btn"> learn more</a>
             </div>
-      
-
-            
         </div>
     </section>
+    <?php @include 'footer.php' ?>
 
 </body>
 </html>
