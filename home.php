@@ -30,7 +30,7 @@
 
                     </div>
                     <div class="image">
-                        <img src="images/Dafina.jpg" style="width:90%;height:auto;" alt="">
+                        <img src="images/deshiraa.jpg" style="width:90%;height:auto;" alt="">
                     </div>
                 </div>
                 <div class="swiper-slide slide">
