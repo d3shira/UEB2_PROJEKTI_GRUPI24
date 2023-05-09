@@ -149,10 +149,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <label>User Type</label>
                 <br>
-                <input type="radio" id="client" name="user_type" value="client">
-		        <label for="client">Client</label>
-		        <input type="radio" id="staff" name="user_type" value="staff">
-		        <label for="staff">Staff</label>
+                <label for="client">Client</label>
+                <input type="radio" id="client" name="user_type" value="client" class="form-control <?php echo (!empty($role_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $role; ?>">
+	            <span class="invalid-feedback"><?php echo $role_err; ?></span>
+
+                <label for="staff">Staff</label>
+		        <input type="radio" id="staff" name="user_type" value="staff" class="form-control <?php echo (!empty($role_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $role; ?>">
+		        <span class="invalid-feedback"><?php echo $role_err; ?></span>
             </div>
     
             <div class="form-group">
