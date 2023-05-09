@@ -70,16 +70,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["user_type"] = $role;
 
                       // Redirect user to dashboard page
-                            if($user_type === "client"){
+                            if($role === "client"){
                                 header("location: client_dashboard.php");
-                            } elseif ($user_type === "staff"){
+                            } elseif ($role === "staff"){
                                 header("location: staff_dashboard.php");
+                            }
                             } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";
                         }
                     }
-                }
                 } else{
                     // Username doesn't exist, display a generic error message
                     $login_err = "Invalid username or password.";
