@@ -60,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
+                            $_SESSION["user_id"] = $id;
                             $_SESSION["username"] = $username;                            
                             
                             // Redirect user to welcome page
