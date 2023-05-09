@@ -51,11 +51,7 @@ section:nth-child(even){
    width:100%;
     
 }
-.home .home-slider .slide .content span{
-    color:white;
-    font-size: 2.5rem;
-    
-}
+
 .home .home-slider .slide .content h3{
     color:rgba(0, 0, 0, 0.491);
     font-size: 7rem;
