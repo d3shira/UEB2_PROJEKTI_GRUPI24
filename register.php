@@ -62,25 +62,55 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $confirm_password_err = "Password did not match.";
         }
     }
+
+    // Validate role
+    if(empty(trim($_POST["user_type"]))){
+        $role_err = "Please select a role.";
+    } elseif(!in_array(trim($_POST["user_type"]), array("client", "staff"))){
+        $role_err = "Invalid role.";
+    } else{
+        $role = trim($_POST["user_type"]);
+    }
     
     // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
+    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)&& empty($role_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO tbl_users (username, password) VALUES (?, ?)";
+        $sql = "INSERT INTO tbl_users (username, password, user_type) VALUES (?, ?, ?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_password, $param_role);
             
             // Set parameters
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            
+            $param_role = $role;
+
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                // Redirect to login page
-                header("location: login.php");
+                 // Redirect to login page
+                 header("location: login.php");
+
+                // Get the user_id of the newly inserted row
+                $user_id = mysqli_insert_id($conn);
+                  // Insert additional data into the appropriate table
+                  if($role == "client"){
+                    $sql = "INSERT INTO tbl_client_profiles (user_id) VALUES (?)";
+                } elseif($role == "staff"){
+                    $sql = "INSERT INTO tbl_staff_profiles (user_id) VALUES (?)";
+                }
+                $stmt2 = mysqli_prepare($conn, $sql);
+                mysqli_stmt_bind_param($stmt2, "i", $user_id);
+                mysqli_stmt_execute($stmt2);
+                mysqli_stmt_close($stmt2);
+
+                // Redirect the user to the appropriate dashboard page
+                if($role == "client"){
+                    header("location: client_dashboard.php");
+                } elseif($role == "staff"){
+                    header("location: staff_dashboard.php");
+                }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
@@ -118,10 +148,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>  
             <div class="form-group">
                 <label>User Type</label>
+                <br>
                 <input type="radio" id="client" name="user_type" value="client">
 		        <label for="client">Client</label>
 		        <input type="radio" id="staff" name="user_type" value="staff">
-		        <label for="staff">Staff</label><br><br>
+		        <label for="staff">Staff</label>
             </div>
     
             <div class="form-group">
