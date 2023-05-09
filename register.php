@@ -115,7 +115,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label>Username</label>
                 <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
-            </div>    
+            </div>  
+            <div class="form-group">
+                <label>User Type</label>
+                <input type="radio" id="client" name="user_type" value="client">
+		        <label for="client">Client</label>
+		        <input type="radio" id="staff" name="user_type" value="staff">
+		        <label for="staff">Staff</label><br><br>
+            </div>
+    
             <div class="form-group">
                 <label>Password</label>
                 <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
