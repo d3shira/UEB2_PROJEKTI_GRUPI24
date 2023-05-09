@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="aboutus.css">
     
-    <title>Document</title>
+    <title>About Us</title>
 </head>
 <body  style="background:#fff">
 <?php @include 'navbar.php' ?>
