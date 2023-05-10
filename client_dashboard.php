@@ -1,12 +1,8 @@
-<?php
-
-require_once("database.php");
+<?php require_once("database.php");
 
 // Initialize the session
 session_start();
 
-
- 
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
@@ -16,26 +12,44 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
-  }
-   
-  require_once('database.php');
- 
- 
-  
-  $user_id = $_SESSION['user_id'];
-  
-  // Retrieve client profile information
-  $stmt = $pdo->prepare('SELECT * FROM tbl_client_profile WHERE user_id = ?');
-  $stmt->execute([$user_id]);
-  $client_profile = $stmt->fetch();
-  
-  // Retrieve client's orders
-  $stmt = $pdo->prepare('SELECT * FROM tbl_orders WHERE user_id = ? ORDER BY order_date DESC');
-  $stmt->execute([$user_id]);
-  $orders = $stmt->fetchAll();
+}
+
+require_once('database.php');
+
+$user_id = $_SESSION['user_id'];
+
+// Create MySQLi object
+$mysqli = new mysqli($dbhost, $dbuser,$dbpass, $db);
+
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
+
+// Retrieve client profile information
+$client_profile = array();
+$stmt = $mysqli->prepare('SELECT * FROM tbl_client_profiles WHERE user_id = ?');
+$stmt->bind_param('i', $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+if ($result->num_rows > 0) {
+    $client_profile = $result->fetch_assoc();
+}
+
+// Retrieve client's orders
+$orders = array();
+$stmt = $mysqli->prepare('SELECT * FROM tbl_orders WHERE user_id = ? ORDER BY order_date DESC');
+$stmt->bind_param('i', $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $orders[] = $row;
+    }
+}
+$stmt->close();
+$mysqli->close();
 ?>
 
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,6 +66,8 @@ if (!isset($_SESSION['user_id'])) {
         <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
         <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
     </p>
+
+ 
 
     <h1>Welcome, <?php echo $client_profile['first_name'] . ' ' . $client_profile['last_name']; ?></h1>
   <p>Birthday: <?php echo $client_profile['birthday']; ?></p>
@@ -85,6 +101,3 @@ if (!isset($_SESSION['user_id'])) {
       <?php endforeach; ?>
 </body>
 </html>
-
-
-
