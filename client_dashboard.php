@@ -1,13 +1,40 @@
 <?php
+
+require_once("database.php");
+
 // Initialize the session
 session_start();
+
+
  
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+  }
+   
+  require_once('database.php');
+ 
+ 
+  
+  $user_id = $_SESSION['user_id'];
+  
+  // Retrieve client profile information
+  $stmt = $pdo->prepare('SELECT * FROM tbl_client_profile WHERE user_id = ?');
+  $stmt->execute([$user_id]);
+  $client_profile = $stmt->fetch();
+  
+  // Retrieve client's orders
+  $stmt = $pdo->prepare('SELECT * FROM tbl_orders WHERE user_id = ? ORDER BY order_date DESC');
+  $stmt->execute([$user_id]);
+  $orders = $stmt->fetchAll();
 ?>
+
  
 <!DOCTYPE html>
 <html lang="en">
@@ -25,5 +52,39 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
         <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
     </p>
+
+    <h1>Welcome, <?php echo $client_profile['first_name'] . ' ' . $client_profile['last_name']; ?></h1>
+  <p>Birthday: <?php echo $client_profile['birthday']; ?></p>
+  <p>Weight: <?php echo $client_profile['weight']; ?> kg</p>
+  <p>Height: <?php echo $client_profile['height']; ?> cm</p>
+  <p>BMI: <?php echo $client_profile['bmi']; ?></p>
+  
+  <h2>Your Orders</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Item Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($orders as $order): ?>
+      <tr>
+        <td><?php echo $order['order_id']; ?></td>
+        <td><?php echo $order['diet_id']; ?></td>
+        <td><?php echo $order['address']; ?></td>
+        <td><?php echo $order['contact']; ?></td>
+        <td><?php echo $order['quantity']; ?></td>
+        <td>$<?php echo $order['total_price']; ?></td>
+        <td><?php echo $order['order_date']; ?></td>
+        <td><?php echo $order['status']; ?></td>
+      </tr>
+      <?php endforeach; ?>
 </body>
 </html>
+
+
+
