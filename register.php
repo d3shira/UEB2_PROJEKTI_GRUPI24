@@ -3,8 +3,8 @@
 require_once "database.php";
  
 // Define variables and initialize with empty values
-$first_name = $last_name = $username = $password = $confirm_password = $email = $confirm_email = "";
-$first_name_err = $last_name_err = $username_err = $password_err = $confirm_password_err = $email_err = $confirm_email_err = "";
+$first_name = $last_name = $username = $password = $confirm_password = $email = $confirm_email = $token= "";
+$first_name_err = $last_name_err = $username_err = $password_err = $confirm_password_err = $email_err = $confirm_email_err = $token_err= "";
  
  
 // Processing form data when form is submitted
@@ -131,27 +131,49 @@ if($stmt = mysqli_prepare($conn, $sql)) {
     }
     
     // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)&& empty($role_err)){
-        
+    if(empty($first_name_err)&&empty($last_name_err)&&empty($username_err) && empty($email_err)&&empty($token_err)&&empty($password_err) && empty($confirm_password_err)&& empty($role_err)){
+
+         // Generate a verification token
+         $token = bin2hex(random_bytes(32));
+
         // Prepare an insert statement
-        $sql = "INSERT INTO tbl_users (first_name, last_name, username,email, password, user_type) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO tbl_users (first_name, last_name, username, email, token, password, user_type) VALUES (?, ?, ?, ?, ?, ?,?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssssss", $param_first_name, $param_last_name, $param_username, $param_email, $param_password, $param_role);
+            mysqli_stmt_bind_param($stmt, "ssssssi", $param_first_name, $param_last_name, $param_username, $param_email, $param_token, $param_password, $param_role);
             
             // Set parameters
             $param_first_name=$first_name;
             $param_last_name=$last_name;
             $param_username = $username;
             $param_email=$email;
+            $param_token=$token;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             $param_role = $role;
+            
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                 // Redirect to login page
-                 header("location: login.php");
+            //        // Send the verification email
+            // $to = $email;
+            // $subject = 'Verify Your Email Address';
+            // $message = '
+            //     Hello '.$username.',<br><br>
+            //     Thank you for signing up! To activate your account, please click the link below:<br><br>
+            //     <a href="http://yourwebsite.com/verify.php?email='.$email.'&token='.$token.'">Verify Email Address</a><br><br>
+            //     If you did not create an account on our website, please ignore this email.<br><br>
+            //     Best regards,<br>
+            //     Your Website Team
+            // ';
+            // $headers = 'From: yourwebsite@example.com' . "\r\n" .
+            //             'Reply-To: yourwebsite@example.com' . "\r\n" .
+            //             'Content-Type: text/html; charset=UTF-8' . "\r\n" .
+            //             'X-Mailer: PHP/' . phpversion();
+            // mail($to, $subject, $message, $headers);
+            //      // Redirect to login page
+            //      header("location: login.php");
+            //      exit();
 
                 // Get the user_id of the newly inserted row
                 $user_id = mysqli_insert_id($conn);
@@ -161,6 +183,7 @@ if($stmt = mysqli_prepare($conn, $sql)) {
                 } elseif($role == "staff"){
                     $sql = "INSERT INTO tbl_staff_profiles (user_id) VALUES (?)";
                 }
+
                 $stmt2 = mysqli_prepare($conn, $sql);
                 mysqli_stmt_bind_param($stmt2, "i", $user_id);
                 mysqli_stmt_execute($stmt2);
