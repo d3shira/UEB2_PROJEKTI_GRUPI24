@@ -3,11 +3,26 @@
 require_once "database.php";
  
 // Define variables and initialize with empty values
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
+$first_name = $last_name = $username = $password = $confirm_password = $email = $confirm_email = "";
+$first_name_err = $last_name_err = $username_err = $password_err = $confirm_password_err = $email_err = $confirm_email_err = "";
+ 
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+      // Validate first name
+      if(empty(trim($_POST["first_name"]))){
+        $first_name_err = "Please enter your first name.";
+    } else {
+        $first_name = trim($_POST["first_name"]);
+    }
+
+    // Validate last name
+    if(empty(trim($_POST["last_name"]))){
+        $last_name_err = "Please enter your last name.";
+    } else {
+        $last_name = trim($_POST["last_name"]);
+    }
  
     // Validate username
     if(empty(trim($_POST["username"]))){
@@ -63,7 +78,50 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
 
-    // Validate role
+        // Validate email
+        if(empty(trim($_POST["email"]))){
+            $email_err = "Please enter your email address.";
+        } elseif(!filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL)){
+            $email_err = "Please enter a valid email address.";
+        } else{
+            $email = trim($_POST["email"]);
+        }
+
+
+        // Check if email is already taken
+$sql = "SELECT user_id FROM tbl_users WHERE email = ?";
+      
+if($stmt = mysqli_prepare($conn, $sql)) {
+    mysqli_stmt_bind_param($stmt, "s", $param_email);
+    $param_email = trim($_POST["email"]);
+        
+    if(mysqli_stmt_execute($stmt)) {
+        mysqli_stmt_store_result($stmt);
+          
+        if(mysqli_stmt_num_rows($stmt) == 1) {
+            $email_err = "This email is already registered.";
+        } else {
+            $email = trim($_POST["email"]);
+        }
+    } else {
+        echo "Oops! Something went wrong. Please try again later.";
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+
+        // Validate confirm email
+        if (empty(trim($_POST["confirm_email"]))) {
+    $confirm_email_err = "Please confirm email address.";
+        } else {
+    $confirm_email = trim($_POST["confirm_email"]);
+        if ($confirm_email !== $email) {
+        $confirm_email_err = "Email addresses do not match.";
+        }
+    }
+
+    /////////////////////////////Validate role////////////////////////
     if(empty(trim($_POST["user_type"]))){
         $role_err = "Please select a role.";
     } elseif(!in_array(trim($_POST["user_type"]), array("client", "staff"))){
@@ -76,14 +134,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)&& empty($role_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO tbl_users (username, password, user_type) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO tbl_users (first_name, last_name, username,email, password, user_type) VALUES (?, ?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_password, $param_role);
+            mysqli_stmt_bind_param($stmt, "ssssss", $param_first_name, $param_last_name, $param_username, $param_email, $param_password, $param_role);
             
             // Set parameters
+            $param_first_name=$first_name;
+            $param_last_name=$last_name;
             $param_username = $username;
+            $param_email=$email;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             $param_role = $role;
 
@@ -141,11 +202,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <div class="form-group">
+                <label>First Name</label>
+                <input type="text" name="first_name" class="form-control <?php echo (!empty($first_name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $first_name; ?>">
+                <span class="invalid-feedback"><?php echo $first_name_err; ?></span>
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" name="last_name" class="form-control <?php echo (!empty($last_name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $last_name; ?>">
+                <span class="invalid-feedback"><?php echo $last_name_err; ?></span>
+            </div>
             <div class="form-group">
                 <label>Username</label>
                 <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
             </div>  
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
+                <span class="invalid-feedback"><?php echo $email_err; ?></span>
+            </div>
+            <div class="form-group">
+                <label>Confirm Email</label>
+                <input type="email" name="confirm_email" class="form-control <?php echo (!empty($confirm_email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_email; ?>">
+                <span class="invalid-feedback"><?php echo $confirm_email_err; ?></span>
+            </div>
             <div class="form-group">
                 <label>User Type</label>
                 <br>
