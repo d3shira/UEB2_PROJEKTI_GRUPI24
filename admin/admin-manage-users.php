@@ -36,8 +36,6 @@
     <section class="home" id="home">
     <div class="content">
         <br><br><br>
-    <h3>Manage Users</h3>
-    <p>ezwrxdgyhvcgftgyuh</p>
     </div>
     </section>
 </body>
