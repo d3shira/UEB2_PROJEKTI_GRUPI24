@@ -121,8 +121,6 @@ if($stmt = mysqli_prepare($conn, $sql)) {
         }
     }
 
-    /////////////////////////////Validate role////////////////////////
-
     
     // Check input errors before inserting in database
     if(empty($first_name_err)&&empty($last_name_err)&&empty($username_err) && empty($email_err)&&empty($token_err)&&empty($password_err) && empty($confirm_password_err)&& empty($role_err)){
@@ -240,18 +238,6 @@ if($stmt = mysqli_prepare($conn, $sql)) {
                 <input type="email" name="confirm_email" class="form-control <?php echo (!empty($confirm_email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_email; ?>">
                 <span class="invalid-feedback"><?php echo $confirm_email_err; ?></span>
             </div>
-            <!-- <div class="form-group">
-                <label>User Type</label>
-                <br>
-                <label for="client">Client</label>
-                <input type="radio" id="client" name="user_type" value="client" class="form-control <?php echo (!empty($role_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $role; ?>">
-	            <span class="invalid-feedback"><?php //echo $role_err; ?></span>
-
-                <label for="staff">Staff</label>
-		        <input type="radio" id="staff" name="user_type" value="staff" class="form-control <?php echo (!empty($role_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $role; ?>">
-		        <span class="invalid-feedback"><?php //echo $role_err; ?></span>
-            </div>
-     -->
             <div class="form-group">
                 <label>Password</label>
                 <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">

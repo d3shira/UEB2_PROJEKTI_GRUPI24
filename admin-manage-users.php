@@ -18,12 +18,13 @@
     </nav>
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
-        <a href="#" class="fa-solid fa-user"></a>
+        <a href="admin dashboard.php" class="fa-solid fa-user"></a>
     </div>
     </header>
 <body>
     <section class="home" id="home">
     <div class="content">
+        <br><br><br>
     <h3>Manage Users</h3>
     <p>ezwrxdgyhvcgftgyuh</p>
     </div>

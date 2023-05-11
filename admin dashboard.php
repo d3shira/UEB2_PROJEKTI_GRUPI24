@@ -23,7 +23,7 @@
 
     <!--HEADER SECTION-->
     <!--me nderru disa icons dhe menu-->
-    <header>
+    <header style="text-decoration:none;">
     <a href="#" class="logo"><i class="fas fa-utensils"></i> FitYou - Admin Panel </a>
     <nav class="navbar">
         <a class="" href="admin-manage-users.php">Manage Users</a>

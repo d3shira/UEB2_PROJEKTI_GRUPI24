@@ -210,10 +210,14 @@ if($stmt = mysqli_prepare($conn, $sql)) {
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
     <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 360px; padding: 20px; }
+        *{
+            text-decoration: none;
+        }
+        body{ font: 14px sans-serif;}
+        .wrapper{ width: 360px;
+            padding:20px; }
     </style>
 </head>
 <body>
@@ -249,9 +253,6 @@ if($stmt = mysqli_prepare($conn, $sql)) {
             <div class="form-group">
                 <label>User Type</label>
                 <br>
-                <!-- <label for="client">Client</label>
-                <input type="radio" id="client" name="user_type" value="client" class="form-control <?php echo (!empty($role_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $role; ?>">
-	            <span class="invalid-feedback"><?php //echo $role_err; ?></span> -->
 
                 <label for="staff">Staff</label>
 		        <input type="radio" id="staff" name="user_type" value="staff" class="form-control <?php echo (!empty($role_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $role; ?>">

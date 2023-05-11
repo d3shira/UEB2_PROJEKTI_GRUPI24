@@ -5,10 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< Updated upstream
     <title>Manage Orders</title>
-=======
-    <title>Document</title>
 
     <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,7 +18,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
->>>>>>> Stashed changes
 </head>
 
 <header>
@@ -33,7 +29,7 @@
     </nav>
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
-        <a href="#" class="fa-solid fa-user"></a>
+        <a href="admin dashboard.php" class="fa-solid fa-user"></a>
     </div>
     </header>
 
