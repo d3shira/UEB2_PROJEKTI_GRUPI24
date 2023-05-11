@@ -39,8 +39,7 @@
     <!-- CONTENT SECTION -->
     <div class="content">
         <p>Dafina balaj</p>
-        <?php 
-        @include 'register-staff.php'?>
+    
     </div>
 
     <script> 

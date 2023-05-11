@@ -6,94 +6,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="register-staff.css">
     <style>
-        *{
-            text-decoration: none;
-        }
-        body{ font: 14px sans-serif;}
-        .wrapper{ 
-            width: 360px;
-            padding:20px; 
-            /* Include the Bootstrap stylesheet here */
-            /* Note: the URL should be enclosed in quotes */
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: .25rem;
-            margin: 0 auto;
-            margin-top: 50px;
-            box-shadow: 0px 0px 10px #d9d9d9;
-            -moz-box-shadow: 0px 0px 10px #d9d9d9;
-            -webkit-box-shadow: 0px 0px 10px #d9d9d9;
-        }
-        h2 {
-            font-size: 28px;
-            font-weight: bold;
-            color: #333333;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            font-size: 16px;
-            font-weight: bold;
-            color: #555555;
-            margin-bottom: 5px;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px 20px;
-            font-size: 16px;
-            line-height: 1.5;
-            color: #555555;
-            background-color: #ffffff;
-            background-image: none;
-            border: 1px solid #cccccc;
-            border-radius: .25rem;
-        }
-        input[type="submit"],
-        input[type="reset"] {
-            display: block;
-            width: 100%;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #007bff;
-            background-image: none;
-            border: 1px solid #007bff;
-            border-radius: .25rem;
-            cursor: pointer;
-            transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-        }
-        input[type="submit"]:hover,
-        input[type="reset"]:hover {
-            background-color: #0069d9;
-            border-color: #0062cc;
-        }
-        input[type="submit"]:focus,
-        input[type="reset"]:focus {
-            outline: 0;
-            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-        }
-        .invalid-feedback {
-            display: block;
-            width: 100%;
-            margin-top: .25rem;
-            font-size: 80%;
-            color: #dc3545;
-        }
+      
     </style>
 </head>
 <body>
     <div class="wrapper">
-        <h2>Staff Sign Up</h2>
-        <p>Create staff accounts.</p>
+        <h2>Register new staff</h2>
+        <p>Create staff account:</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group">
                 <label>First Name</label>
@@ -140,11 +61,10 @@
                 <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="submit" class="btn btn-success" value="Submit">
                 <br>
                 <input type="reset" class="btn btn-secondary ml-2" value="Reset">
             </div>
-            <p>Already have an account? <a href="../login.php">Login here</a>.</p>
         </form>
     </div>    
 </body>
