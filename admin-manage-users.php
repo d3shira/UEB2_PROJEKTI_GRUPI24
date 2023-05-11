@@ -1,3 +1,5 @@
+<?php @include 'navbar-admin.php'?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<?php @include 'navbar-admin.php'?>
 <body>
-    
+
+    <section class="home" id="home">
+    <div class="content">
+    <h3>Manage Users</h3>
+    <p>ezwrxdgyhvcgftgyuh</p>
+    </div>
+    </section>
 </body>
 </html>
