@@ -34,7 +34,7 @@
                     </div>
                     <h3>Medit Diet</h3>
                     <p>The Mediterranean Diet emphasizes whole foods, healthy fats, and seafood while limiting processed foods, red meat, and added sugars It is based on the eating habits of people.</p>
-                    <a href="#" class="btn"  onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+                    <a href="http://localhost/UEB2_PROJEKTI/order.php" class="btn"  onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
                     <span class="price">$12.99</span>
                  </div>
              </div>
