@@ -179,13 +179,13 @@ if($stmt = mysqli_prepare($conn, $sql)) {
                 $user_id = mysqli_insert_id($conn);
                   // Insert additional data into the appropriate table
                   if($role == "client"){
-                    $sql = "INSERT INTO tbl_client_profiles (user_id) VALUES (?)";
+                    $sql = "INSERT INTO tbl_client_profiles (user_id, first_name, last_name) VALUES (?,?,?)";
                 } elseif($role == "staff"){
-                    $sql = "INSERT INTO tbl_staff_profiles (user_id) VALUES (?)";
+                    $sql = "INSERT INTO tbl_staff_profiles (user_id, first_name, last_name) VALUES (?,?,?)";
                 }
 
                 $stmt2 = mysqli_prepare($conn, $sql);
-                mysqli_stmt_bind_param($stmt2, "i", $user_id);
+                mysqli_stmt_bind_param($stmt2, "iss", $user_id, $first_name, $last_name);
                 mysqli_stmt_execute($stmt2);
                 mysqli_stmt_close($stmt2);
 
