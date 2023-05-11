@@ -87,8 +87,9 @@
 }
 .menu .box-container .box .content .price {
     color: var(--green);
+    /* color:rgb(7, 81, 7); */
     margin: 1rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     padding: 0.5rem;
 }
 
