@@ -4,20 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Diets</title>
-     <!--font awesome-->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Healthy Lifestyle Website</title>
+    
+
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!--css-->
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="../navbar.css">
+    <link rel="stylesheet" href="../home.css">
 
     <!--<script src="home.js"></script>--> 
-    <script src="navbar.js"></script> 
+    <script src="../navbar.js"></script> 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+ 
 
 </head>
-<header>
+<body>
+    
+
+    <!--HEADER SECTION-->
+    <!--me nderru disa icons dhe menu-->
+    <header>
     <a href="#" class="logo"><i class="fas fa-utensils"></i> FitYou - Admin Panel </a>
     <nav class="navbar">
         <a class="" href="admin-manage-users.php">Manage Users</a>
@@ -28,15 +36,19 @@
         <i class="fas fa-bars" id="menu-bars"></i>
         <a href="admin dashboard.php" class="fa-solid fa-user"></a>
     </div>
-    </header>
-<body>
-    <section class="home" id="home">
-    <div class="content">
-        <br><br><br>
-    <h3>Manage Diets</h3>
-    <p>ezwrxdgyhvcgftgyuh</p>
-    </div>
-    </section>
-<body>
+</header>
+<script> 
+const navbarLinks = document.querySelectorAll('.navbar a');
+
+navbarLinks.forEach(navbarLink => {
+  navbarLink.addEventListener('click', () => {
+    navbarLinks.forEach(navbarLink => {
+      navbarLink.classList.remove('active');
+    });
+    navbarLink.classList.add('active');
+  });
+});
+
+</script>
 </body>
 </html>
