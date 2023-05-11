@@ -32,7 +32,7 @@
         <a class="" href="aboutus.php">About Us</a>
         <a class="" href="menu.php">Diets</a>
         <a class="" href="blerta.php">Review</a>
-        <a class="" href="order.php">Order</a>
+        <!-- <a class="" href="order.php">Order</a> -->
         <a class="" href="faqs.php">FAQs</a>
     </nav>
     <div class="icons">
