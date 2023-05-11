@@ -37,19 +37,6 @@
         <a href="admin dashboard.php" class="fa-solid fa-user"></a>
     </div>
 </header>
-
-<div class="container">
-    <h2>Manage Users</h2>
-    <div class="form-group">
-        <label for="user-type">User Type:</label>
-        <select class="form-control" id="user-type">
-            <option value="clients">Clients</option>
-            <option value="staff">Staff</option>
-        </select>
-    </div>
-    <!-- Rest of the manage users page content goes here -->
-</div>
-
 <script> 
 const navbarLinks = document.querySelectorAll('.navbar a');
 

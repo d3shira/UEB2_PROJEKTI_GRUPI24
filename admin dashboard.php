@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< Updated upstream
     <title>Admin Dashboard</title>
-=======
     <title>Document</title>
 
     <!--font awesome-->
@@ -20,7 +18,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
->>>>>>> Stashed changes
 </head>
 <body>
 
@@ -42,6 +39,8 @@
     <!-- CONTENT SECTION -->
     <div class="content">
         <p>Dafina balaj</p>
+        <?php 
+        @include 'register-staff.php'?>
     </div>
 
     <script> 

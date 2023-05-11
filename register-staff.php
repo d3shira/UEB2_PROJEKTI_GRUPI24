@@ -218,8 +218,8 @@ if($stmt = mysqli_prepare($conn, $sql)) {
 </head>
 <body>
     <div class="wrapper">
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
+        <h2>Staff Sign Up</h2>
+        <p>Create staff accounts.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group">
                 <label>First Name</label>
