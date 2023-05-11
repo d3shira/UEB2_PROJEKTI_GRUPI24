@@ -3,7 +3,7 @@
 require_once "database.php";
  
 // Define variables and initialize with empty values
-$first_name = $last_name = $username = $password = $confirm_password = $email = $confirm_email = $token= "";
+$first_name = $last_name = $username = $password = $role = $confirm_password = $email = $confirm_email = $token= "";
 $first_name_err = $last_name_err = $username_err = $password_err = $confirm_password_err = $email_err = $confirm_email_err = $token_err= "";
  
  
@@ -141,7 +141,7 @@ if($stmt = mysqli_prepare($conn, $sql)) {
          
         if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssssssi", $param_first_name, $param_last_name, $param_username, $param_email, $param_token, $param_password, $param_role);
+            mysqli_stmt_bind_param($stmt, "ssssiss", $param_first_name, $param_last_name, $param_username, $param_email, $param_token, $param_password, $param_role);
             
             // Set parameters
             $param_first_name=$first_name;
@@ -190,11 +190,7 @@ if($stmt = mysqli_prepare($conn, $sql)) {
                 mysqli_stmt_close($stmt2);
 
                 // Redirect the user to the appropriate dashboard page
-                if($role == "client"){
-                    header("location: client_dashboard.php");
-                } elseif($role == "staff"){
-                    header("location: staff_dashboard.php");
-                }
+                header("location: login.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }

@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT user_id, username, password, user_type FROM tbl_users WHERE username = ?";
+        $sql = "SELECT user_id, username, password, user_type FROM tbl_users WHERE username = ? ";
         
         if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -61,7 +61,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
-                            session_start();
                             
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
