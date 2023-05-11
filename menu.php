@@ -11,6 +11,19 @@
         <link rel="stylesheet" href="menu.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+        <style>
+    .box {
+      position: relative;
+      /* Add other styles for the box container */
+    }
+    
+    .btn {
+      position: absolute;
+      top: 180px; /* Adjust the top position as per your needs */
+      right: 10px; /* Adjust the right position as per your needs */
+      /* Add other styles for the button */
+    }
+  </style>
     </head>
     <body>
       <?php @include 'navbar.php' ?>
@@ -35,7 +48,7 @@
                     <p>Based on the eating habits of people from Mediterranean countries,
                       this diet emphasizes whole foods, healthy fats, and seafood while limiting processed foods, red meat,
                       and added sugars.</p>
-                    <a href="#" class="btn"  onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+                    <a href="#" class="btn"  onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';" >Order</a>
                     <span class="price">$12.99</span>
                  </div>
              </div>
@@ -96,7 +109,7 @@
                   <h3>Flexitarian Diet</h3>
                   <p>A flexible approach to vegetarianism, this diet promotes plant-based eating while allowing for occasional
                       consumption of meat or animal products. </p>
-                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';" >Order</a>
                   <span class="price">$12.99</span>
                </div>
               </div>
@@ -115,7 +128,7 @@
                   </div>
                   <h3>Vegan diet</h3>
                   <p>A plant-based diet that excludes all animal products, including meat, dairy, and eggs. </p>
-                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';" >Order</a>
                   <span class="price">$12.99</span>
                </div>
              </div>
@@ -135,7 +148,7 @@
                   <h3>Dash Diet</h3>
                   <p>Originally developed to help lower blood pressure, this diet emphasizes whole foods, fruits,
                       vegetables, lean proteins, and whole grains while limiting salt, sugar, and saturated fats. </p>
-                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';" >Order</a>
                   <span class="price">$12.99</span>
                </div>
               </div>

@@ -48,11 +48,9 @@ section:nth-child(even){
     border-radius: .5rem;
     cursor: pointer;
     padding: .8rem 3rem;
-
-
 }
 .btn:hover{
-    background: var(--green);
+    /* background: var(--green); */
     letter-spacing: .1rem;
 
 }
@@ -225,4 +223,5 @@ header .icons #menu-bars{
 
    
 }
+
 
