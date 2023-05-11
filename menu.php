@@ -12,6 +12,19 @@
         <link rel="stylesheet" href="menu.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+        <style>
+    .box {
+      position: relative;
+      /* Add other styles for the box container */
+    }
+    
+    .btn {
+      position: absolute;
+      top: 180px; /* Adjust the top position as per your needs */
+      right: 10px; /* Adjust the right position as per your needs */
+      /* Add other styles for the button */
+    }
+  </style>
     </head>
     <body>
       <?php @include 'navbar.php' ?>
@@ -32,9 +45,17 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fas fa-star-half-alt"></i>
                     </div>
+<<<<<<< HEAD
                     <h3>Medit Diet</h3>
                     <p>The Mediterranean Diet emphasizes whole foods, healthy fats, and seafood while limiting processed foods, red meat, and added sugars fkjghdrkgjekrgnekgnklj.</p>
                     <a href="#" class="btn"  onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+=======
+                    <h3>Mediterranean Diet</h3>
+                    <p>Based on the eating habits of people from Mediterranean countries,
+                      this diet emphasizes whole foods, healthy fats, and seafood while limiting processed foods, red meat,
+                      and added sugars.</p>
+                    <a href="#" class="btn"  onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';" >Order</a>
+>>>>>>> 2f42781acfee44ce3a8ef2e0abc8d764f41b3163
                     <span class="price">$12.99</span>
                  </div>
              </div>
@@ -93,7 +114,7 @@
                   <h3>Flexitarian Diet</h3>
                   <p>A flexible approach to vegetarianism, this diet promotes plant-based eating while allowing for occasional
                       consumption of meat or animal products. </p>
-                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';" >Order</a>
                   <span class="price">$12.99</span>
                </div>
               </div>
@@ -111,8 +132,13 @@
                       <i class="fas fas fa-star-half-alt"></i>
                   </div>
                   <h3>Vegan diet</h3>
+<<<<<<< HEAD
                   <p>The Vegan Diet excludes all animal products, including meat, poultry, dairy, eggs, and honey. It emphasizes a wide variety of fruits, vegetables, legumes, grains and nuts.</p>
                   <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+=======
+                  <p>A plant-based diet that excludes all animal products, including meat, dairy, and eggs. </p>
+                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';" >Order</a>
+>>>>>>> 2f42781acfee44ce3a8ef2e0abc8d764f41b3163
                   <span class="price">$12.99</span>
                </div>
              </div>
@@ -131,8 +157,8 @@
                   </div>
                   <h3>Dash Diet</h3>
                   <p>Originally developed to help lower blood pressure, this diet emphasizes whole foods, fruits,
-                      vegetables, lean proteins, and whole grains while limiting salt and sugar. </p>
-                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+                      vegetables, lean proteins, and whole grains while limiting salt, sugar, and saturated fats. </p>
+                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';" >Order</a>
                   <span class="price">$12.99</span>
                </div>
               </div>
