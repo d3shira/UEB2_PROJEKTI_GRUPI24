@@ -54,7 +54,7 @@
                   </div>
                   <h3>Zone Diet</h3>
                   <p> The Zone Diet focuses on balancing macronutrients, regulating insulin levels, and promoting weight loss. It involves consuming a specific ratio of carbohydrates, proteins, and fats     </p>
-                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+                  <a href="http://localhost/UEB2_PROJEKTI/order.php" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
                   <span class="price">$12.99</span>
                 </div>
               </div>
@@ -73,7 +73,7 @@
                   </div>
                   <h3>Paleo Diet</h3>
                   <p>The Flexitarian Diet promotes plant-based eating while allowing occasional consumption of meat or animal products. It offers a flexible approach to vegetarianism</p>
-                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+                  <a href="http://localhost/UEB2_PROJEKTI/order.php" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
                   <span class="price">$12.99</span>
                </div>
              </div>
@@ -93,7 +93,7 @@
                   <h3>Flexitarian Diet</h3>
                   <p>A flexible approach to vegetarianism, this diet promotes plant-based eating while allowing for occasional
                       consumption of meat or animal products. </p>
-                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+                  <a href="http://localhost/UEB2_PROJEKTI/order.php" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
                   <span class="price">$12.99</span>
                </div>
               </div>
@@ -112,7 +112,7 @@
                   </div>
                   <h3>Vegan diet</h3>
                   <p>The Vegan Diet excludes all animal products, including meat, poultry, dairy, eggs, and honey. It emphasizes a wide variety of fruits, vegetables, legumes, grains and nuts.</p>
-                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+                  <a href="http://localhost/UEB2_PROJEKTI/order.php" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
                   <span class="price">$12.99</span>
                </div>
              </div>
@@ -132,7 +132,7 @@
                   <h3>Dash Diet</h3>
                   <p>Originally developed to help lower blood pressure, this diet emphasizes whole foods, fruits,
                       vegetables, lean proteins, and whole grains while limiting salt and sugar. </p>
-                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+                  <a href="http://localhost/UEB2_PROJEKTI/order.php" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
                   <span class="price">$12.99</span>
                </div>
               </div>
@@ -151,7 +151,7 @@
                   </div>
                   <h3>Pescatarian Diet</h3>
                   <p>The Pescatarian Diet, rich in fish and seafood, offers a plant-based dietary approach that provides lean protein and essential nutrients while also supporting cardiovascular health and reducing environmental impact. </p>
-                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+                  <a href="http://localhost/UEB2_PROJEKTI/order.php" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
                   <span class="price">$12.99</span>
                </div>
              </div>
@@ -171,7 +171,7 @@
                   <h3>Ornish Diet</h3>
                   <p>
 The Ornish Diet emphasizes the consumption of nutrient-dense, plant-based foods while restricting the intake of high-fat and animal-based products, making it a comprehensive approach to improving heart health. </p>
-                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+                  <a href="http://localhost/UEB2_PROJEKTI/order.php" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
                   <span class="price">$12.99</span>
                </div>
              </div>
@@ -191,7 +191,7 @@ The Ornish Diet emphasizes the consumption of nutrient-dense, plant-based foods 
                   <h3>MIND Diet</h3>
                   <p>Combining aspects of the Mediterranean and DASH diets, this diet focuses on whole foods and specifically
                       promotes consumption of brain-healthy foods such as berries, nuts, and leafy greens.</p>
-                  <a href="#" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
+                  <a href="http://localhost/UEB2_PROJEKTI/order.php" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">Order</a>
                   <span class="price">$12.99</span>
                </div>
              </div>
