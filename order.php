@@ -109,6 +109,8 @@ if(isset($_POST['Order']))
     $quantity = $_POST['quantity'];
 
     $sql = "SELECT * FROM tbl_diet WHERE diet_id = $diet_id";
+    
+
     $res = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($res);
     
