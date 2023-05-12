@@ -17,7 +17,7 @@
 <body>
 <?php define('SITEURL', 'http://localhost/UEB2_PROJEKTI/'); ?>
 <?php @include 'navbar.php' ?>
-<section class="order" id="order">
+<section class="order1" id="order1">
 
 <h3 class="sub-heading" style="font-size: 2rem; color:green" > Order Now</h3>
 <h1 class="heading" style="font-size: 2.8rem; color:#192a56"> FREE AND FAST</h1>
@@ -75,103 +75,76 @@ if ($food_found) {
     echo "Food not available.";
 }
 ?>
+<form action="" method="POST" class="order">
+    <div class="order-label1">
+<div class="order-label"><b>Full Name</b></div>
+<input type="text" name="full-name" placeholder=""E.g. Vijay Thapa" class="input-responsive" required>
 
-<form action="" method="POST" class="orderForm">
-    <fieldset>
-    <div class="inputBox">
-        <div class="input">
-            <span>Your name</span>
-            <input type="text" placeholder="Enter your id" name="user_id">
-        </div>
-        <div class="input">
-            <span>Your number</span>
-            <input type="number" placeholder="Enter your number" name="contact">
-        </div>
-    </div>
-    <div class="inputBox">
-        <div class="input">
-            <span>Your order</span>
-            <input type="text" placeholder="Enter food name" name="order_id">
-        </div>
-        <div class="input">
-            <span>Additional food</span>
-            <input type="test" placeholder="Extra with food" name="additional_food">
-        </div>
-    </div>
-    <div class="inputBox">
-        <div class="input">
-            <span>How much</span>
-            <input type="number" placeholder="How many orders" name="quantity">
-        </div>
-        <div class="input">
-            <span>Date and time</span>
-            <input type="datetime-local">
-        </div>
-    </div>
-    <div class="inputBox">
-        <div class="input">
-            <span>Your address</span>
-        <textarea name="" placeholder="Enter your address" id="" cols="30" rows="10" name="address"></textarea>
-        </div>
-        <div class="input">
-            <span>Additional request</span>
-        <textarea name="" placeholder="Enter you message" id="" cols="30" rows="10" name="name"></textarea>
-        </div>
-        <div class="input">
-    <span>Diet ID</span>
-    <input type="text" placeholder="Enter diet ID" name="diet_id">
-</div>
-    </div>
+<div class="order-label"><b>Phone Number</b></div>
+<input type="tel" name="contact" placeholder="E.g. 9843xxxxxx" class="input-responsive" required>
 
-<<<<<<< Updated upstream
-    <input type="submit" value="Order now" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">
-=======
-    <input type="submit" value="Order now" class="btn" name="submit">
+<div class="order-label"><b>Email</b></div>
+<input type="email" name="email" placeholder="E.g. hi@vijaythapa.com" class="input-responsive" required>
+
+<div class="order-label"><b>Quantity</b></div>
+<input name="quantity" placeholder="1,2,3..." class="input-responsive" required>
+
+<div class="order-label"><b>Address</b></div>
+<textarea name="address" rows="10" placeholder="E.g. Street, City, Country" class="input-responsive" required></textarea>
+
+
+
+<input type="submit" name="Order" value="Order now" class="btn btn-primary">
 </fieldset>
->>>>>>> Stashed changes
+</div>
+
 </form>
 
 <?php
-   if(isset($_POST['Order now'])) //sdi a duhet order a submit
-   {
-    $diet_id = isset($_POST['diet_id']) ? $_POST['diet_id'] : '';
-$user_id = isset($_POST['user_id']) ? $_POST['user_id'] : '';
-$address = isset($_POST['address']) ? $_POST['address'] : '';
-$contact = isset($_POST['contact']) ? $_POST['contact'] : '';
-$quantity = isset($_POST['quantity']) ? $_POST['quantity'] : '';
-$total_price = isset($_POST['total_price']) ? $_POST['total_price'] : '';
-    $order_date=date("Y-m-d h:i:sa");//order date
-    $status="Orderd";//orderd,on delivery,delivered,cancelled 
+require_once("database.php");
 
-    //Save the order in database
-    $sql2 ="INSERT INTO tbl_order SET 
-    diet_id='$diet_id',
-    user_id='$user_id',
-    address='$address',
-    contact='$contact',
-    quantity='$quantity',
-    total_price='$total_price',
-    order_date='$order_date',
-    status='$status'
-    ";
+if(isset($_POST['Order']))
+{
+    $diet_id = $_GET['diet_id'];
+    $quantity = $_POST['quantity'];
 
-    echo $sql2; die();
-    //Execute the query
-    $res2 = mysqli_query($conn, $sql2);
+    $sql = "SELECT * FROM tbl_diet WHERE diet_id = $diet_id";
+    $res = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($res);
+    
+    if($count == 1) {
+        $row = mysqli_fetch_assoc($res);
+        $diet_name = $row['diet_name'];
+        $price = $row['price'];
+        $in_stock = $row['in_stock'];
+        $total_price = $price * $quantity;
+        
+        $first_name = $_POST['full-name'];
+        $contact = $_POST['contact'];
+        $email = $_POST['email'];
+        $address = $_POST['address'];
 
-    if ($res2) {
-        $_SESSION['order'] = "<div class='success'> Porosia u ruajt me sukses.</div>";
-        header('location:'.SITEURL);
-        exit;
+        $user_id = ''; // Përpilojeni për të marrë user_id të klientit
+        $status = "Ordered";
+        $order_date = date("Y-m-d h:i:sa");
+        
+        $sql2 = "INSERT INTO tbl_orders (diet_id, user_id, address, contact, quantity, total_price, order_date, status) 
+                 VALUES ('$diet_id', '$user_id', '$address', '$contact', '$quantity', '$total_price', '$order_date', '$status')";
+        
+        if(mysqli_query($conn, $sql2)) {
+            $_SESSION['order'] = "<div class='success'> Porosia u ruajt me sukses.</div>";
+            header('location:'.SITEURL);
+            exit;
+        } else {
+            $_SESSION['order'] = "<div class='error'> Dështoi ruajtja e porosisë.</div>";
+            header('location:'.SITEURL);
+            exit;
+        }
     } else {
-        $_SESSION['order'] = "<div class='error'> Dështoi ruajtja e porosisë.</div>";
-        header('location:'.SITEURL);
-        exit;
+        echo "Food not available.";
     }
 }
-    ?>
+?>
 
-
-</section>
 </body>
 </html>
