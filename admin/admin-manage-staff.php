@@ -1,4 +1,4 @@
-<?php require_once "../database.php"; ?>
+<?php require_once "../database.php"; ?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -108,7 +108,7 @@
                         <td><?php echo $date_time; ?></td>
                         <td>
                             <a class="update-button" href="#">Update Staff</a>
-                            <a class="delete-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/delete-staff.php?id=' .$id; ?>">Delete Staff</a>
+                            <a class="delete-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/delete-staff.php?user_id=' .$id; ?>">Delete Staff</a>
 
                         </td>
                     </tr>
