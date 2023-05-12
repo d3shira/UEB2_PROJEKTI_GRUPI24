@@ -8,10 +8,8 @@ table tr th{
 }
 .tbl-content{
     width:80%;
-    bottom:55%;
-    left:10%;
-    right:30%;
-    position:absolute;
+    margin: auto;
+    overflow: auto;
 }
 
 table tr td{
@@ -34,4 +32,10 @@ table tr td{
     border-radius: 4px;
     text-decoration: none;
   }
+
+.tbl-container {
+    height: 500px; /* adjust the height as per your requirement */
+    overflow: auto;
+}
+
   

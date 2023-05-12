@@ -48,19 +48,20 @@
 
 
     <!-- CONTENT SECTION -->
+    <div class="tbl-container">
     <div class="tbl-content">
-    <table class="tbl-full">
-        <tr>
-            <th>No</th>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
-            <th>E-mail</th>
-            <th>Profession</th>
-            <th>Date created</th>
-            <th>Actions</th>
-        </tr>
+        <table class="tbl-full">
+            <tr>
+                <th>No</th>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+                <th>E-mail</th>
+                <th>BMI</th>
+                <th>Date created</th>
+                <th>Actions</th>
+            </tr>
         <?php 
         //Display staff + query to display staff
         $sql = "SELECT u.user_id, u.first_name, u.last_name, u.username, u.email, sp.profession, u.date_time
@@ -126,6 +127,7 @@
         ?>
     </table>
     
+    </div>
     </div>
 
     <script> 
