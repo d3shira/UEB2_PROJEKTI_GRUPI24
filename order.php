@@ -1,4 +1,5 @@
-<?php require_once("database.php")?>;
+<?php require_once("database.php"); session_start();?>;
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +30,7 @@ if(isset($_GET['diet_id']))
     $diet_id = $_GET['diet_id'];
 
     //Get the Details of the Selected Food
-    $sql = "SELECT * FROM tbl_diet WHERE id=$diet_id";
+    $sql = "SELECT * FROM tbl_diet WHERE diet_id='{$diet_id}'";
     //Execute the Query
     $res = mysqli_query($conn, $sql);
     //Count the rows
@@ -78,7 +79,7 @@ if ($food_found) {
 <form action="" method="POST" class="order">
     <div class="order-label1">
 <div class="order-label"><b>Full Name</b></div>
-<input type="text" name="full-name" placeholder=""E.g. Vijay Thapa" class="input-responsive" required>
+<input type="text" name="full-name" placeholder="E.g. Vijay Thapa" class="input-responsive" required>
 
 <div class="order-label"><b>Phone Number</b></div>
 <input type="tel" name="contact" placeholder="E.g. 9843xxxxxx" class="input-responsive" required>
@@ -108,7 +109,7 @@ if(isset($_POST['Order']))
     $diet_id = $_GET['diet_id'];
     $quantity = $_POST['quantity'];
 
-    $sql = "SELECT * FROM tbl_diet WHERE diet_id = $diet_id";
+    $sql = "SELECT * FROM tbl_diet WHERE diet_id = '{$diet_id}'";
     
 
     $res = mysqli_query($conn, $sql);
@@ -126,20 +127,21 @@ if(isset($_POST['Order']))
         $email = $_POST['email'];
         $address = $_POST['address'];
 
-        $user_id = ''; // Përpilojeni për të marrë user_id të klientit
+        
+        $user_id = $_SESSION["user_id"]; // Përpilojeni për të marrë user_id të klientit
         $status = "Ordered";
         $order_date = date("Y-m-d h:i:sa");
         
         $sql2 = "INSERT INTO tbl_orders (diet_id, user_id, address, contact, quantity, total_price, order_date, status) 
-                 VALUES ('$diet_id', '$user_id', '$address', '$contact', '$quantity', '$total_price', '$order_date', '$status')";
+                 VALUES ('{$diet_id}', '$user_id', '$address', '$contact', '$quantity', '$total_price', '$order_date', '$status')";
         
         if(mysqli_query($conn, $sql2)) {
             $_SESSION['order'] = "<div class='success'> Porosia u ruajt me sukses.</div>";
-            header('location:'.SITEURL);
+            header('location:http://localhost/UEB2_PROJEKTI/order.php?diet_id=41');
             exit;
         } else {
             $_SESSION['order'] = "<div class='error'> Dështoi ruajtja e porosisë.</div>";
-            header('location:'.SITEURL);
+            header('location:http://localhost/UEB2_PROJEKTI/order.php?diet_id=41');
             exit;
         }
     } else {
