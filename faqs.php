@@ -74,7 +74,7 @@
 <!-- end of question 3 -->
 
     </section>
-
+    
     <script src="faqs.js"></script> 
 </body>
 </html>
