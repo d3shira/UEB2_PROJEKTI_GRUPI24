@@ -4,7 +4,9 @@ require_once "database.php";
  
 // Define variables and initialize with empty values
 $first_name = $last_name = $username = $password = $confirm_password = $email = $confirm_email = $token= "";
+
 $first_name_err = $last_name_err = $username_err = $password_err = $confirm_password_err = $email_err = $confirm_email_err = $token_err= "";
+
 $role = 'client';
  
 // Processing form data when form is submitted
@@ -121,7 +123,7 @@ if($stmt = mysqli_prepare($conn, $sql)) {
         }
     }
 
-    
+   
     // Check input errors before inserting in database
     if(empty($first_name_err)&&empty($last_name_err)&&empty($username_err) && empty($email_err)&&empty($token_err)&&empty($password_err) && empty($confirm_password_err)&& empty($role_err)){
 
@@ -130,6 +132,7 @@ if($stmt = mysqli_prepare($conn, $sql)) {
 
         // Prepare an insert statement
         $sql = "INSERT INTO tbl_users (first_name, last_name, username, email, token, password, user_type) VALUES (?, ?, ?, ?, ?, ?,?)";
+     
          
         if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -191,8 +194,5 @@ if($stmt = mysqli_prepare($conn, $sql)) {
             mysqli_stmt_close($stmt);
         }
     }
-    
-    // Close connection
-    mysqli_close($conn);
 }
-?>
+    ?>

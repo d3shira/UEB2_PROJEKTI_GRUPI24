@@ -14,7 +14,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-require_once('database.php');
+/*require_once('database.php');*/
 
 $user_id = $_SESSION['user_id'];
 
@@ -76,14 +76,17 @@ $mysqli->close();
   <p>BMI: <?php echo $client_profile['bmi']; ?></p>
   
   <h2>Your Orders</h2>
-  <table>
-    <thead>
+  <table border="1" class="mx-auto">
+  <thead>
       <tr>
         <th>Order ID</th>
-        <th>Item Name</th>
+        <th>Diet ID</th>
+        <th>Address</th>
+        <th>Contact</th>
         <th>Quantity</th>
         <th>Price</th>
         <th>Date</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
@@ -99,5 +102,7 @@ $mysqli->close();
         <td><?php echo $order['status']; ?></td>
       </tr>
       <?php endforeach; ?>
+
+    
 </body>
 </html>
