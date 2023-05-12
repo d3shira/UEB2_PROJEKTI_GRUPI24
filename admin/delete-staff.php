@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<?php require_once "../database.php"; ?>
+<?php 
+//1. Get the value of the id that will be deleted
+
+//2.Create SQL query to delete staff member
+
+//3.Redirect to manage staff page with message (succes/error)
+
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,8 +35,6 @@
     
 
     <!--HEADER SECTION-->
-    <!--me nderru disa icons dhe menu-->
-       <!--HEADER SECTION-->
     <!--me nderru disa icons dhe menu-->
     <header style="text-decoration:none;">
     <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou - Admin Panel </a>

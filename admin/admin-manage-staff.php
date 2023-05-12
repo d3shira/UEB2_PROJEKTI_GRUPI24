@@ -58,7 +58,7 @@
                 <th>Last Name</th>
                 <th>Username</th>
                 <th>E-mail</th>
-                <th>BMI</th>
+                <th>Profession</th>
                 <th>Date created</th>
                 <th>Actions</th>
             </tr>
@@ -108,7 +108,8 @@
                         <td><?php echo $date_time; ?></td>
                         <td>
                             <a class="update-button" href="#">Update Staff</a>
-                            <a class="delete-button" href="#">Delete Staff</a>
+                            <a class="delete-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/delete-staff.php?id=' .$id; ?>">Delete Staff</a>
+
                         </td>
                     </tr>
                     <?php
