@@ -31,6 +31,7 @@
             <a class="dropbtn">Manage Users</a>
             <div class="dropdown-content">
                 <a href="#">Manage Users</a>
+                <a href="#">Manage Users</a>
                 <a href="admin-add-staff.php">Add Staff</a>
             </div>
         </div>
