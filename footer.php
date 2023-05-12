@@ -42,7 +42,6 @@
             <a href="#">+383-111-222</a>
             <a href="#">fit.you@gmail.com</a>
             <a href="#">prishtine, kosove - 10000</a>
-            <a href="#">Make a question </a>
     </div>
     <div class="box">
         <h3>follow us</h3>

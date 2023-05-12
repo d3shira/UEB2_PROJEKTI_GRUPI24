@@ -41,6 +41,7 @@
         <a href="#" class="fas fa-heart"></a>
         <a href="#" class="fas fa-shopping-cart"></a>
         <a href="#" class="fa-solid fa-user"></a>
+        <a href="question.php" class="fas fa-question-circle"></a>
     </div>
 </header>
 
