@@ -129,8 +129,8 @@ try {
 
     // Display the FAQs
     foreach ($faqs as $faq) {
-        echo "Question: " . $faq["question"] . "<br>";
-        echo "Answer: " . $faq["answer"] . "<br><br>";
+        // echo "Question: " . $faq["question"] . "<br>";
+        // echo "Answer: " . $faq["answer"] . "<br><br>";
     }
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
@@ -142,6 +142,10 @@ $statement->execute();
 $faqs = $statement->fetchAll();
 
 ?>
+ <!-- Duhet me shtu diqka  Per me i rendit pytjet newest to oldest...--> 
+
+
+    
 
 
  <div class="row">
