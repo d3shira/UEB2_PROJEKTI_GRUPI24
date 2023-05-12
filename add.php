@@ -80,10 +80,50 @@ try {
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
+
 ?>
+ <!-- Duhet me shtu diqka  Per me i rendit pytjet newest to oldest...--> 
 
 
     
+
+
+ <div class="row">
+    <div class="offset-md-2 col-md-8">
+        <table class="table table-bordered">
+            <!-- table heading -->
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+ 
+            <!-- table body -->
+            <tbody>
+                <?php foreach ($faqs as $faq): ?>
+                    <tr>
+                        <td><?php echo $faq["faq_id"]; ?></td>
+                        <td><?php echo $faq["question"]; ?></td>
+                        <td><?php echo $faq["answer"]; ?></td>
+                        <td>
+                            <!-- [edit button goes here] -->
+                            <a href="edit.php?id=<?php echo $faq['faq_id']; ?>" class="btn btn-warning btn-sm">Edit </a>
+ 
+                            <form method="POST" action="delete.php" onsubmit="return confirm('Are you sure you want to delete this FAQ ?');">
+    <input type="hidden" name="id" value="<?php echo $faq['faq_id']; ?>" required />
+    <input type="submit" value="Delete" class="btn btn-danger btn-sm" />
+</form>
+   
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 </body>
 </html>
