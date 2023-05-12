@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <input type="submit" value="Order now" class="btn">
+    <input type="submit" value="Order now" class="btn"onmouseover="this.style.backgroundColor='#27ae60';" onmouseout="this.style.backgroundColor='#192a56';">
 </form>
 
 </section>
