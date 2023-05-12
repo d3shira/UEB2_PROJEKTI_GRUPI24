@@ -4,14 +4,18 @@
     <title>Delete questions</title>
 
     <style>
+        *{
+                    background-color:#e0dddd;
+        }
 h1{
     text-align:center;
     color: #192a56;
     }  
 
     table {
+        margin-left:550px;
     border-collapse: collapse;
-    width: 100%;
+    width: 30%;
     border: 2px solid #ccc;
   }
 
@@ -29,7 +33,7 @@ font-size: 20px;
   }
 
   .deletebtn{
-    background-color:#e95b5b;
+    background: #ebb5b5;
     width:100px;
     height:50px;
     font-size: 20px;
@@ -38,7 +42,7 @@ font-size: 20px;
   }
 
   .deletebtn:hover{
-background-color: grey;
+    background: #ca9393;
   }
 
     </style>

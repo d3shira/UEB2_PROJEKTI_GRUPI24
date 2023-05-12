@@ -55,15 +55,51 @@
     margin-top:20px;
     height:40px;
     width:100px;
-    background-color:#656363;
+    background-color:#8a8787;
     font-weight:700;
 font-size:15px;
     
 }
 .Addfaq:hover{
-    background-color:#555353;
+    background-color:#767070;
 }
 
+.editbtn{
+    background-color:#7db9be;
+    border-radius:6px;
+    height:30px;
+    width:50px;
+}
+.editbtn:hover{    
+    background-color:#5a939a;
+
+
+}
+
+.deletebtnn{
+    background: #ebb5b5;
+    border-radius:6px;
+    height:30px;
+    width:50px;
+}
+.deletebtnn:hover{
+    background: #ca9393;
+}
+
+.tablee{
+    display:flex;
+    border:3px solid grey;
+    /* justify-content:center; */
+    margin-left:150px;
+}
+
+th{
+    font-size:20px;
+}
+
+#txt{
+    font-size:20px;
+}
 </style>
 </head>
 <body>
@@ -149,7 +185,7 @@ $faqs = $statement->fetchAll();
 
 
  <div class="row">
-    <div class="offset-md-2 col-md-8">
+    <div class="offset-md-2 col-md-8 tablee">
         <table class="table table-bordered">
             <!-- table heading -->
             <thead>
@@ -165,16 +201,20 @@ $faqs = $statement->fetchAll();
             <tbody>
                 <?php foreach ($faqs as $faq): ?>
                     <tr>
-                        <td><?php echo $faq["faq_id"]; ?></td>
-                        <td><?php echo $faq["question"]; ?></td>
-                        <td><?php echo $faq["answer"]; ?></td>
+                        <td id='txt'><?php echo $faq["faq_id"]; ?></td>
+                        <td id='txt'><?php echo $faq["question"]; ?></td>
+                        <td id='txt'><?php echo $faq["answer"]; ?></td>
                         <td>
                             <!-- [edit button goes here] -->
-                            <a href="edit.php?id=<?php echo $faq['faq_id']; ?>" class="btn btn-warning btn-sm">Edit </a>
- 
+                          <!-- <button class="editbtn" ><a href="edit.php?id=<?php echo $faq['faq_id']; ?>" class="btn btn-warning btn-sm">Edit </a>
+ </button> -->
+ <a href="edit.php?id=<?php echo $faq['faq_id']; ?>" class="btn btn-warning btn-sm editbtn">
+    <button class="editbtn">Edit</button>
+</a>
+ <td>
                             <form method="POST" action="delete.php" onsubmit="return confirm('Are you sure you want to delete this FAQ ?');">
     <input type="hidden" name="id" value="<?php echo $faq['faq_id']; ?>" required />
-    <input type="submit" value="Delete" class="btn btn-danger btn-sm" />
+    <input class="deletebtnn"type="submit" value="Delete" class="btn btn-danger btn-sm" />
 </form>
    
                         </td>

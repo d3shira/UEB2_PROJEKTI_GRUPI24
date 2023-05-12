@@ -1,3 +1,56 @@
+<style>
+
+*{
+    background-color:#e0dddd;
+}
+    .text-center{
+        text-align:center;
+        color: #192a56;
+
+    }
+
+    .form-control{
+        height:50px;
+        width:200px;
+    }
+    .form-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size:20px;
+        font-weight:600;
+        margin-left:550px;
+      }
+
+
+
+.form-group textarea {
+  padding: 10px;
+  resize: vertical;
+}
+
+#answer{
+    margin-top:5px;
+    margin-left:12px;
+}
+
+
+.btnSubmit{
+     margin-left:730px;
+     height:50px;
+     width:100px;
+     margin-top:10px;
+     font-weight:600;
+     font-size:16px;
+    background-color:#7db9be;
+    border-radius:8px;
+}
+
+.btnSubmit:hover{
+    background-color:#5a939a;
+}
+</style>
+
 <?php
 // Connect to the database using PHPMyAdmin
 $servername = "localhost:3307";
@@ -20,14 +73,23 @@ try {
         die("FAQ not found");
     }
 
-    // Update query goes here
+    // Update the FAQ in the database
+    if (isset($_POST["submit"])) {
+        $updateSql = "UPDATE tbl_faq SET question = :question, answer = :answer WHERE faq_id = :id";
+        $updateStatement = $conn->prepare($updateSql);
+        $updateStatement->bindParam(':question', $_POST["question"]);
+        $updateStatement->bindParam(':answer', $_POST["answer"]);
+        $updateStatement->bindParam(':id', $_POST["id"]);
+        $updateStatement->execute();
 
+        // Redirect to FAQs page or show a success message
+        header("Location: faqs.php");
+        exit();
+    }
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
-
-
 
 <!-- include CSS -->
 <link rel="stylesheet" href="add.css">
@@ -39,6 +101,8 @@ try {
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="richtext/jquery.richtext.js"></script>
+
+
 
 <!-- layout for form to edit FAQ -->
 <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
@@ -64,8 +128,10 @@ try {
                     <textarea name="answer" id="answer" class="form-control" required><?php echo $faq['answer']; ?></textarea>
                 </div>
 
+
                 <!-- submit button -->
-                <input type="submit" name="submit" class="btn btn-warning" value="Edit FAQ" />
+               <div class="butoniSubmit">
+                <input  type="submit" name="submit" class="btnSubmit" value="Edit FAQ" /></div>
             </form>
         </div>
     </div>
@@ -75,5 +141,5 @@ try {
     // initialize rich text library
     window.addEventListener("load", function () {
         $("#answer").richText();
-    });
+    })
 </script>
