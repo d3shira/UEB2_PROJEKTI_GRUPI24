@@ -10,6 +10,7 @@
     <!--css-->
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="navbar-admin.css">
 
     <!--<script src="home.js"></script>--> 
     <script src="../navbar.js"></script> 
@@ -17,10 +18,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
 </head>
-<header>
-    <a href="#" class="logo"><i class="fas fa-utensils"></i> FitYou - Admin Panel </a>
+<header style="text-decoration:none;">
+    <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou - Admin Panel </a>
     <nav class="navbar">
-        <a class="" href="admin-manage-users.php">Manage Users</a>
+        <div class="dropdown">
+            <a class="dropbtn">Manage Users</a>
+            <div class="dropdown-content">
+                <a href="#">Manage Users</a>
+                <a href="admin-add-staff.php">Add Staff</a>
+            </div>
+        </div>
         <a class="" href="admin-manage-diets.php">Manage Diets</a>
         <a class="" href="admin-manage-orders.php">Manage Orders</a>
     </nav>
@@ -28,7 +35,7 @@
         <i class="fas fa-bars" id="menu-bars"></i>
         <a href="admin dashboard.php" class="fa-solid fa-user"></a>
     </div>
-    </header>
+</header>
 <body>
     <section class="home" id="home">
     <div class="content">

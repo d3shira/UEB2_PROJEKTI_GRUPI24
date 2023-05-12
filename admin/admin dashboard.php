@@ -12,6 +12,7 @@
     <!--css-->
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="navbar-admin.css">
 
     <!--<script src="home.js"></script>--> 
     <script src="../navbar.js"></script> 
@@ -24,17 +25,24 @@
     <!--HEADER SECTION-->
     <!--me nderru disa icons dhe menu-->
     <header style="text-decoration:none;">
-    <a href="#" class="logo"><i class="fas fa-utensils"></i> FitYou - Admin Panel </a>
+    <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou - Admin Panel </a>
     <nav class="navbar">
-        <a class="" href="admin-manage-users.php">Manage Users</a>
+        <div class="dropdown">
+            <a class="dropbtn">Manage Users</a>
+            <div class="dropdown-content">
+                <a href="#">Manage Users</a>
+                <a href="admin-add-staff.php">Add Staff</a>
+            </div>
+        </div>
         <a class="" href="admin-manage-diets.php">Manage Diets</a>
         <a class="" href="admin-manage-orders.php">Manage Orders</a>
     </nav>
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
-        <a href="#" class="fa-solid fa-user"></a>
+        <a href="admin dashboard.php" class="fa-solid fa-user"></a>
     </div>
-    </header>
+</header>
+
 
     <!-- CONTENT SECTION -->
     <div class="content">
