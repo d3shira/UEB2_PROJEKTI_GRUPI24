@@ -15,7 +15,7 @@ require_once "database.php";
 $new_password = $confirm_password = "";
 $new_password_err = $confirm_password_err = "";
  
-// Processing form data when form is submitted
+// Processing form data when form is submittedz
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Validate new password
