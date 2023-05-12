@@ -30,6 +30,7 @@ try {
 
 
 <!-- include CSS -->
+<link rel="stylesheet" href="add.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css" />
 <link rel="stylesheet" type="text/css" href="richtext/richtext.min.css" />

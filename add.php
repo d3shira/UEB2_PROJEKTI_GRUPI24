@@ -3,6 +3,7 @@
     <head>
 <title>Faqs</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" href="add.css">
 <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css" />
 <link rel="stylesheet" type="text/css" href="richtext/richtext.min.css" />
  
@@ -11,6 +12,59 @@
 <script src="richtext/jquery.richtext.js"></script>
 
 <script src="add.js"></script>
+
+
+<style>
+    *{
+        background-color:#e0dddd;
+    }
+    .text-center{
+        text-align:center;
+        color:#192a56;
+    }
+
+.inputq{
+    width:300px;
+    height:40px;
+    margin-left:50px;
+}
+.inputa{
+    width:287px;
+    height:40px;
+    margin-left:63px;
+    margin-top:5px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+}
+
+.form-group textarea {
+  padding: 10px;
+  resize: vertical;
+}
+
+.Addfaq{
+    margin-left:730px;
+    margin-top:20px;
+    height:40px;
+    width:100px;
+    background-color:#656363;
+    font-weight:700;
+font-size:15px;
+    
+}
+.Addfaq:hover{
+    background-color:#555353;
+}
+
+</style>
 </head>
 <body>
 <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
@@ -23,18 +77,19 @@
  
                 <!-- question -->
                 <div class="form-group">
-                    <label>Enter Question</label>
-                    <input type="text" name="question" class="form-control" required />
+                    <label style="font-size:25px; margin-left:420px; font-weight:700px;">Enter Question</label>
+                    <input class="inputq" type="text" name="question" class="form-control" required />
                 </div>
  
                 <!-- answer -->
                 <div class="form-group">
-                    <label>Enter Answer</label>
-                    <textarea name="answer" id="answer" class="form-control" required></textarea>
+                    <label style="font-size:25px; margin-left:420px;font-weight:700px; ">Enter Answer</label>
+                    <textarea class="inputa"name="answer" id="answer" class="form-control" required></textarea>
                 </div>
- 
+
+
                 <!-- submit button -->
-                <input type="submit" name="submit" class="btn btn-info" value="Add FAQ" />
+                <input class="Addfaq" type="submit" name="submit" class="btn btn-info" value="Add FAQ" />
             </form>
         </div>
     </div>
@@ -81,11 +136,12 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 
+$sql = "SELECT * FROM tbl_faq ORDER BY faq_id DESC";
+$statement = $conn->prepare($sql);
+$statement->execute();
+$faqs = $statement->fetchAll();
+
 ?>
- <!-- Duhet me shtu diqka  Per me i rendit pytjet newest to oldest...--> 
-
-
-    
 
 
  <div class="row">
