@@ -190,7 +190,7 @@ if($stmt = mysqli_prepare($conn, $sql)) {
                 mysqli_stmt_close($stmt2);
 
                 // Redirect the user to the appropriate dashboard page
-                header("location: ../login.php");
+                header("location: success.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }

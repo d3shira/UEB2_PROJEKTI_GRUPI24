@@ -61,7 +61,7 @@
                 <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-success" value="Submit">
+                <input type="submit" class="btn btn-success" value="Add Staff">
                 <br>
                 <input type="reset" class="btn btn-secondary ml-2" value="Reset">
             </div>

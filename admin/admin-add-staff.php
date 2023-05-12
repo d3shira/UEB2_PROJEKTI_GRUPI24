@@ -26,7 +26,8 @@
         <div class="dropdown">
             <a class="dropbtn">Manage Users</a>
             <div class="dropdown-content">
-                <a href="#">Manage Users</a>
+                <a href="admin-manage-staff.php">Manage Staff</a>
+                <a href="admin-manage-clients.php">Manage Clients</a>
                 <a href="admin-add-staff.php">Add Staff</a>
             </div>
         </div>

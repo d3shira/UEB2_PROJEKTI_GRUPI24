@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="navbar-admin.css">
+    <link rel="stylesheet" href="manage-staff.css">
 
     <!--<script src="home.js"></script>--> 
     <script src="../navbar.js"></script> 
@@ -24,7 +25,8 @@
         <div class="dropdown">
             <a class="dropbtn">Manage Users</a>
             <div class="dropdown-content">
-                <a href="#">Manage Users</a>
+                <a href="admin-manage-staff.php">Manage Staff</a>
+                <a href="admin-manage-clients.php">Manage Clients</a>
                 <a href="admin-add-staff.php">Add Staff</a>
             </div>
         </div>
@@ -37,13 +39,49 @@
     </div>
 </header>
 <body>
-    <section class="home" id="home">
-    <div class="content">
-        <br><br><br>
-    <h3>Manage Diets</h3>
-    <p>ezwrxdgyhvcgftgyuh</p>
+     <!-- CONTENT SECTION -->
+     <div class="tbl-content">
+    <table class="tbl-full">
+        <tr>
+            <th>ID</th>
+            <th>Diet Name</th>
+            <th>Price</th>
+            <th>In Stock</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>
+                <a class="update-button" href="#">Update Diet</a>
+                <a class="delete-button" href="#">Delete Diet</a>
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>
+                <a class="update-button" href="#">Update Diet</a>
+                <a class="delete-button" href="#">Delete Diet</a>
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>
+                <a class="update-button" href="#">Update Diet</a>
+                <a class="delete-button" href="#">Delete Diet</a>
+            </td>
+        </tr>
+    </table>
+    
     </div>
-    </section>
 <body>
 </body>
 </html>

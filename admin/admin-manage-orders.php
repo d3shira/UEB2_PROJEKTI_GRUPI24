@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="navbar-admin.css">
+    <link rel="stylesheet" href="manage-staff.css">
 
     <!--<script src="home.js"></script>--> 
     <script src="../navbar.js"></script> 
@@ -27,7 +28,8 @@
         <div class="dropdown">
             <a class="dropbtn">Manage Users</a>
             <div class="dropdown-content">
-                <a href="#">Manage Users</a>
+                <a href="admin-manage-staff.php">Manage Staff</a>
+                <a href="admin-manage-clients.php">Manage Clients</a>
                 <a href="admin-add-staff.php">Add Staff</a>
             </div>
         </div>

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <title>Document</title>
+    <title>Manage Clients</title>
+   
 
     <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="navbar-admin.css">
+    <link rel="stylesheet" href="manage-staff.css">
 
     <!--<script src="home.js"></script>--> 
     <script src="../navbar.js"></script> 
@@ -46,8 +47,58 @@
 
 
     <!-- CONTENT SECTION -->
-    <div class="content">
-        <p>Dafina balaj</p>
+    <div class="tbl-content">
+    <table class="tbl-full">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>E-mail</th>
+            <th>-----</th>
+            <th>Date created</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>
+                <a class="update-button" href="#">Update Client</a>
+                <a class="delete-button" href="#">Delete Client</a>
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>
+                <a class="update-button" href="#">Update Client</a>
+                <a class="delete-button" href="#">Delete Client</a>
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>test</td>
+            <td>
+                <a class="update-button" href="#">Update Client</a>
+                <a class="delete-button" href="#">Delete Client</a>
+            </td>
+        </tr>
+    </table>
     
     </div>
 
@@ -66,4 +117,3 @@
 
 </body>
 </html>
-

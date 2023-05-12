@@ -1,0 +1,37 @@
+.tbl-full{
+    width:100%;
+}
+table tr th{
+    border-bottom:1px solid black;
+    padding: 1%;
+    text-align: left;
+}
+.tbl-content{
+    width:80%;
+    bottom:55%;
+    left:10%;
+    right:30%;
+    position:absolute;
+}
+
+table tr td{
+    padding:1%;
+}
+
+.update-button {
+    background-color: #27ae60;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .delete-button {
+    background-color: #666;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  
