@@ -1,52 +1,6 @@
-<?php
-// Include the database configuration file
-require_once('database.php');
 
-
-
-// Start the session
-session_start();
-
-// Check if the user is logged in, if not then redirect him to login page
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: clientlogin.php");
-    exit;
-}
-
-$user_id=$_SESSION["user_id"];
-
-
-// Retrieve the client profile information
-$sql = "SELECT * FROM tbl_client_profiles WHERE user_id = '$user_id'";
-$result = mysqli_query($conn, $sql);
-$client_profile = mysqli_fetch_assoc($result);
-
-
-// Retrieve the client's orders
-$sql = "SELECT * FROM tbl_orders WHERE user_id = '$user_id' ORDER BY order_date DESC";
-$result = mysqli_query($conn, $sql);
-$orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-// Handle form submission for updating the client profile
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $birthday = $_POST['birthday'];
-    $weight = $_POST['weight'];
-    $height = $_POST['height'];
-    $formatted_birthday = date('Y-m-d', strtotime($birthday));
-
-    $sql = "UPDATE tbl_client_profiles SET birthday = '$formatted_birthday', weight = '$weight', height = '$height' WHERE user_id = '$user_id'";
-    if (mysqli_query($conn, $sql)) {
-        $client_profile["birthday"] = $formatted_birthday;
-        $client_profile["weight"] = $weight;
-        $client_profile["height"] = $height;
-    }
-}
-
-
-
-// Close the database connection
-mysqli_close($conn);
-?>
+<?php session_start();
+require_once('database.php');?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,6 +11,7 @@ mysqli_close($conn);
     <title>Welcome Client!!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="admin/register-staff.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	
     <style>
         body{ font: 14px sans-serif; text-align: center; }
@@ -64,29 +19,33 @@ mysqli_close($conn);
 </head>
 
 <body>
+
 <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site!</h1>
+<?php require 'client-info-logic.php'?>
 <div class="row">
 <div class="col-md-6">
 	<div class="wrapper">
-		<h2>Insert Client Profile</h2>
-		<form  method="post">
-			<div class="form-group">
-				<label>Birthday: </label>
-				<input type="date" name="birthday" class="form-control" required>
-			</div>
-			<div class="form-group">
-				<label>Weight (kg): </label>
-				<input type="number" name="weight" class="form-control" required>
-			</div>
-			<div class="form-group">
-				<label>Height (cm): </label>
-				<input type="number" name="height" class="form-control" required>
-			</div>
-			<div class="form-group">
-				<input type="submit" value="Save" class="btn btn-primary">
-			</div>
-		</form>
-	</div>
+<?php
+  echo '<h2>Add Client Information</h2>';
+  echo '<form method="post">';
+  echo '<div class="form-group">';
+  echo '<label>Birthday: </label>';
+  echo '<input type="date" name="birthday" class="form-control" value="'.$client_profile['birthday'].'" required>';
+  echo '</div>';
+  echo '<div class="form-group">';
+  echo '<label>Weight (kg): </label>';
+  echo '<input type="number" name="weight" class="form-control" value="'.$client_profile['weight'].'" required>';
+  echo '</div>';
+  echo '<div class="form-group">';
+  echo '<label>Height (cm): </label>';
+  echo '<input type="number" name="height" class="form-control" value="'.$client_profile['height'].'" required>';
+  echo '</div>';
+  echo '<div class="form-group">';
+  echo '<input type="submit" value="Save" class="btn btn-primary">';
+  echo '</div>';
+  echo '</form>';
+  echo '</div>';?>
+		
 </div>
 
   <div class="col-md-6">
