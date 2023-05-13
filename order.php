@@ -133,21 +133,27 @@ if(isset($_POST['Order']))
         $order_date = date("Y-m-d h:i:sa");
         
         $sql2 = "INSERT INTO tbl_orders (diet_id, user_id, address, contact, quantity, total_price, order_date, status) 
-                 VALUES ('{$diet_id}', '$user_id', '$address', '$contact', '$quantity', '$total_price', '$order_date', '$status')";
-        
-        if(mysqli_query($conn, $sql2)) {
-            $_SESSION['order'] = "<div class='success'> Porosia u ruajt me sukses.</div>";
-            header('location:http://localhost/UEB2_PROJEKTI/order.php?diet_id=41');
-            exit;
-        } else {
-            $_SESSION['order'] = "<div class='error'> Dështoi ruajtja e porosisë.</div>";
-            header('location:http://localhost/UEB2_PROJEKTI/order.php?diet_id=41');
-            exit;
-        }
-    } else {
-        echo "Food not available.";
+                 VALUES ('{$diet_id}', '{$user_id}', '{$address}', '{$contact}', '{$quantity}', '{$total_price}', '{$order_date}', '{$status}')";
+          //Execute the Query
+          $res2 = mysqli_query($conn, $sql2);
+
+          //Check whether query executed successfully or not
+          if($res2==true)
+          {
+              //Query Executed and Order Saved
+              $_SESSION['order'] = "<div class='success text-center'>Food Ordered Successfully.</div>";
+              header('location:location: http://localhost/UEB2_PROJEKTI/order.php?diet_id=41');
+          }
+          else
+          {
+              //Failed to Save Order
+              $_SESSION['order'] = "<div class='error text-center'>Failed to Order Food.</div>";
+              header('location:location: http://localhost/UEB2_PROJEKTI/order.php?diet_id=41');
+          }
+
+      }
+  
     }
-}
 ?>
 
 </body>
