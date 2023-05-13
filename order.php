@@ -95,7 +95,8 @@ if ($food_found) {
 
 
 
-<input type="submit" name="Order" value="Order now" class="btn btn-primary">
+<input type="submit" name="Order" value="Order now" class="btn btn-primary"  onmouseover="this.style.backgroundColor='#27ae60';"
+           onmouseout="this.style.backgroundColor='#192a56';">
 </fieldset>
 </div>
 
