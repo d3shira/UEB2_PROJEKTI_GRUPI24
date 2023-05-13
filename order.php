@@ -118,6 +118,7 @@ if(isset($_POST['Order']))
     
     if($count == 1) {
         $row = mysqli_fetch_assoc($res);
+        $user_id=$row['user_id'];
         $diet_name = $row['diet_name'];
         $price = $row['price'];
         $in_stock = $row['in_stock'];
@@ -129,7 +130,7 @@ if(isset($_POST['Order']))
         $address = $_POST['address'];
 
         
-        $user_id = $_SESSION["user_id"]; // Përpilojeni për të marrë user_id të klientit
+        $_SESSION["user_id"] = $user_id; // Përpilojeni për të marrë user_id të klientit
         $status = "Ordered";
         $order_date = date("Y-m-d h:i:sa");
         
@@ -143,13 +144,13 @@ if(isset($_POST['Order']))
           {
               //Query Executed and Order Saved
               $_SESSION['order'] = "<div class='success text-center'>Food Ordered Successfully.</div>";
-              header('location:location: http://localhost/UEB2_PROJEKTI/order.php?diet_id=41');
+           //   header('location: http://localhost/UEB2_PROJEKTI/order.php?diet_id=41');
           }
           else
           {
               //Failed to Save Order
               $_SESSION['order'] = "<div class='error text-center'>Failed to Order Food.</div>";
-              header('location:location: http://localhost/UEB2_PROJEKTI/order.php?diet_id=41');
+              header('location: http://localhost/UEB2_PROJEKTI/order.php?diet_id=41');
           }
 
       }
