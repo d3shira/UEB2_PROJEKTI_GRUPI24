@@ -49,7 +49,7 @@
 <br><br><br>
 <div class="wrapper">
     <div class="form-group">
-    <h3 style="text-align: left; margin:45px; font-size: 25px; color:#192a56;">Update Staff</h3>
+    <h3 style="text-align: left; margin:45px; font-size: 25px; color:#192a56;">Update Client</h3>
 
     <?php 
     //1. Get the ID of Selected Staff
@@ -81,7 +81,7 @@
         else
         {
             //Redirect to Manage Admin PAge
-            header('location:http://localhost/UEB2_PROJEKTI/admin/admin-manage-staff.php');
+            header('location:http://localhost/UEB2_PROJEKTI/admin/admin-manage-clients.php');
         }
     }
     
@@ -123,7 +123,7 @@
                     <td colspan="2">
                         <br>
                         <input type="hidden" name="user_id" value="<?php echo $id; ?>">
-                        <input type="submit" name="submit" value="Update Staff" class="update-button">
+                        <input type="submit" name="submit" value="Update Client" class="update-button">
                     </td>
                 </tr>
 
@@ -148,13 +148,13 @@
 
         //Create a SQL Query to Update Admin
         $sql = "UPDATE tbl_users
-        INNER JOIN tbl_staff_profiles ON tbl_users.user_id = tbl_staff_profiles.user_id
+        INNER JOIN tbl_client_profiles ON tbl_users.user_id = tbl_client_profiles.user_id
         SET tbl_users.first_name = '$first_name',
             tbl_users.last_name = '$last_name',
             tbl_users.username = '$username',
             tbl_users.email = '$email',
-            tbl_staff_profiles.first_name = '$first_name',
-            tbl_staff_profiles.last_name = '$last_name'
+            tbl_client_profiles.first_name = '$first_name',
+            tbl_client_profiles.last_name = '$last_name'
         WHERE tbl_users.user_id = '$id'";
 
 
@@ -165,16 +165,16 @@
         if($res==true)
         {
             //Query Executed and Admin Updated
-            $_SESSION['update'] = "<div class='success'>Admin Updated Successfully.</div>";
+            $_SESSION['update'] = "<div class='success'>Client Updated Successfully.</div>";
             //Redirect to Manage Admin Page
-            header('location:http://localhost/UEB2_PROJEKTI/admin/admin-manage-staff.php');
+            header('location:http://localhost/UEB2_PROJEKTI/admin/admin-manage-clients.php');
         }
         else
         {
             //Failed to Update Admin
-            $_SESSION['update'] = "<div class='error'>Failed to Delete Admin.</div>";
+            $_SESSION['update'] = "<div class='error'>Failed to Delete Client.</div>";
             //Redirect to Manage Admin Page
-            header('location:http://localhost/UEB2_PROJEKTI/admin/admin-manage-staff.php');
+            header('location:http://localhost/UEB2_PROJEKTI/admin/admin-manage-clients.php');
         }
     }
 

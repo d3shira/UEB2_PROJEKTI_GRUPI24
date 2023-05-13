@@ -1,4 +1,18 @@
 <?php require_once "../database.php"; ?>
+<?php           
+                if(isset($_SESSION['delete']))
+                    {
+                        echo $_SESSION['delete'];
+                        unset($_SESSION['delete']);
+                    }
+
+                    if(isset($_SESSION['update']))
+                    {
+                        echo $_SESSION['update'];
+                        unset($_SESSION['update']);
+                    }
+                    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,8 +127,8 @@
                             <td><?php echo $bmi; ?></td>
                             <td><?php echo $date_time; ?></td>
                             <td>
-                                <a class="update-button" href="#">Update Client</a>
-                                <a class="delete-button" href="#">Delete Client</a>
+                            <a class="update-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/update-client.php?user_id=' .$id; ?>">Update Client</a>
+                            <a class="delete-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/delete-client.php?user_id=' .$id; ?>">Delete Client</a>
                             </td>
                         </tr>
                         <?php
