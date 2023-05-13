@@ -1,4 +1,4 @@
-<?php require_once("database.php");
+<?php require_once"../database.php";
 
 // Initialize the session
 session_start();
