@@ -1,3 +1,4 @@
+Copy code
 <?php
 require_once "database.php";
 
@@ -9,11 +10,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: clientlogin.php");
     exit;
 }
-/*if (!isset($_SESSION['user_id'])) {
-    header('Location: clientlogin.php');
-    exit;
-}*/
-
 
 $user_id = $_SESSION['user_id'];
 $first_name = $_SESSION['first_name'];
@@ -48,8 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sddi", $birthday, $weight, $height, $user_id);
     $stmt->execute();
     $stmt->close();
-    
-    
 }
 
 // Retrieve client's orders
