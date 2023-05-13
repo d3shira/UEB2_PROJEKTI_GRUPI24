@@ -19,6 +19,7 @@
     background-color: #ffffff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top:100px;
 }
 
 h1 {
@@ -55,7 +56,7 @@ label {
     cursor: pointer;
 }
 
-button[type="submit"]:hover {
+.Submit:hover {
     background-color: #45a049;
 }
 
@@ -64,7 +65,7 @@ button[type="submit"]:hover {
 <body>
     <div class="container">
         <h1>Ask a Question</h1>
-        <form action="submit_question.php" method="POST">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <label for="question" class="Teksti">Write your question:</label>
             <input type="text" class="Question" id="question" name="question" placeholder="Enter your question here" required>
             <button class="Submit"type="submit">Submit</button>
@@ -72,3 +73,49 @@ button[type="submit"]:hover {
     </div>
 </body>
 </html>
+
+
+<?php
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get the question from the form submission
+    $question = $_POST['question'];
+
+    // Database connection parameters
+    $servername = "localhost:3307";
+    $username = "root";
+    $password = "Replace.3";
+    $dbname = "ueb2";
+
+    try {
+        // Create a new PDO instance
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        
+        // Set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // Prepare the SQL statement to insert the question into tbl_faq
+        $sql = "INSERT INTO tbl_faq (question) VALUES (:question)";
+        $statement = $conn->prepare($sql);
+        
+        // Bind the question parameter and execute the statement
+        $statement->bindParam(':question', $question);
+        $statement->execute();
+
+        // Redirect the user to a success page or perform any additional actions
+        header("Location: success.php");
+        exit();
+    } catch (PDOException $e) {
+        // Handle any database errors
+        echo "Connection failed: " . $e->getMessage();
+    }
+}
+?>
+
+
+<!-- Your HTML form goes here
+<form method="POST" action="">
+    <label for="question">Write a question:</label>
+    <input type="text" name="question" id="question" required>
+    <input type="submit" name="submit" value="Submit">
+</form> -->
