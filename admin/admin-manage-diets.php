@@ -27,7 +27,6 @@
             <div class="dropdown-content">
                 <a href="admin-manage-staff.php">Manage Staff</a>
                 <a href="admin-manage-clients.php">Manage Clients</a>
-                <a href="admin-add-staff.php">Add Staff</a>
             </div>
         </div>
         <a class="" href="admin-manage-diets.php">Manage Diets</a>
