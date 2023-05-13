@@ -1,4 +1,18 @@
 <?php require_once "../database.php"; ?> 
+<?php           
+                if(isset($_SESSION['delete']))
+                    {
+                        echo $_SESSION['delete'];
+                        unset($_SESSION['delete']);
+                    }
+
+                    if(isset($_SESSION['update']))
+                    {
+                        echo $_SESSION['update'];
+                        unset($_SESSION['update']);
+                    }
+                    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,6 +59,12 @@
         <a href="admin dashboard.php" class="fa-solid fa-user"></a>
     </div>
 </header>
+<div>
+    <div class="wrapper">
+        <h3 style="text-align: left; margin:90px; font-size: 25px; color:#192a56;">Manage Staff</h3>
+        <a class ="add-button" href="admin-add-staff.php">Add Staff</a>
+        <br><br>
+    </div>
 
 
     <!-- CONTENT SECTION -->
@@ -107,7 +127,7 @@
                         <td><?php echo $profession; ?></td>
                         <td><?php echo $date_time; ?></td>
                         <td>
-                            <a class="update-button" href="#">Update Staff</a>
+                            <a class="update-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/update-staff.php?user_id=' .$id; ?>">Update Staff</a>
                             <a class="delete-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/delete-staff.php?user_id=' .$id; ?>">Delete Staff</a>
 
                         </td>

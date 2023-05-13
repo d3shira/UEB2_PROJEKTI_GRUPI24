@@ -34,4 +34,12 @@ table tr td{
     border-radius: 4px;
     text-decoration: none;
   }
+
+  .add-button {
+    background-color: #192a56;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
   

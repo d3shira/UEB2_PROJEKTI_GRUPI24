@@ -45,10 +45,14 @@
         <a href="admin dashboard.php" class="fa-solid fa-user"></a>
     </div>
 </header>
+<div>
+    <div class="wrapper">
+        <h3 style="text-align: left; margin:90px; font-size: 25px; color:#192a56;">Manage Clients</h3>
+    </div>
 
 
     <!-- CONTENT SECTION -->
-    
+    <br><br>
     <div class="tbl-container">
     <div class="tbl-content">
         <table class="tbl-full">
