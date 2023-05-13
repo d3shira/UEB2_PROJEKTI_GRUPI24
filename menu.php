@@ -33,16 +33,16 @@
              <div class="box" id="dietCards">
                   <div class="image">
                      <img src="images/sq_mediterranean_diet.jpeg" alt="">
-                     <a href="#" class="fas far fa-heart"></a>
+                     <!-- <a href="#" class="fas far fa-heart"></a> -->
                   </div>
                  <div class="content">
-                    <div class="stars">
+                    <!-- <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fas fa-star-half-alt"></i>
-                    </div>
+                    </div> -->
                     <h3> <?php echo $rows['diet_name']?> Diet</h3>
                     <p><?php echo $rows['description']?></p>
                     <!-- <p>The Mediterranean Diet emphasizes whole foods, healthy fats, and seafood while limiting processed foods, red meat, and added sugars It is based on the eating habits of people.</p> -->
