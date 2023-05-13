@@ -48,12 +48,7 @@ section:nth-child(even){
     border-radius: .5rem;
     cursor: pointer;
     padding: .8rem 3rem;
-<<<<<<< HEAD
     text-align: ```11111;
-
-
-=======
->>>>>>> 2f42781acfee44ce3a8ef2e0abc8d764f41b3163
 }
 .btn:hover{
     /* background: var(--green); */
