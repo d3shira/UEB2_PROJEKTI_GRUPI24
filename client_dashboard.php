@@ -1,8 +1,25 @@
-Copy code
 <?php
-require_once "database.php";
+// Include the database configuration file
 
-// Initialize the session
+
+$dbhost='localhost:3307';
+$dbuser='root';
+
+$dbpass='';
+$db='ueb2'; 
+$conn=mysqli_connect($dbhost,$dbuser,$dbpass,$db);
+
+if(!$conn)
+{
+  die('Could not connect: '.mysqli_connect_error());
+  
+}
+
+echo 'Connected successfully<br>';
+
+
+
+// Start the session
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
@@ -11,82 +28,70 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
-$user_id = $_SESSION['user_id'];
-$first_name = $_SESSION['first_name'];
-$last_name = $_SESSION['last_name'];
-// Create MySQLi object
-$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $db);
+$user_id=$_SESSION["user_id"];
 
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
-}
 
-// Retrieve client profile information
-$client_profile = array();
-$stmt = $mysqli->prepare('SELECT * FROM tbl_client_profiles WHERE user_id = ?');
-$stmt->bind_param('i', $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-if ($result->num_rows > 0) {
-    $client_profile = $result->fetch_assoc();
-}
+// Retrieve the client profile information
+$sql = "SELECT * FROM tbl_client_profiles WHERE user_id = '$user_id'";
+$result = mysqli_query($conn, $sql);
+$client_profile = mysqli_fetch_assoc($result);
 
-// Handle form submission
+
+// Retrieve the client's orders
+$sql = "SELECT * FROM tbl_orders WHERE user_id = '$user_id' ORDER BY order_date DESC";
+$result = mysqli_query($conn, $sql);
+$orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+// Handle form submission for updating the client profile
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the values from the form submission
     $birthday = $_POST['birthday'];
     $weight = $_POST['weight'];
     $height = $_POST['height'];
     $formatted_birthday = date('Y-m-d', strtotime($birthday));
 
-    // Prepare the SQL statement
-    $stmt = $mysqli->prepare("INSERT INTO tbl_client_profiles (birthday, weight, height, user_id) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("sddi", $birthday, $weight, $height, $user_id);
-    $stmt->execute();
-    $stmt->close();
-}
-
-// Retrieve client's orders
-$orders = array();
-$stmt = $mysqli->prepare('SELECT * FROM tbl_orders WHERE user_id = ? ORDER BY order_date DESC');
-$stmt->bind_param('i', $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $orders[] = $row;
+    $sql = "UPDATE tbl_client_profiles SET birthday = '$formatted_birthday', weight = '$weight', height = '$height' WHERE user_id = '$user_id'";
+    if (mysqli_query($conn, $sql)) {
+        $client_profile["birthday"] = $formatted_birthday;
+        $client_profile["weight"] = $weight;
+        $client_profile["height"] = $height;
     }
 }
-$stmt->close();
-$mysqli->close();
+
+
+
+// Close the database connection
+mysqli_close($conn);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
     <title>Welcome Client!!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="admin/register-staff.css">
-	<title>Insert Client Profile</title>
+	
     <style>
         body{ font: 14px sans-serif; text-align: center; }
     </style>
 </head>
+
 <body>
-    <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site, you are our newest client!!</h1>
+<h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site, you are our newest client!!</h1>
     <p>
         <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
         <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
     </p>
+  
 
- 
-
-<h1>Welcome, <?php echo $client_profile['first_name'] . ' ' . $client_profile['last_name']; ?></h1>
+    
 
 
 	<div class="wrapper">
 		<h2>Insert Client Profile</h2>
-		<form action="insert_profile.php" method="post">
+		<form  method="post">
 			<div class="form-group">
 				<label>Birthday: </label>
 				<input type="date" name="birthday" class="form-control" required>
@@ -133,8 +138,7 @@ $mysqli->close();
         <td><?php echo $order['order_date']; ?></td>
         <td><?php echo $order['status']; ?></td>
       </tr>
+      
       <?php endforeach; ?>
-
-    
-</body>
+      </body>
 </html>
