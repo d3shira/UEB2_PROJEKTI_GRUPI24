@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once "../database.php";
+require_once "database.php";
  
 // Define variables and initialize with empty values
 $first_name = $last_name = $username = $password = $confirm_password = $email = $confirm_email = $token= "";
@@ -185,7 +185,7 @@ if($stmt = mysqli_prepare($conn, $sql)) {
                 mysqli_stmt_close($stmt2);
 
                 // Redirect the user to the appropriate dashboard page
-                header("location: login.php");
+                header("location: clientlogin.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }

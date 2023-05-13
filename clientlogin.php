@@ -1,4 +1,4 @@
-<?php @include'login-logic.php'?>
+<?php @include 'login-logic.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +32,7 @@
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
-            <p>Continue to add your data <a href="clientform.php">Continue</a>.</p>
+            <p>Don't have an account? <a href="register-client.php">Sign up now</a>.</p>
         </form>
     </div>
 </body>

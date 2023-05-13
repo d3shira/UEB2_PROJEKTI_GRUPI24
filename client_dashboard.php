@@ -1,25 +1,25 @@
-<?php require_once"../database.php";
+<?php
+require_once "database.php";
 
 // Initialize the session
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: clientlogin.php");
     exit;
 }
-
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
+/*if (!isset($_SESSION['user_id'])) {
+    header('Location: clientlogin.php');
     exit;
-}
+}*/
 
-/*require_once('database.php');*/
 
 $user_id = $_SESSION['user_id'];
-
+$first_name = $_SESSION['first_name'];
+$last_name = $_SESSION['last_name'];
 // Create MySQLi object
-$mysqli = new mysqli($dbhost, $dbuser,$dbpass, $db);
+$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
@@ -33,6 +33,23 @@ $stmt->execute();
 $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     $client_profile = $result->fetch_assoc();
+}
+
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the values from the form submission
+    $birthday = $_POST['birthday'];
+    $weight = $_POST['weight'];
+    $height = $_POST['height'];
+    $formatted_birthday = date('Y-m-d', strtotime($birthday));
+
+    // Prepare the SQL statement
+    $stmt = $mysqli->prepare("INSERT INTO tbl_client_profiles (birthday, weight, height, user_id) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("sddi", $birthday, $weight, $height, $user_id);
+    $stmt->execute();
+    $stmt->close();
+    
+    
 }
 
 // Retrieve client's orders
@@ -49,13 +66,14 @@ if ($result->num_rows > 0) {
 $stmt->close();
 $mysqli->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Welcome Client!!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="admin/register-staff.css">
+	<title>Insert Client Profile</title>
     <style>
         body{ font: 14px sans-serif; text-align: center; }
     </style>
@@ -69,11 +87,31 @@ $mysqli->close();
 
  
 
-    <h1>Welcome, <?php echo $client_profile['first_name'] . ' ' . $client_profile['last_name']; ?></h1>
-  <p>Birthday: <?php echo $client_profile['birthday']; ?></p>
-  <p>Weight: <?php echo $client_profile['weight']; ?> kg</p>
-  <p>Height: <?php echo $client_profile['height']; ?> cm</p>
-  <p>BMI: <?php echo $client_profile['bmi']; ?></p>
+<h1>Welcome, <?php echo $client_profile['first_name'] . ' ' . $client_profile['last_name']; ?></h1>
+
+
+	<div class="wrapper">
+		<h2>Insert Client Profile</h2>
+		<form action="insert_profile.php" method="post">
+			<div class="form-group">
+				<label>Birthday: </label>
+				<input type="date" name="birthday" class="form-control" required>
+			</div>
+			<div class="form-group">
+				<label>Weight (kg): </label>
+				<input type="number" name="weight" class="form-control" required>
+			</div>
+			<div class="form-group">
+				<label>Height (cm): </label>
+				<input type="number" name="height" class="form-control" required>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Submit" class="btn btn-primary">
+			</div>
+		</form>
+	</div>
+</body>
+</html>
   
   <h2>Your Orders</h2>
   <table border="1" class="mx-auto">
