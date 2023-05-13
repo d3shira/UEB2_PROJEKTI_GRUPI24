@@ -1,21 +1,6 @@
 <?php
 // Include the database configuration file
-
-
-$dbhost='localhost:3307';
-$dbuser='root';
-
-$dbpass='';
-$db='ueb2'; 
-$conn=mysqli_connect($dbhost,$dbuser,$dbpass,$db);
-
-if(!$conn)
-{
-  die('Could not connect: '.mysqli_connect_error());
-  
-}
-
-echo 'Connected successfully<br>';
+require_once('database.php');
 
 
 
@@ -79,16 +64,9 @@ mysqli_close($conn);
 </head>
 
 <body>
-<h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site, you are our newest client!!</h1>
-    <p>
-        <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
-        <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
-    </p>
-  
-
-    
-
-
+<h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site!</h1>
+<div class="row">
+<div class="col-md-6">
 	<div class="wrapper">
 		<h2>Insert Client Profile</h2>
 		<form  method="post">
@@ -105,15 +83,16 @@ mysqli_close($conn);
 				<input type="number" name="height" class="form-control" required>
 			</div>
 			<div class="form-group">
-				<input type="submit" value="Submit" class="btn btn-primary">
+				<input type="submit" value="Save" class="btn btn-primary">
 			</div>
 		</form>
 	</div>
-</body>
-</html>
-  
+</div>
+
+  <div class="col-md-6">
   <h2>Your Orders</h2>
   <table border="1" class="mx-auto">
+  <table class="table table-striped">
   <thead>
       <tr>
         <th>Order ID</th>
@@ -138,7 +117,15 @@ mysqli_close($conn);
         <td><?php echo $order['order_date']; ?></td>
         <td><?php echo $order['status']; ?></td>
       </tr>
-      
       <?php endforeach; ?>
+      </tbody>
+  </table>
+      </div>
+</div>
+<br><br>
+      <p>
+        <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
+        <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
+    </p>
       </body>
 </html>
