@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="navbar-admin.css">
     <link rel="stylesheet" href="manage-staff.css">
 
+  
+
     <!--<script src="home.js"></script>--> 
     <script src="../navbar.js"></script> 
 
@@ -38,8 +40,18 @@
     </div>
 </header>
 <body>
+<?php
+define('SITEURL', 'http://localhost/UEB2_PROJEKTI/');
+?>
+
+    <!-- Button to Add Admin-->
+    
+ 
      <!-- CONTENT SECTION -->
      <div class="tbl-content">
+
+     <a href="<?php echo SITEURL; ?>admin/admin-add-diet.php" class="update-button">Add Diet</a>
+      <br><br>
     <table class="tbl-full">
         <tr>
             <th>ID</th>
@@ -81,6 +93,6 @@
     </table>
     
     </div>
-<body>
+   
 </body>
 </html>
