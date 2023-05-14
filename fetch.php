@@ -26,26 +26,30 @@ $faqs = $statement->fetchAll(PDO::FETCH_ASSOC);
 <head>
   <title>Most Frequently Asked Questions</title>
   <style>
-    * {
-      background-color: #e0dddd;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-left: 20px;
-    }
-    th, td {
-      padding: 8px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background-color: #f2f2f2;
-      font-weight: bold;
-    }
-    h1 {
-      margin-left: 20px;
-    }
+   
+  * {
+    background-color: #e0dddd;
+  }
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-left: 20px;
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  h1 {
+    margin-left: 20px;
+  }
+</style>
+
   </style>
 </head>
 <body>
@@ -53,8 +57,8 @@ $faqs = $statement->fetchAll(PDO::FETCH_ASSOC);
 
   <table>
     <tr>
-      <th>Question</th>
-      <th>Frequency</th>
+      <th style="font-size:20px;">Question</th>
+      <th style="font-size:20px;">Frequency</th>
     </tr>
     <?php
     // Iterate over the fetched FAQs and display them in a table row
