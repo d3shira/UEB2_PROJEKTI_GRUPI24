@@ -1,56 +1,3 @@
-<style>
-
-*{
-    background-color:#e0dddd;
-}
-    .text-center{
-        text-align:center;
-        color: #192a56;
-
-    }
-
-    .form-control{
-        height:50px;
-        width:200px;
-    }
-    .form-group {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        font-size:20px;
-        font-weight:600;
-        margin-left:550px;
-      }
-
-
-
-.form-group textarea {
-  padding: 10px;
-  resize: vertical;
-}
-
-#answer{
-    margin-top:5px;
-    margin-left:12px;
-}
-
-
-.btnSubmit{
-     margin-left:730px;
-     height:50px;
-     width:100px;
-     margin-top:10px;
-     font-weight:600;
-     font-size:16px;
-    background-color:#7db9be;
-    border-radius:8px;
-}
-
-.btnSubmit:hover{
-    background-color:#5a939a;
-}
-</style>
-
 <?php
 // Connect to the database using PHPMyAdmin
 $servername = "localhost:3307";
@@ -90,6 +37,56 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 ?>
+<style>
+
+    .text-center{
+        text-align:center;
+        color: #192a56;
+
+    }
+
+    .form-control{
+        height:50px;
+        width:200px;
+    }
+    .form-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size:20px;
+        font-weight:600;
+        margin-left:550px;
+      }
+
+
+
+.form-group textarea {
+  padding: 10px;
+  resize: vertical;
+}
+
+#answer{
+    margin-top:5px;
+    margin-left:12px;
+}
+
+
+.btnSubmit{
+     margin-left:730px;
+     height:50px;
+     width:100px;
+     margin-top:10px;
+     font-weight:600;
+     font-size:16px;
+ background-color:#27ae60;
+    border-radius:8px;
+}
+
+.btnSubmit:hover{
+    background-color:#19914b;
+}
+</style>
+
 
 <!-- include CSS -->
 <link rel="stylesheet" href="add.css">

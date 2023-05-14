@@ -37,6 +37,7 @@
                 <a href="view-client.php">Clients</a>
                 <a href="#">Diets</a>
                 <a href="#">Orders</a>
+                <a href="fetch.php">Questions</a>
             </div>
         </div>
         <a class="" href="../home.php">Home</a>

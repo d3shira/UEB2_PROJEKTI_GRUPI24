@@ -15,9 +15,7 @@
 
 
 <style>
-    *{
-        background-color:#e0dddd;
-    }
+
     .text-center{
         text-align:center;
         color:#192a56;
@@ -65,32 +63,35 @@ font-size:15px;
 }
 
 .editbtn{
-    background-color:#7db9be;
+    background-color:#27ae60;
     border-radius:6px;
     height:30px;
     width:50px;
 }
 .editbtn:hover{    
-    background-color:#5a939a;
+    background-color:#19914b;
+;
 
 
 }
 
 .deletebtnn{
-    background: #ebb5b5;
+    background: #666;
     border-radius:6px;
     height:30px;
     width:50px;
 }
 .deletebtnn:hover{
-    background: #ca9393;
+    background: #534e4e;
 }
 
 .tablee{
     display:flex;
     border:3px solid grey;
     /* justify-content:center; */
-    margin-left:150px;
+    width:60%;
+    justify-content: center;
+    margin-left:20%;
 }
 
 th{
@@ -208,11 +209,11 @@ $faqs = $statement->fetchAll();
                             <!-- [edit button goes here] -->
                           <!-- <button class="editbtn" ><a href="edit.php?id=<?php echo $faq['faq_id']; ?>" class="btn btn-warning btn-sm">Edit </a>
  </button> -->
- <a href="edit.php?id=<?php echo $faq['faq_id']; ?>" class="btn btn-warning btn-sm editbtn">
+ <a href="edit-question.php?id=<?php echo $faq['faq_id']; ?>" class="btn btn-warning btn-sm editbtn">
     <button class="editbtn">Edit</button>
 </a>
  <td>
-                            <form method="POST" action="delete.php" onsubmit="return confirm('Are you sure you want to delete this FAQ ?');">
+                            <form method="POST" action="delete-question.php" onsubmit="return confirm('Are you sure you want to delete this FAQ ?');">
     <input type="hidden" name="id" value="<?php echo $faq['faq_id']; ?>" required />
     <input class="deletebtnn"type="submit" value="Delete" class="btn btn-danger btn-sm" />
 </form>

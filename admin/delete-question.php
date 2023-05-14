@@ -4,9 +4,7 @@
     <title>Delete questions</title>
 
     <style>
-        *{
-                    background-color:#e0dddd;
-        }
+   
 h1{
     text-align:center;
     color: #192a56;
@@ -33,7 +31,7 @@ font-size: 20px;
   }
 
   .deletebtn{
-    background: #ebb5b5;
+     background: #666;
     width:100px;
     height:50px;
     font-size: 20px;
@@ -42,7 +40,7 @@ font-size: 20px;
   }
 
   .deletebtn:hover{
-    background: #ca9393;
+    background: #534e4e;
   }
 
     </style>
