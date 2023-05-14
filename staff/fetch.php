@@ -27,9 +27,6 @@ $faqs = $statement->fetchAll(PDO::FETCH_ASSOC);
   <title>Most Frequently Asked Questions</title>
   <style>
    
-  * {
-    background-color: #e0dddd;
-  }
   table {
     width: 80%;
     border-collapse: collapse;
@@ -38,22 +35,27 @@ $faqs = $statement->fetchAll(PDO::FETCH_ASSOC);
   th, td {
     padding: 8px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+   
+ 
   }
   th {
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
     font-weight: bold;
+    border-bottom: 1px solid black; 
+    color:#192a56;
   }
   
-  h1 {
+  h3 {
     margin-left: 20px;
-  }
-</style>
+    color:#192a56;
+    font-size:25px;
+  } 
 
-  </style>
+  
+</style>
 </head>
 <body>
-  <h1>Most Frequently Asked Questions</h1>
+  <h3>Most Frequently Asked Questions</h3>
 
   <table>
     <tr>
