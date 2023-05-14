@@ -36,6 +36,7 @@
         </div>
         <a class="" href="admin-manage-diets.php">Manage Diets</a>
         <a class="" href="admin-manage-orders.php">Manage Orders</a>
+        <a class="" href="admin-manage-questions.php">Manage Questions</a>
     </nav>
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
