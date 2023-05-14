@@ -40,10 +40,10 @@
                 <a href="staff-manage-questions.php">Questions</a>
             </div>
         </div>
-        <a class="" href="../home.php">Home</a>
-        <a class="" href="../aboutus.php">About Us</a>
-        <a class="" href="../menu.php">Diets</a>
-        <a class="" href="../blerta.php">Review</a>
+        <a class="" href="home-staff.php">Home</a>
+        <a class="" href="aboutus-staff.php">About Us</a>
+        <a class="" href="#">Diets</a>
+        <a class="" href="#">Review</a>
         <!-- <a class="" href="order.php">Order</a> -->
         <a class="" href="../faqs.php">FAQs</a> 
     </nav>
