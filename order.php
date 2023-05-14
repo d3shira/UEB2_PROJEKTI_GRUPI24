@@ -130,7 +130,7 @@ if(isset($_POST['Order']))
         $address = $_POST['address'];
 
         
-        $_SESSION["user_id"] = $user_id; // Përpilojeni për të marrë user_id të klientit
+        $user_id=$_SESSION["user_id"]; // Përpilojeni për të marrë user_id të klientit
         $status = "Ordered";
         $order_date = date("Y-m-d h:i:sa");
         
