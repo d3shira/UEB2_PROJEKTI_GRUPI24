@@ -134,7 +134,6 @@
 
                             <td>
                             <a class="update-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/update-client.php?user_id=' .$id; ?>">Update Order</a>
-                            <a class="delete-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/delete-client.php?user_id=' .$id; ?>">Delete Order</a>
                             </td>
                         </tr>
                         <?php
