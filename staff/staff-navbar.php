@@ -10,8 +10,11 @@
     <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!--css-->
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="../navbar.css">
+    <link rel="stylesheet" href="../home.css">
+    <!--<link rel="stylesheet" href="admin/navbar-admin.css">-->
+    <link rel="stylesheet" href="test.css">
+
 
     <!--<script src="home.js"></script>--> 
     <script src="navbar.js"></script> 
@@ -25,23 +28,27 @@
 
     <!--HEADER SECTION-->
     <!--me nderru disa icons dhe menu-->
-    <header>
-    <a href="#" class="logo"><i class="fas fa-utensils"></i>FitYou</a>
+    <header style="text-decoration:none;">
+    <a href="#" class="logo"><i class="fas fa-utensils"></i>FitYou - Staff Dashboard</a>
     <nav class="navbar">
-        <a class="" href="home.php">Home</a>
-        <a class="" href="aboutus.php">About Us</a>
-        <a class="" href="menu.php">Diets</a>
-        <a class="" href="blerta.php">Review</a>
+        <div class="dropdown">
+            <a class="dropbtn">Staff</a>
+            <div class="dropdown-content">
+                <a href="view-client.php">Clients</a>
+                <a href="../admin/admin-manage-diets.php">Diets</a>
+                <a href="../admin/admin-manage-orders.php">Orders</a>
+            </div>
+        </div>
+        <a class="" href="../home.php">Home</a>
+        <a class="" href="../aboutus.php">About Us</a>
+        <a class="" href="../menu.php">Diets</a>
+        <a class="" href="../blerta.php">Review</a>
         <!-- <a class="" href="order.php">Order</a> -->
-        <a class="" href="faqs.php">FAQs</a>
+        <a class="" href="../faqs.php">FAQs</a> 
     </nav>
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
-        <i class="fas fa-search" id="search-icon"></i>
-        <a href="#" class="fas fa-heart"></a>
-        <a href="#" class="fas fa-shopping-cart"></a>
-        <a href="#" class="fa-solid fa-user"></a>
-        <a href="question.php" class="fas fa-question-circle"></a>
+        <a href="admin dashboard.php" class="fa-solid fa-user"></a>
     </div>
 </header>
 

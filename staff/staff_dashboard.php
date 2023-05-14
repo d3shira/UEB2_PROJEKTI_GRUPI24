@@ -7,6 +7,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: ../login.php");
     exit;
 }
+
+if(isset($_SESSION['update']))
+                    {
+                        echo $_SESSION['update'];
+                        unset($_SESSION['update']);
+                    }
 ?>
 <?php 
 @include 'staff-navbar.php';
@@ -25,8 +31,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </style>
 </head>
 <body>
+    <br><br><br>
     <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site, you are our newest staff member!!</h1>
     <p>
+        <br><br><br>
+        <a class="add-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/staff/edit-profile.php?user_id=' .$id; ?>">Edit Your Profile</a>
         <a href="../reset-password.php" class="add-button">Reset Your Password</a>
         <a href="../logout.php" class="delete-button">Sign Out of Your Account</a>
     </p>
