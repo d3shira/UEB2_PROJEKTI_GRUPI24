@@ -1,4 +1,4 @@
-.tbl-full2{
+.tbl-full{
     width:100%;
 }
 table tr th{
@@ -6,19 +6,20 @@ table tr th{
     padding: 1%;
     text-align: left;
 }
-.tbl-content2{
+.tbl-content{
     width:80%;
     bottom:55%;
     left:10%;
     right:30%;
-    position:absolute;
+    position:relative;
 }
 
 table tr td{
     padding:1%;
 }
+
 .update-button {
-    background-color:#CBD18F;
+    background-color: #27ae60;
     color: white;
     padding: 6px 10px;
     border-radius: 4px;
@@ -27,9 +28,18 @@ table tr td{
   }
   
   .delete-button {
-    background-color: #3A6B35;
+    background-color: #666;
     color: white;
     padding: 6px 10px;
     border-radius: 4px;
     text-decoration: none;
   }
+
+  .add-button {
+    background-color: #192a56;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  

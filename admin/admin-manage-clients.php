@@ -41,7 +41,7 @@
     <!--HEADER SECTION-->
     <!--me nderru disa icons dhe menu-->
     <header style="text-decoration:none;">
-    <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou - FitYou - Admin Dashboard </a>
+    <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou - Admin Panel </a>
     <nav class="navbar">
         <div class="dropdown">
             <a class="dropbtn">Manage Users</a>
