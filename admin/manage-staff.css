@@ -11,7 +11,7 @@ table tr th{
     bottom:55%;
     left:10%;
     right:30%;
-    position:absolute;
+    position:relative;
 }
 
 table tr td{
