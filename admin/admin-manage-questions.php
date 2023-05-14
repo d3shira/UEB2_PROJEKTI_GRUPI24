@@ -13,7 +13,6 @@
 
 <script src="add.js"></script>
 
-
 <style>
 
     .text-center{
@@ -53,33 +52,45 @@
     margin-top:20px;
     height:40px;
     width:100px;
-    background-color:#8a8787;
-    font-weight:700;
-font-size:15px;
+    background: #666;
+    font-weight:600;
+    font-size:15px;
+    background: #666;
+    color:white;
+    padding: 6px 10px;
+    border-radius: 4px;
+border-color:transparent;
     
 }
 .Addfaq:hover{
-    background-color:#767070;
+    background: #534e4e;
 }
 
-.editbtn{
+#editbtn{
     background-color:#27ae60;
-    border-radius:6px;
-    height:30px;
-    width:50px;
+    /* border-radius:6px */
+    /* height:30px;
+    width:50px; */
+    color:white;
+    padding: 6px 17px;
+    border-radius: 4px;
+    /* border-color:transparent; */
+
 }
 .editbtn:hover{    
     background-color:#19914b;
-;
-
-
 }
 
 .deletebtnn{
     background: #666;
-    border-radius:6px;
-    height:30px;
-    width:50px;
+    /* border-radius:6px; */
+    /* height:30px;
+    width:50px; */
+    color:white;
+    padding:6px 10px;
+    border-radius: 4px;
+    border-color:transparent;
+
 }
 .deletebtnn:hover{
     background: #534e4e;
@@ -87,15 +98,18 @@ font-size:15px;
 
 .tablee{
     display:flex;
-    border:3px solid grey;
-    /* justify-content:center; */
+    /* border:3px solid grey; */
+    justify-content:center;
     width:60%;
-    justify-content: center;
     margin-left:20%;
 }
 
 th{
     font-size:20px;
+    border-bottom: 1px solid black;
+}
+td{
+    padding:5px;
 }
 
 #txt{
@@ -103,7 +117,9 @@ th{
 }
 </style>
 </head>
+
 <body>
+
 <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
     <div class="row">
         <div class="offset-md-3 col-md-6">
@@ -132,7 +148,6 @@ th{
     </div>
  
 </div>
-
 
 <!-- lidhja me database per phpmyadmin -->
 <?php
@@ -209,9 +224,8 @@ $faqs = $statement->fetchAll();
                             <!-- [edit button goes here] -->
                           <!-- <button class="editbtn" ><a href="edit.php?id=<?php echo $faq['faq_id']; ?>" class="btn btn-warning btn-sm">Edit </a>
  </button> -->
- <a href="edit-question.php?id=<?php echo $faq['faq_id']; ?>" class="btn btn-warning btn-sm editbtn">
-    <button class="editbtn">Edit</button>
-</a>
+ <a href="edit-question.php?id=<?php echo $faq['faq_id']; ?>" class=" btn btn-warning btn-sm" id="editbtn">
+    Edit
  <td>
                             <form method="POST" action="delete-question.php" onsubmit="return confirm('Are you sure you want to delete this FAQ ?');">
     <input type="hidden" name="id" value="<?php echo $faq['faq_id']; ?>" required />
@@ -225,6 +239,7 @@ $faqs = $statement->fetchAll();
         </table>
     </div>
 </div>
-
+ 
+<!--  -->
 </body>
 </html>

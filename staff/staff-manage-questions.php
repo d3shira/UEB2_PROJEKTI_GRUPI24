@@ -1,26 +1,23 @@
-<?php
-// Establish a database connection
+<?php 
+@include 'staff-navbar.php';
+?><?php
 $host = 'localhost:3307';
 $db = 'ueb2';
 $user = 'root';
 $password = 'Replace.3';
 
-// Create a PDO instance
 $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $password);
 
-// Set PDO error mode to exception
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Prepare the SQL statement with GROUP BY and ORDER BY clause
 $sql = "SELECT question, COUNT(*) AS frequency FROM tbl_faq GROUP BY question ORDER BY frequency DESC";
 $statement = $pdo->prepare($sql);
 
-// Execute the statement
 $statement->execute();
 
-// Fetch all the FAQs as an associative array
 $faqs = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +25,7 @@ $faqs = $statement->fetchAll(PDO::FETCH_ASSOC);
   <style>
    
   table {
+    margin-top:50px;
     width: 80%;
     border-collapse: collapse;
     margin-left: 20px;
@@ -35,7 +33,6 @@ $faqs = $statement->fetchAll(PDO::FETCH_ASSOC);
   th, td {
     padding: 8px;
     text-align: left;
-   
  
   }
   th {
@@ -47,14 +44,23 @@ $faqs = $statement->fetchAll(PDO::FETCH_ASSOC);
   
   h3 {
     margin-left: 20px;
+    text-align:center;
     color:#192a56;
     font-size:25px;
   } 
 
+  body{
+    margin-top:30px;
+  }
+
+  .teksti{
+    font-size:15px;
+  }
   
 </style>
 </head>
 <body>
+
   <h3>Most Frequently Asked Questions</h3>
 
   <table>
@@ -66,10 +72,12 @@ $faqs = $statement->fetchAll(PDO::FETCH_ASSOC);
     // Iterate over the fetched FAQs and display them in a table row
     foreach ($faqs as $faq) {
       echo '<tr>';
-      echo '<td>' . $faq['question'] . '</td>';
-      echo '<td>' . $faq['frequency'] . '</td>';
+      echo '<td class="teksti">' . $faq['question'] . '</td>';
+      echo '<td class="teksti">' . $faq['frequency'] . '</td>';
       echo '</tr>';
     }
+
+
     ?>
   </table>
 </body>
