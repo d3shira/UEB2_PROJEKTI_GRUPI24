@@ -63,6 +63,7 @@ label {
     </style>
 </head>
 <body>
+<?php @include 'navbar.php' ?>
     <div class="container">
         <h1>Ask a Question</h1>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
@@ -71,6 +72,7 @@ label {
             <button class="Submit"type="submit">Submit</button>
         </form>
     </div>
+
 </body>
 </html>
 
@@ -113,9 +115,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 
-<!-- Your HTML form goes here
-<form method="POST" action="">
+<!-- Your HTML form goes here -->
+<!-- <form method="POST" action="">
     <label for="question">Write a question:</label>
     <input type="text" name="question" id="question" required>
     <input type="submit" name="submit" value="Submit">
-</form> -->
+</form>  -->

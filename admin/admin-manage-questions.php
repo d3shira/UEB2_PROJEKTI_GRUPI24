@@ -13,114 +13,106 @@
 
 <script src="add.js"></script>
 
+
 <style>
+       body {
+            background-color: white;
+        }
 
-    .text-center{
-        text-align:center;
-        color:#192a56;
-    }
+        .text-center {
+            text-align: center;
+            color: #192a56;
+        }
 
-.inputq{
-    width:300px;
-    height:40px;
-    margin-left:50px;
-}
-.inputa{
-    width:287px;
-    height:40px;
-    margin-left:63px;
-    margin-top:5px;
-}
+        .inputq {
+            width: 300px;
+            height: 40px;
+            margin-left: 50px;
+            border:1px solid black;
+        }
 
-.form-group {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+        .inputa {
+            width: 300px;
+            height: 40px;
+            margin-left: 67px;
+            margin-top: 5px;
+            border:1px solid black;
 
-.form-group label {
-  margin-bottom: 5px;
-}
+        }
 
-.form-group textarea {
-  padding: 10px;
-  resize: vertical;
-}
+        .form-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
 
-.Addfaq{
-    margin-left:730px;
-    margin-top:20px;
-    height:40px;
-    width:100px;
-    background: #666;
-    font-weight:600;
-    font-size:15px;
-    background: #666;
-    color:white;
-    padding: 6px 10px;
-    border-radius: 4px;
-border-color:transparent;
-    
-}
-.Addfaq:hover{
-    background: #534e4e;
-}
+        .form-group label {
+            margin-bottom: 5px;
+        }
 
-#editbtn{
-    background-color:#27ae60;
-    /* border-radius:6px */
-    /* height:30px;
-    width:50px; */
-    color:white;
-    padding: 6px 17px;
-    border-radius: 4px;
-    /* border-color:transparent; */
+        .form-group textarea {
+            padding: 10px;
+            resize: vertical;
+        }
 
-}
-.editbtn:hover{    
-    background-color:#19914b;
-}
+        .Addfaq {
+            margin-left: 730px;
+            margin-top: 20px;
+            height: 40px;
+            width: 100px;
+            background-color: #8a8787;
+            font-weight: 700;
+            font-size: 15px;
+        }
 
-.deletebtnn{
-    background: #666;
-    /* border-radius:6px; */
-    /* height:30px;
-    width:50px; */
-    color:white;
-    padding:6px 10px;
-    border-radius: 4px;
-    border-color:transparent;
+        .Addfaq:hover {
+            background-color: #767070;
+        }
 
-}
-.deletebtnn:hover{
-    background: #534e4e;
-}
+        .editbtn {
+            background-color: #27ae60;
+            border-radius: 6px;
+            height: 30px;
+            width: 60px;
+            color:white;
+        }
 
-.tablee{
-    display:flex;
-    /* border:3px solid grey; */
-    justify-content:center;
-    width:60%;
-    margin-left:20%;
-}
+        .editbtn:hover {
+            background-color:  #168d48 ;
+;
+        }
 
-th{
-    font-size:20px;
-    border-bottom: 1px solid black;
-}
-td{
-    padding:5px;
-}
+        .deletebtnn {
+            background:  #666;
+            border-radius: 6px;
+            height: 30px;
+            width: 60px;
+            color:white;
+        }
 
-#txt{
-    font-size:20px;
-}
+        .deletebtnn:hover {
+            background:   #4b4545;
+;
+        }
+
+        .tablee {
+            display: flex;
+            border: 3px solid grey;
+            margin-left: 150px;
+        }
+
+        th {
+            font-size: 20px;
+        }
+
+        #txt {
+            font-size: 20px;
+        }
 </style>
 </head>
-
 <body>
-
-<div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+    <?php @include 'navbar-admin.php' ?>
+    <div class="container" style="margin-top: 100px; margin-bottom: 50px;">
     <div class="row">
         <div class="offset-md-3 col-md-6">
             <h1 class="text-center">Add FAQ</h1>
@@ -148,6 +140,7 @@ td{
     </div>
  
 </div>
+
 
 <!-- lidhja me database per phpmyadmin -->
 <?php
@@ -224,8 +217,11 @@ $faqs = $statement->fetchAll();
                             <!-- [edit button goes here] -->
                           <!-- <button class="editbtn" ><a href="edit.php?id=<?php echo $faq['faq_id']; ?>" class="btn btn-warning btn-sm">Edit </a>
  </button> -->
- <a href="edit-question.php?id=<?php echo $faq['faq_id']; ?>" class=" btn btn-warning btn-sm" id="editbtn">
+ <!-- <a href="edit-question.php?id=<?php echo $faq['faq_id']; ?>" class="btn btn-warning btn-sm">
     Edit
+</a> -->
+<button class="editbtn" onclick="window.location.href='edit-question.php?id=<?php echo $faq['faq_id']; ?>'" class="btn btn-warning btn-sm">Edit</button>
+
  <td>
                             <form method="POST" action="delete-question.php" onsubmit="return confirm('Are you sure you want to delete this FAQ ?');">
     <input type="hidden" name="id" value="<?php echo $faq['faq_id']; ?>" required />
@@ -239,7 +235,7 @@ $faqs = $statement->fetchAll();
         </table>
     </div>
 </div>
- 
-<!--  -->
+
 </body>
 </html>
+

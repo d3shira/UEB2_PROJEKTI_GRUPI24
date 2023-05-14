@@ -1,5 +1,4 @@
 <?php
-// Connect to the database using PHPMyAdmin
 $servername = "localhost:3307";
 $username = "root";
 $password = "Replace.3";
@@ -20,7 +19,6 @@ try {
         die("FAQ not found");
     }
 
-    // Update the FAQ in the database
     if (isset($_POST["submit"])) {
         $updateSql = "UPDATE tbl_faq SET question = :question, answer = :answer WHERE faq_id = :id";
         $updateStatement = $conn->prepare($updateSql);
@@ -29,8 +27,8 @@ try {
         $updateStatement->bindParam(':id', $_POST["id"]);
         $updateStatement->execute();
 
-        // Redirect to FAQs page or show a success message
-        header("Location: faqs.php");
+
+        header("Location: edit-success.php");
         exit();
     }
 } catch (PDOException $e) {
@@ -38,53 +36,59 @@ try {
 }
 ?>
 <style>
+ body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
 
-    .text-center{
-        text-align:center;
+    .container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    h1.text-center {
+        text-align: center;
         color: #192a56;
-
     }
 
-    .form-control{
-        height:50px;
-        width:200px;
+    form {
+        text-align: center;
     }
-    .form-group {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        font-size:20px;
-        font-weight:600;
-        margin-left:550px;
-      }
 
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
 
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
 
-.form-group textarea {
-  padding: 10px;
-  resize: vertical;
-}
+    .btnSubmit {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #27ae60;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-#answer{
-    margin-top:5px;
-    margin-left:12px;
-}
-
-
-.btnSubmit{
-     margin-left:730px;
-     height:50px;
-     width:100px;
-     margin-top:10px;
-     font-weight:600;
-     font-size:16px;
- background-color:#27ae60;
-    border-radius:8px;
-}
-
-.btnSubmit:hover{
-    background-color:#19914b;
-}
+    .btnSubmit:hover {
+        background-color: #45a049;
+    }
 </style>
 
 
@@ -107,13 +111,10 @@ try {
         <div class="offset-md-3 col-md-6">
             <h1 class="text-center">Edit FAQ</h1>
 
-            <!-- form to edit FAQ -->
-            <form method="POST" action="edit.php">
+            <form method="POST" action="edit-question.php">
 
-                <!-- hidden ID field of FAQ -->
                 <input type="hidden" name="id" value="<?php echo $faq['faq_id']; ?>" required />
 
-                <!-- question, auto-populate -->
                 <div class="form-group">
                     <label>Enter Question</label>
                     <input type="text" name="question" class="form-control" value="<?php echo $faq['question']; ?>" required />

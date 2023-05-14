@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Success</title>
+    <title>Edit Success</title>
     <link rel="stylesheet" href="styles.css">
 
     <style>
@@ -37,8 +37,8 @@
 <body>
 <?php @include 'navbar.php' ?>
     <div class="container">
-        <h1>Success</h1>
-        <p>Your question has been submitted successfully.</p>
+        <h1>Question/Answer Edited Successfully!</h1>
+        <p>Thank you for editing the question/answer.</p>
         <!-- Additional content or actions can be added here -->
     </div>
 </body>
