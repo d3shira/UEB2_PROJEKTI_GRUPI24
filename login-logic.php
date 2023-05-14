@@ -8,7 +8,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     if($_SESSION["user_type"] === "client"){
         header("location: client_dashboard.php");
     } elseif ($_SESSION["user_type"] === "staff"){
-        header("location: staff_dashboard.php");
+        header("location: staff/staff_dashboard.php");
     }
     exit;
 }
@@ -72,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             if($role === "client"){
                                 header("location: client_dashboard.php");
                             } elseif ($role === "staff"){
-                                header("location: staff_dashboard.php");
+                                header("location: staff/staff_dashboard.php");
                             }
                             } else{
                             // Password is not valid, display a generic error message

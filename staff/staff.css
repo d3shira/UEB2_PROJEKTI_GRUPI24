@@ -1,0 +1,28 @@
+.update-button {
+    background-color: #27ae60;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .delete-button {
+    background-color: #666;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .add-button {
+    background-color: #192a56;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  *{
+    font-family: Arial, Helvetica, sans-serif;
+  }
