@@ -29,14 +29,14 @@
     <!--HEADER SECTION-->
     <!--me nderru disa icons dhe menu-->
     <header style="text-decoration:none;">
-    <a href="#" class="logo"><i class="fas fa-utensils"></i>FitYou - Staff Dashboard</a>
+    <a href="staff_dashboard.php" class="logo"><i class="fas fa-utensils"></i>FitYou - Staff Dashboard</a>
     <nav class="navbar">
         <div class="dropdown">
             <a class="dropbtn">Staff</a>
             <div class="dropdown-content">
                 <a href="view-client.php">Clients</a>
-                <a href="../admin/admin-manage-diets.php">Diets</a>
-                <a href="../admin/admin-manage-orders.php">Orders</a>
+                <a href="#">Diets</a>
+                <a href="#">Orders</a>
                 <a href="staff-manage-questions.php">Questions</a>
             </div>
         </div>
@@ -49,7 +49,7 @@
     </nav>
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
-        <a href="admin dashboard.php" class="fa-solid fa-user"></a>
+        <a href="staff_dashboard.php" class="fa-solid fa-user"></a>
     </div>
 </header>
 

@@ -25,32 +25,6 @@
 </head>
 <?php @include 'staff-navbar.php'?>
 <body>
-
-    <!--HEADER SECTION-->
-    <!--me nderru disa icons dhe menu-->
-    <header style="text-decoration:none;">
-    <a href="#" class="logo"><i class="fas fa-utensils"></i>FitYou - Staff Dashboard</a>
-    <nav class="navbar">
-        <div class="dropdown">
-            <a class="dropbtn">Staff</a>
-            <div class="dropdown-content">
-                <a href="../admin/admin-manage-clients.php">Clients</a>
-                <a href="../admin/admin-manage-diets.php">Diets</a>
-                <a href="../admin/admin-manage-orders.php">Orders</a>
-            </div>
-        </div>
-        <a class="" href="../home.php">Home</a>
-        <a class="" href="../aboutus.php">About Us</a>
-        <a class="" href="../menu.php">Diets</a>
-        <a class="" href="../blerta.php">Review</a>
-        <!-- <a class="" href="order.php">Order</a> -->
-        <a class="" href="../faqs.php">FAQs</a> 
-    </nav>
-    <div class="icons">
-        <i class="fas fa-bars" id="menu-bars"></i>
-        <a href="admin dashboard.php" class="fa-solid fa-user"></a>
-    </div>
-</header>
 <div>
     <div class="wrapper">
         <h3 style="text-align: left; margin:90px; font-size: 25px; color:#192a56;">View Clients</h3>
