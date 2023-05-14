@@ -1,3 +1,6 @@
+
+
+
 <?php require_once "../database.php"; ?>
 <?php           
                 if(isset($_SESSION['delete']))
@@ -79,9 +82,6 @@
                 <th>Total_price</th>
                 <th>Order_date</th>
                 <th>Status</th>
-                <th>Actions</th>
-
-
             </tr>
             
            <?php 
@@ -95,7 +95,7 @@
 
             //check if query is executed or no
             if($res==TRUE){
-                //count rows to check if we have data in database or not;
+                //count rows to check if we have data in database or not
                 $count = mysqli_num_rows($res);
                 $sn = 1;
 
@@ -122,16 +122,13 @@
                         <!--html code in between here to display staff-->
                         <tr>
                             <td><?php echo $sn++; ?></td> 
-                            <td><?php echo $diet_id; ?></td>
-                            <td><?php echo $user_id; ?></td>  
+                            <td><?php echo $diet_id; ?></td> 
                             <td><?php echo $address; ?></td>
                             <td><?php echo $contact; ?></td>
                             <td><?php echo $quantity; ?></td>
                             <td><?php echo $total_price; ?></td>
                             <td><?php echo $order_date; ?></td>
                             <td><?php echo $status; ?></td>
-
-
                             <td>
                             <a class="update-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/update-client.php?user_id=' .$id; ?>">Update Order</a>
                             </td>

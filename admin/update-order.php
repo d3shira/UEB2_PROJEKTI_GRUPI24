@@ -137,16 +137,16 @@
         $contact = $_POST['contact'];
         $quantity = $_POST['quantity'];
 
-        // //Create a SQL Query to Update Admin
-        // $sql = "UPDATE tbl_users
-        // INNER JOIN tbl_client_profiles ON tbl_users.user_id = tbl_client_profiles.user_id
-        // SET tbl_users.first_name = '$first_name',
-        //     tbl_users.last_name = '$last_name',
-        //     tbl_users.username = '$username',
-        //     tbl_users.email = '$email',
-        //     tbl_client_profiles.first_name = '$first_name',
-        //     tbl_client_profiles.last_name = '$last_name'
-        // WHERE tbl_users.user_id = '$id'";
+        //Create a SQL Query to Update Admin
+        $sql = "UPDATE tbl_users
+        INNER JOIN tbl_client_profiles ON tbl_users.user_id = tbl_client_profiles.user_id
+        SET tbl_users.first_name = '$first_name',
+            tbl_users.last_name = '$last_name',
+            tbl_users.username = '$username',
+            tbl_users.email = '$email',
+            tbl_client_profiles.first_name = '$first_name',
+            tbl_client_profiles.last_name = '$last_name'
+        WHERE tbl_users.user_id = '$id'";
 
 
         //Execute the Query
