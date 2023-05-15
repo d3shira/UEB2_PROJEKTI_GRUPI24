@@ -82,46 +82,49 @@
 </head>
 
 <body>
-    <?php
+<?php
+// Connect to the database
+$host = "localhost:3307";
+$dbname = "ueb2";
+$username = "root";
+$password = 'Replace.3';
 
-    // Connect to the database
-    $host = "localhost:3307";
-    $dbname = "ueb2";
-    $username = "root";
-    $password = 'Replace.3';
+try {
+    // Create a new PDO connection
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    try {
-        // Create a new PDO connection
-        $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        // Check if the delete form is submitted
-        if (isset($_POST["submit"])) {
-            // Delete the FAQ from the database
-            $sql = "DELETE FROM tbl_faq WHERE faq_id = ?";
-            $statement = $conn->prepare($sql);
-            $statement->execute([$_POST["id"]]);
-
-            // Redirect to delete-success.php
-            header("Location: delete-success.php");
-            exit();
-        }
-
-        // Check if the FAQ exists
-        $sql = "SELECT * FROM tbl_faq WHERE faq_id = ?";
+    // Check if the delete form is submitted
+    if (isset($_POST["submit"])) {
+        // Delete the FAQ from the database
+        $sql = "DELETE FROM tbl_faq WHERE faq_id = ?";
         $statement = $conn->prepare($sql);
-        $statement->execute([$_REQUEST["id"]]);
-        $faq = $statement->fetch();
+        $statement->execute([$_POST["id"]]);
 
-        if (!$faq) {
-            die("FAQ not found");
-        }
-
-    } catch (PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
+        // Redirect to delete-success.php or any other desired page
+        header("Location: delete-success.php");
+        exit();
     }
 
-    ?>
+    // Check if the FAQ ID is provided
+    if (empty($_REQUEST["id"])) {
+        die("FAQ ID is missing");
+    }
+
+    // Check if the FAQ exists
+    $sql = "SELECT * FROM tbl_faq WHERE faq_id = ?";
+    $statement = $conn->prepare($sql);
+    $statement->execute([$_REQUEST["id"]]);
+    $faq = $statement->fetch();
+
+    if (!$faq) {
+        die("FAQ not found");
+    }
+
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
+?>
 
     <div class="container">
         <h1 class="text-center">FAQ Details</h1>
@@ -131,7 +134,7 @@
         </div>
 
         <h1 class="text-center">Delete FAQ</h1>
-        <form method="POST" action="delete-success.php">
+        <form method="POST" action="">
             <input type="hidden" name="id" value="<?php echo $faq["faq_id"]; ?>">
             <p>Are you sure you want to delete this FAQ?</p>
             <div class="text-center">
@@ -141,4 +144,3 @@
     </div>
 </body>
 </html>
-
