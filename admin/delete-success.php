@@ -35,7 +35,7 @@
     </style>
 </head>
 <body>
-<?php @include 'navbar.php' ?>
+<?php @include 'navbar-admin.php' ?>
     <div class="container">
         <h1>Question/Answer Deleted Successfully!</h1>
     </div>
