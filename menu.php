@@ -29,6 +29,7 @@
     <div class="image">
         <img src="<?php echo $rows['image_path']; ?>" alt="Diet Image">
     </div>
+    
     <div class="content">
         <h3><?php echo $rows['diet_name']; ?> Diet</h3>
         <p><?php echo $rows['description']; ?></p>

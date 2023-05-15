@@ -40,7 +40,7 @@
         <i class="fas fa-search" id="search-icon"></i>
         <a href="favorites.php" class="fas fa-heart"></a>
         <a href="#" class="fas fa-shopping-cart"></a>
-        <a href="#" class="fa-solid fa-user"></a>
+        <a href="buttonsforlogin.php" class="fa-solid fa-user"></a>
         <a href="question.php" class="fas fa-question-circle"></a>
     </div>
 </header>

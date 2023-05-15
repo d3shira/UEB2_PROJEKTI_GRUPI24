@@ -10,6 +10,7 @@
 
     <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!--css-->
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="../home.css">
