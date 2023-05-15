@@ -19,13 +19,8 @@ $user_id=$_SESSION["user_id"];
 // Retrieve the client profile information
 $sql = "SELECT * FROM tbl_client_profiles WHERE user_id = '$user_id'";
 $result = mysqli_query($conn, $sql);
-$client_profile = mysqli_fetch_assoc($result);
 
 
-// Retrieve the client's details
-//$sql = "SELECT  first_name, last_name FROM tbl_client_profiles WHERE user_id = '$user_id'";
-//$result1 = mysqli_query($conn, $sql);
-//$client_profile= mysqli_fetch_assoc($result1);
 
 
 // Retrieve the client's orders
@@ -34,7 +29,22 @@ $client_profile = mysqli_fetch_assoc($result);
 //$orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
+ //Check whether the query is executed or not
+ if($result==true)
+ {
+     // Check whether the data is available or not
+     $count = mysqli_num_rows($result);
+     //Check whether we have admin data or not
+     if($count==1)
+     {
+         // Get the Details
+         //echo "Staff Available";
+         $row=mysqli_fetch_assoc($result);
 
+         $first_name = $row["first_name"];
+         $last_name = $row["last_name"];
+     }
+    }
 // Handle form submission for updating the client profile
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $birthday = $_POST['birthday'];
@@ -44,7 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo '<div class="wrapper">';
     echo '<h2>Client Profile</h2>';
     
-   
+    echo '<p>First Name:'.$first_name.'</p>';
+    echo '<p>Last Name:'.$last_name.'</p>';
     echo '<p>Birthday: '.$birthday.'</p>';
     echo '<p>Weight (kg): '.$weight.'</p>';
     echo '<p>Height (cm): '.$height.'</p>';
