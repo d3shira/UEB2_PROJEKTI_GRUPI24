@@ -3,7 +3,6 @@
 require_once('../database.php');
 
 
-
 // Start the session
 
 
