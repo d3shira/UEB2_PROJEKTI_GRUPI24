@@ -1,4 +1,14 @@
 <?php
+
+
+if(isset($_COOKIE["username"])){
+    $username = $_COOKIE["username"];
+    header("client/client_dashboard.php");
+}
+
+if(isset($_COOKIE["user_type"])){
+    $user_type = $_COOKIE["user_type"];
+}
 // Initialize the session
 session_start();
  
@@ -6,9 +16,12 @@ session_start();
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
     if($_SESSION["user_type"] === "client"){
-        header("location: client_dashboard.php");
+        header("location: client/client_dashboard.php");
     } elseif ($_SESSION["user_type"] === "staff"){
         header("location: staff/staff_dashboard.php");
+    }elseif($_SESSION["user_type"] === "admin"){
+        header("location: admin/admin dashboard.php");
+
     }
     exit;
 }
@@ -68,11 +81,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;                            
                             $_SESSION["user_type"] = $role;
 
+                            // Set cookies for username and user type
+                            setcookie("username", $username, time() + (86400), "/"); // Cookie lasts for 30 days
+                            setcookie("user_type", $role, time() + (86400), "/"); // Cookie lasts for 30 days
+
                       // Redirect user to dashboard page
                             if($role === "client"){
-                                header("location: client_dashboard.php");
+                                header("location: client/client_dashboard.php");
                             } elseif ($role === "staff"){
                                 header("location: staff/staff_dashboard.php");
+                            }elseif($role==="admin"){
+                                header("location: admin/admin dashboard.php");
                             }
                             } else{
                             // Password is not valid, display a generic error message

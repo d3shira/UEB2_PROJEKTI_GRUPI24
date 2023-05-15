@@ -1,4 +1,14 @@
-<?php require_once "../database.php"; ?>
+<?php require_once "../database.php"; 
+
+// Initialize the session
+session_start(); 
+
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
+    header("location: ../login.php");
+    exit;
+} 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +57,6 @@
                 <th>Weight (kg)</th>
                 <th>BMI</th>
                 <th>Date created</th>
-                <th>Actions</th>
             </tr>
 
            <?php 
@@ -100,7 +109,7 @@
                             <td><?php echo $bmi; ?></td>
                             <td><?php echo $date_time; ?></td>
                             <td>
-                            <a class="update-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/update-client.php?user_id=' .$id; ?>">View Client Profile</a>
+                            <a class="update-button" href=" "></a>
                             </td>
                         </tr>
                         <?php

@@ -1,16 +1,14 @@
-
 <?php
 // Include the database configuration file
 require_once('../database.php');
-
 
 
 // Start the session
 
 
 // Check if the user is logged in, if not then redirect him to login page
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: clientlogin.php");
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='client') {
+    header("location: ../login.php");
     exit;
 }
 
@@ -23,11 +21,29 @@ $result = mysqli_query($conn, $sql);
 $client_profile = mysqli_fetch_assoc($result);
 
 
-// Retrieve the client's orders
-$sql = "SELECT * FROM tbl_orders WHERE user_id = '$user_id' ORDER BY order_date DESC";
-$result = mysqli_query($conn, $sql);
-$orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+// Retrieve the client's orders
+//$sql = "SELECT * FROM tbl_orders WHERE user_id = '$user_id' ORDER BY order_date DESC";
+//$result = mysqli_query($conn, $sql);
+//$orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+
+ //Check whether the query is executed or not
+ if($result==true)
+ {
+     // Check whether the data is available or not
+     $count = mysqli_num_rows($result);
+     //Check whether we have admin data or not
+     if($count==1)
+     {
+         // Get the Details
+         //echo "Staff Available";
+       //  $row=mysqli_fetch_assoc($result);
+
+         $first_name = $client_profile["first_name"];
+         $last_name = $client_profile["last_name"];
+     }
+    }
 // Handle form submission for updating the client profile
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $birthday = $_POST['birthday'];
@@ -36,6 +52,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $formatted_birthday = date('Y-m-d', strtotime($birthday));
     echo '<div class="wrapper">';
     echo '<h2>Client Profile</h2>';
+    
+    echo '<p>First Name:'.$first_name.'</p>';
+    echo '<p>Last Name:'.$last_name.'</p>';
     echo '<p>Birthday: '.$birthday.'</p>';
     echo '<p>Weight (kg): '.$weight.'</p>';
     echo '<p>Height (cm): '.$height.'</p>';
@@ -47,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $client_profile["birthday"] = $formatted_birthday;
         $client_profile["weight"] = $weight;
         $client_profile["height"] = $height;
+        $saved = true;
         ?>
         <script>Swal.fire(
             'Information saved',

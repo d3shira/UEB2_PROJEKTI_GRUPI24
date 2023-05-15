@@ -1,5 +1,7 @@
 
-<?php session_start();
+<?php @include 'client-navbar.php';
+
+session_start();
 require_once('../database.php');?>
 
 <!DOCTYPE html>
@@ -9,8 +11,11 @@ require_once('../database.php');?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
     <title>Welcome Client!</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="admin/register-staff.css">
+   <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+	<link rel="stylesheet" href="../admin/register-staff.css">
+  <link rel = "stylesheet" href="../staff/staff.css">
+  <link rel = "stylesheet" href="../admin/manage-staff.css">
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	
     <style>
@@ -19,13 +24,14 @@ require_once('../database.php');?>
 </head>
 
 <body>
-
+<br><br><br>
 <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site!</h1>
 <?php require 'client-info-logic.php'?>
 <div class="row">
 <div class="col-md-6">
 	<div class="wrapper">
-<?php
+  <?php
+  echo '<div>';
   echo '<h2>Add Client Information</h2>';
   echo '<form method="post">';
   echo '<div class="form-group">';
@@ -41,18 +47,20 @@ require_once('../database.php');?>
   echo '<input type="number" name="height" class="form-control" value="'.$client_profile['height'].'" required>';
   echo '</div>';
   echo '<div class="form-group">';
-  echo '<input type="submit" value="Save" class="btn btn-primary">';
+  if (!isset($saved)) {
+  echo '<input type="submit" value="Save" class="btn btn-primary">';}
   echo '</div>';
   echo '</form>';
-  echo '</div>';?>
+  echo '</div>';
+?>
+
 		
 </div>
-
-  <div class="col-md-6">
+  <div class="tbl-container">
+    <div class="tbl-content">
+      <br><br>
   <h2>Your Orders</h2>
-  <table border="1" class="mx-auto">
-  <table class="table table-striped">
-  <thead>
+  <table class="tbl-full">
       <tr>
         <th>Order ID</th>
         <th>Diet ID</th>
@@ -65,27 +73,44 @@ require_once('../database.php');?>
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($orders as $order): ?>
-      <tr>
-        <td><?php echo $order['order_id']; ?></td>
-        <td><?php echo $order['diet_id']; ?></td>
-        <td><?php echo $order['address']; ?></td>
-        <td><?php echo $order['contact']; ?></td>
-        <td><?php echo $order['quantity']; ?></td>
-        <td>$<?php echo $order['total_price']; ?></td>
-        <td><?php echo $order['order_date']; ?></td>
-        <td><?php echo $order['status']; ?></td>
-      </tr>
-      <?php endforeach; ?>
       </tbody>
   </table>
       </div>
 </div>
+</div>
 <br><br>
       <p>
-        <a href="../reset-password.php" class="btn btn-warning">Reset Your Password</a>
-        <a href="../logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
-        <a href="../order.php" class="btn btn-primary" style="margin-left:15px;">Order Now</a>
+      <a href="../menu.php" class="update-button" style="margin-left:15px;">Order Now</a>
+        <a href="../reset-password.php" class="add-button">Reset Your Password</a>
+        <a href="../logout.php" class="delete-button">Sign Out of Your Account</a>
     </p>
-      </body>
+      
+   
+    <!--AJAX -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Function to retrieve orders via Ajax
+    function getOrders() {
+      $.ajax({
+        url: 'client-retrieve-orders.php',
+        method: 'GET',
+        success: function(response) {
+          // Handle the response from the server
+          $('#orders-container tbody').html(response);
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr.responseText);
+        }
+      });
+    }
+
+    // Call the getOrders function initially to load orders
+    getOrders();
+
+    // Set an interval to periodically update the orders
+    setInterval(getOrders, 5000); // Update every 5 seconds
+  });
+</script>
+</body>
 </html>

@@ -39,6 +39,7 @@ try {
  body {
         font-family: Arial, sans-serif;
         background-color: #f2f2f2;
+        margin-top:150px;
     }
 
     .container {
@@ -91,21 +92,28 @@ try {
     }
 </style>
 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edit Questions</title>
+    </head>
 
-<!-- include CSS -->
+    <body>
+        <?php @include 'navbar-admin.php' ?>
+    </body>
+</html>
+
 <link rel="stylesheet" href="add.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css" />
 <link rel="stylesheet" type="text/css" href="richtext/richtext.min.css" />
 
-<!-- include JS -->
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="richtext/jquery.richtext.js"></script>
 
 
 
-<!-- layout for form to edit FAQ -->
 <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
     <div class="row">
         <div class="offset-md-3 col-md-6">
@@ -120,14 +128,12 @@ try {
                     <input type="text" name="question" class="form-control" value="<?php echo $faq['question']; ?>" required />
                 </div>
 
-                <!-- answer, auto-populate -->
                 <div class="form-group">
                     <label>Enter Answer</label>
                     <textarea name="answer" id="answer" class="form-control" required><?php echo $faq['answer']; ?></textarea>
                 </div>
 
 
-                <!-- submit button -->
                <div class="butoniSubmit">
                 <input  type="submit" name="submit" class="btnSubmit" value="Edit FAQ" /></div>
             </form>
@@ -136,7 +142,6 @@ try {
 </div>
 
 <script>
-    // initialize rich text library
     window.addEventListener("load", function () {
         $("#answer").richText();
     })

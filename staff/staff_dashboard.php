@@ -94,7 +94,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </style>
 </head>
 <body>
-    <br><br><br>
+    <br><br><br><br><br><br><br><br>
     <h1 class="my-5">Welcome, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>!!</h1>
     <table>
 		<thead>

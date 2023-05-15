@@ -1,8 +1,15 @@
-
-
-
 <?php require_once "../database.php"; ?>
-<?php           
+
+<?php   
+
+// Initialize the session
+session_start(); 
+
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
+    header("location: ../login.php");
+    exit;
+}     
                 if(isset($_SESSION['delete']))
                     {
                         echo $_SESSION['delete'];
@@ -47,7 +54,7 @@
     <!--HEADER SECTION-->
     <!--me nderru disa icons dhe menu-->
     <header style="text-decoration:none;">
-    <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou - Admin Panel </a>
+    <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou - Admin Dashboard </a>
     <nav class="navbar">
         <div class="dropdown">
             <a class="dropbtn">Manage Users</a>
@@ -58,6 +65,7 @@
         </div>
         <a class="" href="admin-manage-diets.php">Manage Diets</a>
         <a class="" href="admin-manage-orders.php">Manage Orders</a>
+        <a class="" href="admin-manage-questions.php">Manage Questions</a>
     </nav>
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>

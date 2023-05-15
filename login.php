@@ -1,4 +1,5 @@
 <?php @include 'login-logic.php'?>
+<?php @include 'navbar.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,7 @@
    
 </head>
 <body>
+<br><br><br>
     <div class="wrapper">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
@@ -32,7 +34,7 @@
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
-            <p>Don't have an account? <a href="register-client.php">Sign up now</a>.</p>
+            <p>Don't have an account? <a href="client/register-client.php">Sign up now</a>.</p>
         </form>
     </div>
 </body>

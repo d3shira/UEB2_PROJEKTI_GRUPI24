@@ -1,3 +1,14 @@
+<?php
+require_once "../database.php";
+
+// Initialize the session
+session_start(); 
+
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
+    header("location: ../login.php");
+    exit;
+}?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +44,7 @@
         </div>
         <a class="" href="admin-manage-diets.php">Manage Diets</a>
         <a class="" href="admin-manage-orders.php">Manage Orders</a>
+        <a class="" href="admin-manage-questions.php">Manage Questions</a>
     </nav>
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
