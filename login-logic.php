@@ -9,6 +9,9 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
         header("location: client/client_dashboard.php");
     } elseif ($_SESSION["user_type"] === "staff"){
         header("location: staff/staff_dashboard.php");
+    }elseif($_SESSION["user_type"] === "admin"){
+        header("location: admin/admin dashboard.php");
+
     }
     exit;
 }
@@ -73,6 +76,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 header("location: client/client_dashboard.php");
                             } elseif ($role === "staff"){
                                 header("location: staff/staff_dashboard.php");
+                            }elseif($role==="admin"){
+                                header("location: admin/admin dashboard.php");
                             }
                             } else{
                             // Password is not valid, display a generic error message
