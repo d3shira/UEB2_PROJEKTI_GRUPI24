@@ -92,7 +92,7 @@
 
         .deletebtnn:hover {
             background:   #4b4545;
-;
+
         }
 
         .tablee {
@@ -118,7 +118,7 @@
             <h1 class="text-center">Add FAQ</h1>
  
             <!-- for to add FAQ -->
-            <form method="POST" action="add.php">
+            <form method="POST" action="admin-manage-questions.php">
  
                 <!-- question -->
                 <div class="form-group">
