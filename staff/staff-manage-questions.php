@@ -33,6 +33,7 @@ $faqs = $statement->fetchAll(PDO::FETCH_ASSOC);
   th, td {
     padding: 8px;
     text-align: left;
+    text-align:center;
  
   }
   th {
@@ -63,22 +64,39 @@ $faqs = $statement->fetchAll(PDO::FETCH_ASSOC);
 
   <h3>Most Frequently Asked Questions</h3>
 
-  <table>
+  <table id="">
+  <thead>
     <tr>
       <th style="font-size:20px;">Question</th>
       <th style="font-size:20px;">Frequency</th>
     </tr>
+</thead>
+<tbody>
     <?php
-    // Iterate over the fetched FAQs and display them in a table row
     foreach ($faqs as $faq) {
       echo '<tr>';
       echo '<td class="teksti">' . $faq['question'] . '</td>';
       echo '<td class="teksti">' . $faq['frequency'] . '</td>';
       echo '</tr>';
     }
-
-
     ?>
+    </tbody>
   </table>
+
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"
+     ></script>
+     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"
+     ></script>
+     <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"
+     ></script>
+     <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap4.min.js"
+     ></script>
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable({
+                "pageLength": 50
+            });
+        });
+    </script>
 </body>
 </html>
