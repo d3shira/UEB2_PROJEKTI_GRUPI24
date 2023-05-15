@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo '<p>Birthday: '.$birthday.'</p>';
     echo '<p>Weight (kg): '.$weight.'</p>';
     echo '<p>Height (cm): '.$height.'</p>';
-    echo '<button class="btn btn-primary" onclick="window.location.href=\'edit_profile.php\'">Edit</button>';
+    echo '<button class="btn btn-primary" onclick="window.location.href=\'admin/update_client.php\'">Edit</button>';
     echo '</div>';
 
     $sql = "UPDATE tbl_client_profiles SET birthday = '$formatted_birthday', weight = '$weight', height = '$height' WHERE user_id = '$user_id'";

@@ -8,7 +8,7 @@ require_once('database.php');?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Welcome Client!!</title>
+    <title>Welcome Client!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="admin/register-staff.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -34,7 +34,7 @@ require_once('database.php');?>
   echo '</div>';
   echo '<div class="form-group">';
   echo '<label>Weight (kg): </label>';
-  echo '<input type="number" name="weight" class="form-control" value="'.$client_profile['weight'].'" required>';
+  echo '<input type="decimal" name="weight" class="form-control" value="'.$client_profile['weight'].'" required>';
   echo '</div>';
   echo '<div class="form-group">';
   echo '<label>Height (cm): </label>';
@@ -85,7 +85,7 @@ require_once('database.php');?>
       <p>
         <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
         <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
-        <a href="order.php" class="btn btn-primary">Order Now</a>
+        <a href="order.php" class="btn btn-primary" style="margin-left:15px;">Order Now</a>
     </p>
       </body>
 </html>
