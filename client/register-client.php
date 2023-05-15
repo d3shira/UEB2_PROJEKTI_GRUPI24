@@ -56,7 +56,7 @@
                 <br>
                 <input type="reset" class="btn btn-secondary ml-2" value="Reset">
                 <br>
-                <p>Already have an account? <a href="clientlogin.php">Login here</a>.</p>
+                <p>Already have an account? <a href="../login.php">Login here</a>.</p>
             </div>
            
         </form>
