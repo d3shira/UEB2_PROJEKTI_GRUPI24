@@ -1,5 +1,6 @@
 
 <?php @include 'client-navbar.php';
+
 session_start();
 require_once('../database.php');?>
 
@@ -10,7 +11,7 @@ require_once('../database.php');?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
     <title>Welcome Client!</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../admin/register-staff.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	
