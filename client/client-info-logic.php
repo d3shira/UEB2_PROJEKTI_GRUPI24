@@ -22,10 +22,17 @@ $result = mysqli_query($conn, $sql);
 $client_profile = mysqli_fetch_assoc($result);
 
 
+// Retrieve the client's details
+//$sql = "SELECT  first_name, last_name FROM tbl_client_profiles WHERE user_id = '$user_id'";
+//$result1 = mysqli_query($conn, $sql);
+//$client_profile= mysqli_fetch_assoc($result1);
+
+
 // Retrieve the client's orders
 //$sql = "SELECT * FROM tbl_orders WHERE user_id = '$user_id' ORDER BY order_date DESC";
 //$result = mysqli_query($conn, $sql);
 //$orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
 
 
 // Handle form submission for updating the client profile
@@ -36,6 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $formatted_birthday = date('Y-m-d', strtotime($birthday));
     echo '<div class="wrapper">';
     echo '<h2>Client Profile</h2>';
+    
+   
     echo '<p>Birthday: '.$birthday.'</p>';
     echo '<p>Weight (kg): '.$weight.'</p>';
     echo '<p>Height (cm): '.$height.'</p>';
