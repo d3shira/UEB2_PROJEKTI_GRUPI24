@@ -10,7 +10,7 @@ require_once('../database.php');?>
   
     <title>Welcome Client!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="admin/register-staff.css">
+	<link rel="stylesheet" href="../admin/register-staff.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	
     <style>

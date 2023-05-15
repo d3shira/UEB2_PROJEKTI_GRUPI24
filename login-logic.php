@@ -6,7 +6,7 @@ session_start();
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
     if($_SESSION["user_type"] === "client"){
-        header("location: client_dashboard.php");
+        header("location: client/client_dashboard.php");
     } elseif ($_SESSION["user_type"] === "staff"){
         header("location: staff/staff_dashboard.php");
     }
@@ -70,7 +70,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                       // Redirect user to dashboard page
                             if($role === "client"){
-                                header("location: client_dashboard.php");
+                                header("location: client/client_dashboard.php");
                             } elseif ($role === "staff"){
                                 header("location: staff/staff_dashboard.php");
                             }
