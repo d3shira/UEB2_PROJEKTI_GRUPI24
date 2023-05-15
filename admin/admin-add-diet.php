@@ -1,22 +1,22 @@
-
+<?php require_once "../database.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diets</title>
-
-    <link rel="stylesheet" href="../navbar.css">
-    <link rel="stylesheet" href="../footer.css">
+    <link rel="stylesheet" href="admin-add-diet.css">
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 </head>
 <body>
-<?php @include "../navbar.php"?>
-<?php @include "../footer.php" ?>  
+<?php @include "navbar-admin.php"?>
+<?php
+define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
+?>
+
 <div class="main-content">
     <div class="wrapper">
         <h1>Add Diet  </h1>
@@ -55,60 +55,21 @@
                         <input type="number" name="price">
                     </td>
                 </tr>
+                
+                <tr>
+                    <td>Image Path: </td>
+                    <td>
+                        <textarea name="image_path" cols="30" rows="5" placeholder="The image path."></textarea>
+                    </td>
+                </tr>
+
+               
 
                 <tr>
                     <td>In stock: </td>
                     <td>
-                        <input type="text" name="instock">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Category: </td>
-                    <td>
-                        <select name="category">
-
-                            <?php 
-                                //Create PHP Code to display categories from Database
-                                //1. CReate SQL to get all active categories from database
-                                $sql = "SELECT * FROM tbl_category WHERE active='Yes'";
-                                
-                                //Executing qUery
-                                $res = mysqli_query($conn, $sql);
-
-                                //Count Rows to check whether we have categories or not
-                                $count = mysqli_num_rows($res);
-
-                                //IF count is greater than zero, we have categories else we donot have categories
-                                if($count>0)
-                                {
-                                    //WE have categories
-                                    while($row=mysqli_fetch_assoc($res))
-                                    {
-                                        //get the details of categories
-                                        $id = $row['id'];
-                                        $title = $row['title'];
-
-                                        ?>
-
-                                        <option value="<?php echo $id; ?>"><?php echo $title; ?></option>
-
-                                        <?php
-                                    }
-                                }
-                                else
-                                {
-                                    //WE do not have category
-                                    ?>
-                                    <option value="0">No Category Found</option>
-                                    <?php
-                                }
-                            
-
-                                //2. Display on Drpopdown
-                            ?>
-
-                        </select>
+                        <input type="radio" name="in_stock" value="Yes"> Yes 
+                        <input type="radio" name="in_stock" value="No"> No
                     </td>
                 </tr>
                 <tr>
@@ -123,7 +84,7 @@
 
         
         <?php 
-
+            
             //CHeck whether the button is clicked or not
             if(isset($_POST['submit']))
             {
@@ -131,113 +92,59 @@
                 //echo "Clicked";
                 
                 //1. Get the DAta from Form
-                $title = $_POST['diet_name'];
+                $diet_name = $_POST['diet_name'];
                 $description = $_POST['description'];
                 $price = $_POST['price'];
-                $category = $_POST['category'];
+   
 
                 //Check whether radion button for featured and active are checked or not
-                if(isset($_POST['featured']))
+                if(isset($_POST['in_stock']))
                 {
-                    $featured = $_POST['featured'];
+                    $in_stock = $_POST['in_stock'];
                 }
                 else
                 {
-                    $featured = "No"; //SEtting the Default Value
+                    $in_stock = "No"; //SEtting the Default Value
                 }
+                 
+                $image_path = $_POST['image_path'];
+             
 
-                if(isset($_POST['active']))
-                {
-                    $active = $_POST['active'];
-                }
-                else
-                {
-                    $active = "No"; //Setting Default Value
-                }
-
-                //2. Upload the Image if selected
-                //Check whether the select image is clicked or not and upload the image only if the image is selected
-                if(isset($_FILES['image']['name']))
-                {
-                    //Get the details of the selected image
-                    $image_name = $_FILES['image']['name'];
-
-                    //Check Whether the Image is Selected or not and upload image only if selected
-                    if($image_name!="")
-                    {
-                        // Image is SElected
-                        //A. REnamge the Image
-                        //Get the extension of selected image (jpg, png, gif, etc.) "vijay-thapa.jpg" vijay-thapa jpg
-                        $ext = end(explode('.', $image_name));
-
-                        // Create New Name for Image
-                        $image_name = "Food-Name-".rand(0000,9999).".".$ext; //New Image Name May Be "Food-Name-657.jpg"
-
-                        //B. Upload the Image
-                        //Get the Src Path and DEstinaton path
-
-                        // Source path is the current location of the image
-                        $src = $_FILES['image']['tmp_name'];
-
-                        //Destination Path for the image to be uploaded
-                        $dst = "../images/food/".$image_name;
-
-                        //Finally Uppload the food image
-                        $upload = move_uploaded_file($src, $dst);
-
-                        //check whether image uploaded of not
-                        if($upload==false)
-                        {
-                            //Failed to Upload the image
-                            //REdirect to Add Food Page with Error Message
-                            $_SESSION['upload'] = "<div class='error'>Failed to Upload Image.</div>";
-                            header('location:'.SITEURL.'admin/add-food.php');
-                            //STop the process
-                            die();
-                        }
-
-                    }
-
-                }
-                else
-                {
-                    $image_name = ""; //SEtting DEfault Value as blank
-                }
-
+                
                 //3. Insert Into Database
 
                 //Create a SQL Query to Save or Add food
                 // For Numerical we do not need to pass value inside quotes '' But for string value it is compulsory to add quotes ''
-                $sql2 = "INSERT INTO tbl_diet SET 
-                    diet_name = '$title',
-                    description = '$description',
-                    price = $price,
-                    image_name = '$image_name',
-                    category_id = $category,
-                    featured = '$featured',
-                    active = '$active'
-                ";
-
+              
+                $sql2 = "INSERT INTO tbl_diet (diet_name, description, price, in_stock, image_path) VALUES (?, ?, ?, ?, ?)";
+                $stmt = $conn->prepare($sql2);
+                $stmt->bind_param("sssss", $diet_name , $description,$price, $in_stock, $image_path);
+                $stmt->execute();
+              
                 //Execute the Query
-                $res2 = mysqli_query($conn, $sql2);
+               
 
                 //CHeck whether data inserted or not
                 //4. Redirect with MEssage to Manage Food page
-                if($res2 == true)
-                {
+             //   if($stmt == true)
+             //   {
                     //Data inserted Successfullly
-                    $_SESSION['add'] = "<div class='success'>Food Added Successfully.</div>";
-                    header('location:'.SITEURL.'admin/admin-manage-diets.php');
-                }
-                else
-                {
+               //     $_SESSION['add'] = "<div class='success'>Food Added Successfully.</div>";
+                 //   header('location: http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
+                   
+               // }
+               // else
+               // {
                     //FAiled to Insert Data
-                    $_SESSION['add'] = "<div class='error'>Failed to Add Food.</div>";
-                    header('location:'.SITEURL.'admin/admin-manage-diets.php');
-                }
+                 //   $_SESSION['add'] = "<div class='error'>Failed to Add Food.</div>";
+               
+                   // header('location: http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
+
+               // }
 
                 
             }
+         
 
         ?>
 
