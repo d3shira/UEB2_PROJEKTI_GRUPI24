@@ -32,6 +32,9 @@
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="navbar-admin.css">
     <link rel="stylesheet" href="manage-order.css">
+    <link rel="stylesheet" href="admin-manage-order.php">
+
+
 
     <!--<script src="home.js"></script>--> 
     <script src="../navbar.js"></script> 
@@ -74,6 +77,7 @@
         <table class="tbl-full">
             <tr>
                 <th>Nr</th>
+                <th>Order_id</th>
                 <th>Diet_id</th>
                 <th>User_id</th>
                 <th>Address</th>
@@ -86,9 +90,9 @@
             
            <?php 
             //Display staff + query to display staff
-            $sql = "SELECT * FROM tbl_orders;
-            -- FROM tbl_diet u
-            -- INNER JOIN tbl_orders cp ON u.diet_id = cp.diet_id";
+            $sql = "SELECT * FROM tbl_orders";
+            // FROM tbl_diet u
+            // INNER JOIN tbl_orders cp ON u.diet_id = cp.diet_id";
 
             //execyte query
             $res = mysqli_query($conn, $sql);
@@ -108,6 +112,7 @@
                         //while loop runs as long as we have data in database
 
                         //get individual data
+                        $order_id = $rows['order_id'];
                         $diet_id = $rows['diet_id'];
                         $user_id = $rows['user_id'];
                         $address = $rows['address'];
@@ -122,15 +127,37 @@
                         <!--html code in between here to display staff-->
                         <tr>
                             <td><?php echo $sn++; ?></td> 
+                            <td><?php echo $order_id; ?></td> 
                             <td><?php echo $diet_id; ?></td> 
+                            <td><?php echo $user_id; ?></td>                             
                             <td><?php echo $address; ?></td>
                             <td><?php echo $contact; ?></td>
                             <td><?php echo $quantity; ?></td>
                             <td><?php echo $total_price; ?></td>
                             <td><?php echo $order_date; ?></td>
-                            <td><?php echo $status; ?></td>
+                          
                             <td>
-                            <a class="update-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/update-client.php?user_id=' .$id; ?>">Update Order</a>
+                                <?php
+                                if($status=="Ordered")
+                                {
+                                    echo "<label>$status</label>";
+                                }
+                                elseif($status=="On Delivery")
+                                {
+                                    echo "<label style='color: purple;'>$status</label>";
+                                }
+                                elseif($status=="Delivered")
+                                {
+                                    echo "<label style='color: green;'>$status</label>";
+                                }
+                                elseif($status=="Cancelled")
+                                {
+                                    echo "<label style='color: red;'>$status</label>";
+                                }
+                                ?>
+                            </td>
+                            <td>
+                            <a class="update-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/update-order.php?order_id=' .$order_id; ?>">Update Order</a>
                             </td>
                         </tr>
                         <?php

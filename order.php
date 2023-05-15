@@ -116,9 +116,9 @@ if(isset($_POST['Order']))
     $res = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($res);
     
-    if($count == 1) {
+    if($count > 0) {
         $row = mysqli_fetch_assoc($res);
-        $user_id=$row['user_id'];
+        $user_id=$_SESSION["user_id"]; 
         $diet_name = $row['diet_name'];
         $price = $row['price'];
         $in_stock = $row['in_stock'];
@@ -129,8 +129,7 @@ if(isset($_POST['Order']))
         $email = $_POST['email'];
         $address = $_POST['address'];
 
-        
-        $user_id=$_SESSION["user_id"]; // Përpilojeni për të marrë user_id të klientit
+        // Përpilojeni për të marrë user_id të klientit
         $status = "Ordered";
         $order_date = date("Y-m-d h:i:sa");
         

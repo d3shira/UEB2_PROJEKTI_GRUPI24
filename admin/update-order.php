@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="navbar-admin.css">
+    <link rel="stylesheet" href="admin-manage-orders.php">
     <link rel="stylesheet" href="manage-staff.css">
     <link rel="stylesheet" href="manage-order.css">
     <link rel="stylesheet" href="register-staff.css">
@@ -56,7 +57,7 @@
     $id=$_GET['order_id'];
 
     //2. Create SQL Query to Get the Details
-    $sql="SELECT * FROM tbl_orders WHERE order_id=$id";
+    $sql="SELECT * FROM tbl_orders WHERE order_id='$id'";
 
     //Execute the Query
     $res=mysqli_query($conn, $sql);
@@ -73,9 +74,10 @@
             //echo "Staff Available";
             $row=mysqli_fetch_assoc($res);
 
-            $first_name = $row['address'];
-            $last_name = $row['contact'];
-            $username = $row['quantity'];
+            $address= $row['address'];
+            $contact = $row['contact'];
+            $quantity = $row['quantity'];
+            $status=$row['status'];
         }
         else
         {
@@ -87,8 +89,7 @@
     
     ?>
 
-        <form action="" method="POST">
-
+<form action="" method="POST">
             <table class="tbl-30">
                 <tr>
                     <td><label>Address:</label></td>
@@ -111,6 +112,17 @@
                     </td>
                 </tr>
 
+                   <tr>
+                    <td><label>Status: </label></td>
+                    <td>
+                    <select name="status">
+                            <option <?php if($status=="Ordered"){echo "selected";} ?>value="Ordered">Ordered</option>
+                            <option <?php if($status=="On Delivery"){echo "selected";} ?>value="On Delivery">On Delivery</option>
+                            <option <?php if($status=="Delivered"){echo "selected";} ?>value="Delivered">Delivered</option>
+                            <option <?php if($status=="Cancelled"){echo "selected";} ?>value="Cancelled">Cancelled</option>
+                        </select>
+                    </td>
+                </tr>
                 <tr>
                     <td colspan="2">
                         <br>
@@ -131,22 +143,21 @@
     if(isset($_POST['submit']))
     {
         //echo "Button CLicked";
-        //Get all the values from form to update
+        //Get all the values from form to updateuuu c
         $id = $_POST['order_id'];
         $address = $_POST['address'];
         $contact = $_POST['contact'];
         $quantity = $_POST['quantity'];
+        $status = $_POST['status'];
+
 
         //Create a SQL Query to Update Admin
-        $sql = "UPDATE tbl_users
-        INNER JOIN tbl_client_profiles ON tbl_users.user_id = tbl_client_profiles.user_id
-        SET tbl_users.first_name = '$first_name',
-            tbl_users.last_name = '$last_name',
-            tbl_users.username = '$username',
-            tbl_users.email = '$email',
-            tbl_client_profiles.first_name = '$first_name',
-            tbl_client_profiles.last_name = '$last_name'
-        WHERE tbl_users.user_id = '$id'";
+        $sql = "UPDATE tbl_orders
+        SET address = '$address',
+            contact = '$contact',
+            quantity = '$quantity',
+            status='$status'
+        WHERE order_id = '$id'";
 
 
         //Execute the Query

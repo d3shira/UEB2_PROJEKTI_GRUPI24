@@ -29,6 +29,10 @@
     <div class="image">
         <img src="<?php echo $rows['image_path']; ?>" alt="Diet Image">
     </div>
+    <div class="heart">
+        <a href="favorites.php" class="fas-fa-heart"></a>
+        <img src="<?php echo $rows['heart']; ?>" alt="Heart Simbol">
+    </div>
     <div class="content">
         <h3><?php echo $rows['diet_name']; ?> Diet</h3>
         <p><?php echo $rows['description']; ?></p>
