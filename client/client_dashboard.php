@@ -1,5 +1,6 @@
 
-<?php session_start();
+<?php @include 'client-navbar.php';
+session_start();
 require_once('../database.php');?>
 
 <!DOCTYPE html>
