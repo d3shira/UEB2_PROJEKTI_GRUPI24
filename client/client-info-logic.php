@@ -19,7 +19,7 @@ $user_id=$_SESSION["user_id"];
 // Retrieve the client profile information
 $sql = "SELECT * FROM tbl_client_profiles WHERE user_id = '$user_id'";
 $result = mysqli_query($conn, $sql);
-
+$client_profile = mysqli_fetch_assoc($result);
 
 
 
@@ -39,10 +39,10 @@ $result = mysqli_query($conn, $sql);
      {
          // Get the Details
          //echo "Staff Available";
-         $row=mysqli_fetch_assoc($result);
+       //  $row=mysqli_fetch_assoc($result);
 
-         $first_name = $row["first_name"];
-         $last_name = $row["last_name"];
+         $first_name = $client_profile["first_name"];
+         $last_name = $client_profile["last_name"];
      }
     }
 // Handle form submission for updating the client profile
