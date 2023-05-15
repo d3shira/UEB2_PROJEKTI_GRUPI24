@@ -1,0 +1,6 @@
+{
+    "pretty-formatter.spaceClose": true,
+    "pretty-formatter.braceLine": true,
+    "pretty-formatter.bracePadding": true,
+    "pretty-formatter.braces": true
+}
