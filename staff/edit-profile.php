@@ -33,48 +33,85 @@
     <div class="form-group">
     <h3 style="text-align: left; margin:45px; font-size: 25px; color:#192a56;">Edit Your Profile</h3>
 
-    <?php 
-    //1. Get the ID of Selected Staff
-    $id=$_GET['user_id'];
+    
+<?php
+require_once "../database.php";
+include 'staff-navbar.php';
 
-    //2. Create SQL Query to Get the Details
-    $sql = "SELECT tbl_users.*, tbl_staff_profiles.* FROM tbl_users 
-            INNER JOIN tbl_staff_profiles 
-            ON tbl_users.user_id = tbl_staff_profiles.user_id";
+// 1. Get the ID of Selected Staff
+$id = $_GET['user_id'];
 
-    //Execute the Query
-    $res=mysqli_query($conn, $sql);
+// 2. Create SQL Query to Get the Details
+$sql = "SELECT u.user_id, u.user_type, u.username, u.email, 
+            s.first_name, s.last_name, s.profession
+        FROM tbl_users u 
+        INNER JOIN tbl_staff_profiles s ON u.user_id = s.user_id
+        WHERE u.user_id = $id";
 
-    //Check whether the query is executed or not
-    if($res==true)
-    {
-        // Check whether the data is available or not
-        $count = mysqli_num_rows($res);
-        //Check whether we have admin data or not
-        if($count==1)
-        {
-            // Get the Details
-            //echo "Staff Available";
-            $row=mysqli_fetch_assoc($res);
+// Execute the Query
+$res = mysqli_query($conn, $sql);
 
-            $user_id = $row["user_id"];
-            $first_name = $row["first_name"];
-            $last_name = $row["last_name"];
-            $user_type = $row["user_type"];
-            $username = $row["username"];
-            $email = $row["email"];
-            $profession = $row["profession"];
-        }
-        else
-        {
-            //Redirect to Manage Admin PAge
-            header('location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php');
-        }
+// Check whether the query is executed or not
+if ($res) {
+    // Check whether the data is available or not
+    $count = mysqli_num_rows($res);
+    // Check whether we have admin data or not
+    if ($count == 1) {
+        // Get the Details
+        $row = mysqli_fetch_assoc($res);
+        $user_id = $row["user_id"];
+        $first_name = $row["first_name"];
+        $last_name = $row["last_name"];
+        $user_type = $row["user_type"];
+        $username = $row["username"];
+        $email = $row["email"];
+        $profession = $row["profession"];
+    } else {
+        //Redirect to Manage Admin Page
+        header('location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php');
+        exit();
     }
-    
-    
-    ?>
+} else {
+    //Redirect to Manage Admin Page
+    header('location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php');
+    exit();
+}
 
+if (isset($_POST['submit'])) {
+    // Get all the values from form to update
+    $id = $_POST['user_id'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $profession = $_POST['profession'];
+
+    // Create a SQL Query to Update Admin
+    $sql = "UPDATE tbl_users u
+            INNER JOIN tbl_staff_profiles s ON u.user_id = s.user_id
+            SET u.first_name = '$first_name',
+                u.last_name = '$last_name',
+                u.username = '$username',
+                u.email = '$email',
+                s.profession = '$profession'
+            WHERE u.user_id = $id";
+
+    // Execute the query
+    $res = mysqli_query($conn, $sql);
+
+    if ($res) {
+        // Query executed successfully
+        $_SESSION['update'] = "<div class='success'>Staff Updated Successfully</div>";
+        header("location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php");
+        exit();
+    } else {
+        // Failed to update admin
+        $_SESSION['update'] = "<div class='error'>Failed to Update Staff</div>";
+        header("location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php");
+        exit();
+    }
+}
+?>
         <form action="" method="POST">
 
             <table class="tbl-30">
@@ -107,7 +144,7 @@
                 </tr>
 
                 <tr>
-                    <td><label>Username: </label></td>
+                    <td><label>Profession: </label></td>
                     <td>
                         <input type="text" name="profession" class="form-control" value="<?php echo $profession; ?>">
                     </td>
@@ -129,50 +166,50 @@
 
 <?php 
 
-    //Check whether the Submit Button is Clicked or not
-    if(isset($_POST['submit']))
-    {
-        //echo "Button CLicked";
-        //Get all the values from form to update
-        $id = $_POST['user_id'];
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $profession = $_POST['profession'];
+    // //Check whether the Submit Button is Clicked or not
+    // if(isset($_POST['submit']))
+    // {
+    //     //echo "Button CLicked";
+    //     //Get all the values from form to update
+    //     $id = $_POST['user_id'];
+    //     $first_name = $_POST['first_name'];
+    //     $last_name = $_POST['last_name'];
+    //     $username = $_POST['username'];
+    //     $email = $_POST['email'];
+    //     $profession = $_POST['profession'];
 
-        //Create a SQL Query to Update Admin
-        $sql = "UPDATE tbl_users
-        INNER JOIN tbl_staff_profiles ON tbl_users.user_id = tbl_staff_profiles.user_id
-        SET tbl_users.first_name = '$first_name',
-            tbl_users.last_name = '$last_name',
-            tbl_users.username = '$username',
-            tbl_users.email = '$email',
-            tbl_staff_profiles.first_name = '$first_name',
-            tbl_staff_profiles.last_name = '$last_name',
-            tbl_staff_profiles.profession = '$profession'
-        WHERE tbl_users.user_id = '$id'";
+    //     //Create a SQL Query to Update Admin
+    //     $sql = "UPDATE tbl_users
+    //     INNER JOIN tbl_staff_profiles ON tbl_users.user_id = tbl_staff_profiles.user_id
+    //     SET tbl_users.first_name = '$first_name',
+    //         tbl_users.last_name = '$last_name',
+    //         tbl_users.username = '$username',
+    //         tbl_users.email = '$email',
+    //         tbl_staff_profiles.first_name = '$first_name',
+    //         tbl_staff_profiles.last_name = '$last_name',
+    //         tbl_staff_profiles.profession = '$profession'
+    //     WHERE tbl_users.user_id = '$id'";
 
 
-        //Execute the Query
-        $res = mysqli_query($conn, $sql);
+    //     //Execute the Query
+    //     $res = mysqli_query($conn, $sql);
 
-        //Check whether the query executed successfully or not
-        if($res==true)
-        {
-            //Query Executed and Admin Updated
-            $_SESSION['update'] = "<div class='success'>Profile changes saved succesfully.</div>";
-            //Redirect to Manage Admin Page
-            header('location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php');
-        }
-        else
-        {
-            //Failed to Update Admin
-            $_SESSION['update'] = "<div class='error'>Failed to save changes.</div>";
-            //Redirect to Manage Admin Page
-            header('location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php');
-        }
-    }
+    //     //Check whether the query executed successfully or not
+    //     if($res==true)
+    //     {
+    //         //Query Executed and Admin Updated
+    //         $_SESSION['update'] = "<div class='success'>Profile changes saved succesfully.</div>";
+    //         //Redirect to Manage Admin Page
+    //         header('location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php');
+    //     }
+    //     else
+    //     {
+    //         //Failed to Update Admin
+    //         $_SESSION['update'] = "<div class='error'>Failed to save changes.</div>";
+    //         //Redirect to Manage Admin Page
+    //         header('location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php');
+    //     }
+    // }
 
 ?>
 
