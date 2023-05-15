@@ -1,6 +1,6 @@
 
 <?php session_start();
-require_once('database.php');?>
+require_once('../database.php');?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,9 +83,9 @@ require_once('database.php');?>
 </div>
 <br><br>
       <p>
-        <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
-        <a href="logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
-        <a href="order.php" class="btn btn-primary" style="margin-left:15px;">Order Now</a>
+        <a href="../reset-password.php" class="btn btn-warning">Reset Your Password</a>
+        <a href="../logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
+        <a href="../order.php" class="btn btn-primary" style="margin-left:15px;">Order Now</a>
     </p>
       </body>
 </html>
