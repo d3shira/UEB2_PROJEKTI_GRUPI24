@@ -28,6 +28,7 @@ $sql = "SELECT * FROM tbl_orders WHERE user_id = '$user_id' ORDER BY order_date 
 $result = mysqli_query($conn, $sql);
 $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+
 // Handle form submission for updating the client profile
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $birthday = $_POST['birthday'];

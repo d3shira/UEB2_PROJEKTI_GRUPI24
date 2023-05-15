@@ -1,4 +1,14 @@
 <?php
+
+
+if(isset($_COOKIE["username"])){
+    $username = $_COOKIE["username"];
+    header("client/client_dashboard.php");
+}
+
+if(isset($_COOKIE["user_type"])){
+    $user_type = $_COOKIE["user_type"];
+}
 // Initialize the session
 session_start();
  
@@ -70,6 +80,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                              $_SESSION["user_id"] = $id;
                             $_SESSION["username"] = $username;                            
                             $_SESSION["user_type"] = $role;
+
+                            // Set cookies for username and user type
+                            setcookie("username", $username, time() + (86400), "/"); // Cookie lasts for 30 days
+                            setcookie("user_type", $role, time() + (86400), "/"); // Cookie lasts for 30 days
 
                       // Redirect user to dashboard page
                             if($role === "client"){
