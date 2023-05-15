@@ -92,7 +92,7 @@
 
         .deletebtnn:hover {
             background:   #4b4545;
-;
+
         }
 
         .tablee {
