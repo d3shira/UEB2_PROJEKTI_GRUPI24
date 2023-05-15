@@ -24,9 +24,9 @@ $client_profile = mysqli_fetch_assoc($result);
 
 
 // Retrieve the client's orders
-$sql = "SELECT * FROM tbl_orders WHERE user_id = '$user_id' ORDER BY order_date DESC";
-$result = mysqli_query($conn, $sql);
-$orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
+//$sql = "SELECT * FROM tbl_orders WHERE user_id = '$user_id' ORDER BY order_date DESC";
+//$result = mysqli_query($conn, $sql);
+//$orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
 // Handle form submission for updating the client profile
