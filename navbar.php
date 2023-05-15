@@ -38,7 +38,7 @@
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
         <i class="fas fa-search" id="search-icon"></i>
-        <a href="#" class="fas fa-heart"></a>
+        <a href="favorites.php" class="fas fa-heart"></a>
         <a href="#" class="fas fa-shopping-cart"></a>
         <a href="#" class="fa-solid fa-user"></a>
         <a href="question.php" class="fas fa-question-circle"></a>
