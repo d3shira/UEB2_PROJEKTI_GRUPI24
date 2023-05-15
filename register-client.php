@@ -55,8 +55,10 @@
                 <input type="submit" class="btn btn-primary" value="Submit">
                 <br>
                 <input type="reset" class="btn btn-secondary ml-2" value="Reset">
+                <br>
+                <p>Already have an account? <a href="clientlogin.php">Login here</a>.</p>
             </div>
-            <p>Already have an account? <a href="clientlogin.php">Login here</a>.</p>
+           
         </form>
     </div>    
 </body>

@@ -13,7 +13,5 @@ if(!$conn)
   
 }
 
-echo 'Connected successfully<br>';
-
-
+// pasi qe na eshte lidh db me sukses e largova komentin
 ?>
