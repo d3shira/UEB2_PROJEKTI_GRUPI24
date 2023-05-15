@@ -57,7 +57,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
                 <th>Weight (kg)</th>
                 <th>BMI</th>
                 <th>Date created</th>
-                <th>Actions</th>
             </tr>
 
            <?php 
@@ -110,7 +109,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
                             <td><?php echo $bmi; ?></td>
                             <td><?php echo $date_time; ?></td>
                             <td>
-                            <a class="update-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/update-client.php?user_id=' .$id; ?>">View Client Profile</a>
+                            <a class="update-button" href=" "></a>
                             </td>
                         </tr>
                         <?php
