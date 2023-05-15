@@ -1,5 +1,6 @@
 <?php
 @include 'register-client-logic.php';
+@include '../navbar.php';
 ?>
  
 <!DOCTYPE html>
@@ -7,11 +8,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
+    <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="../admin/register-staff.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 </head>
 <body>
+    <br><br><br>
     <div class="wrapper">
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>

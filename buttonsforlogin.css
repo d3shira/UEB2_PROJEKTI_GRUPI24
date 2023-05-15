@@ -1,0 +1,78 @@
+.add-button {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.update-button {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #192a56;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+.add-button:hover{
+  background-color: #3e8e41;
+}
+.update-button:hover{
+    background-color: #142247;
+}
+
+p {
+  text-align: center;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+/* Additional CSS to position the buttons in the middle of the page */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html, body, .d-flex {
+  height: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+.add-button {
+  margin-right: 15px;
+}
+
+/* Set the width of the buttons to auto to make them adjust to the text content */
+.add-button, .update-button {
+  width: auto;
+}
+
+/* Optional: Set a maximum width for the buttons */
+.add-button, .update-button {
+  max-width: 250px;
+}
