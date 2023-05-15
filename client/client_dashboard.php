@@ -11,8 +11,11 @@ require_once('../database.php');?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
     <title>Welcome Client!</title>
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
 	<link rel="stylesheet" href="../admin/register-staff.css">
+  <link rel = "stylesheet" href="../staff/staff.css">
+  <link rel = "stylesheet" href="../admin/manage-staff.css">
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	
     <style>
@@ -21,13 +24,14 @@ require_once('../database.php');?>
 </head>
 
 <body>
-
+<br><br><br>
 <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site!</h1>
 <?php require 'client-info-logic.php'?>
 <div class="row">
 <div class="col-md-6">
 	<div class="wrapper">
-<?php
+  <?php
+  echo '<div>';
   echo '<h2>Add Client Information</h2>';
   echo '<form method="post">';
   echo '<div class="form-group">';
@@ -46,14 +50,16 @@ require_once('../database.php');?>
   echo '<input type="submit" value="Save" class="btn btn-primary">';
   echo '</div>';
   echo '</form>';
-  echo '</div>';?>
+  echo '</div>';
+?>
+
 		
 </div>
-  <div class="col-md-6">
+  <div class="tbl-container">
+    <div class="tbl-content">
+      <br><br>
   <h2>Your Orders</h2>
-  <table border="1" class="mx-auto">
-  <table class="table table-striped">
-  <thead>
+  <table class="tbl-full">
       <tr>
         <th>Order ID</th>
         <th>Diet ID</th>
@@ -70,11 +76,12 @@ require_once('../database.php');?>
   </table>
       </div>
 </div>
+</div>
 <br><br>
       <p>
-        <a href="../reset-password.php" class="btn btn-warning">Reset Your Password</a>
-        <a href="../logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
-        <a href="../menu.php" class="btn btn-primary" style="margin-left:15px;">Order Now</a>
+      <a href="../menu.php" class="update-button" style="margin-left:15px;">Order Now</a>
+        <a href="../reset-password.php" class="add-button">Reset Your Password</a>
+        <a href="../logout.php" class="delete-button">Sign Out of Your Account</a>
     </p>
       
    
