@@ -47,7 +47,8 @@ require_once('../database.php');?>
   echo '<input type="number" name="height" class="form-control" value="'.$client_profile['height'].'" required>';
   echo '</div>';
   echo '<div class="form-group">';
-  echo '<input type="submit" value="Save" class="btn btn-primary">';
+  if (!isset($saved)) {
+  echo '<input type="submit" value="Save" class="btn btn-primary">';}
   echo '</div>';
   echo '</form>';
   echo '</div>';

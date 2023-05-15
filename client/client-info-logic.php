@@ -67,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $client_profile["birthday"] = $formatted_birthday;
         $client_profile["weight"] = $weight;
         $client_profile["height"] = $height;
+        $saved = true;
         ?>
         <script>Swal.fire(
             'Information saved',
