@@ -145,7 +145,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	</table>
     <p>
         <br><br><br>
-        <a class="add-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/staff/edit-profile.php?user_id=' .$id; ?>">Edit Your Profile</a>
+        <a class="add-button" href="edit-profile.php?user_id=<?php echo $id; ?>">Edit Your Profile</a>
         <a href="../reset-password.php" class="add-button">Reset Your Password</a>
         <a href="../logout.php" class="delete-button">Sign Out of Your Account</a>
     </p>
