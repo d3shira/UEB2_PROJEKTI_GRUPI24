@@ -148,7 +148,7 @@
 $host = "localhost:3307";
 $dbname = "ueb2";
 $username = "root";
-$password = 'Replace.3';
+$password = '';
 
 try {
     // Connect to the database
