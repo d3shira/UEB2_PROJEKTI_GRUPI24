@@ -5,10 +5,11 @@ require_once "../database.php";
 session_start(); 
 
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
-    header("location: ../login.php");
-    exit;
-}?>
+//if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
+  //  header("location: ../login.php");
+    //exit;
+//}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +20,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
      <!--font awesome-->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!--css-->
+    <link rel="stylesheet" href="admin-add-diet.css">
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="navbar-admin.css">
@@ -32,30 +34,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
 </head>
-<header style="text-decoration:none;">
-    <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou - Admin Dashboard </a>
-    <nav class="navbar">
-        <div class="dropdown">
-            <a class="dropbtn">Manage Users</a>
-            <div class="dropdown-content">
-                <a href="admin-manage-staff.php">Manage Staff</a>
-                <a href="admin-manage-clients.php">Manage Clients</a>
-            </div>
-        </div>
-        <a class="" href="admin-manage-diets.php">Manage Diets</a>
-        <a class="" href="admin-manage-orders.php">Manage Orders</a>
-        <a class="" href="admin-manage-questions.php">Manage Questions</a>
-    </nav>
-    <div class="icons">
-        <i class="fas fa-bars" id="menu-bars"></i>
-        <a href="admin dashboard.php" class="fa-solid fa-user"></a>
-    </div>
-</header>
+<?php @include "navbar-admin.php"?>
 <body>
 <?php
-define('SITEURL', 'http://localhost/UEB2_PROJEKTI/');
+define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
 ?>
-
+<div class="main-content"> 
     <!-- Button to Add Admin-->
     
  
@@ -64,7 +48,7 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI/');
 
      <a href="<?php echo SITEURL; ?>admin/admin-add-diet.php" class="update-button">Add Diet</a>
       <br><br>
-      <a href="<?php echo SITEURL; ?>admin/add-food.php" class="btn-primary">Add Food</a>
+
 
 <br /><br /><br />
 
@@ -100,6 +84,7 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI/');
     }
 
 ?>
+<!--
     <table class="tbl-full">
         <tr>
             <th>ID</th>
@@ -138,9 +123,18 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI/');
                 <a class="delete-button" href="#">Delete Diet</a>
             </td>
         </tr>
+        -->  <table class="tbl-full">
+        <tr>
+            <th>ID</th>
+            <th>Diet Name</th>
+            <th>Price</th>
+            <th>In Stock</th>
+            <th>Actions</th>
+        </tr>
         <?php 
                         //Create a SQL Query to Get all the Food
-                        $sql = "SELECT * FROM tbl_diet";
+                        $sql = "SELECT * FROM tbl_diet ORDER BY diet_id DESC LIMIT 4";
+
 
                         //Execute the qUery
                         $res = mysqli_query($conn, $sql);
@@ -158,8 +152,8 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI/');
                             while($row=mysqli_fetch_assoc($res))
                             {
                                 //get the values from individual columns
-                                $diet_id = $row['id'];
-                                $diet_name = $row['title'];
+                                $diet_id = $row['diet_id'];
+                                $diet_name = $row['diet_name'];
                                 $price = $row['price'];
                                 $in_stock = $row['in_stock'];
                                 $image_path = $row['image_path'];
@@ -169,12 +163,14 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI/');
 
                                 <tr>
                                     <td><?php echo $sn++; ?>. </td>
-                                    <td><?php echo $title; ?></td>
+                                    <td><?php echo $diet_name; ?></td>
                                     <td>$<?php echo $price; ?></td>
-                                   
-                                    <td><?php echo $description; ?></td>
-                                    <td><?php echo $image_path; ?></td>
-                                    <td>
+                            
+                                   <!-- <td><?php echo $description; ?></td> -->
+                                  <!-- <td><?php echo $image_path; ?></td>--> 
+                                   <!-- <td>
+
+                                    <a class="update-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/update-order.php?order_id=' .$order_id; ?>">Update Order</a>
                                         <a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>" class="btn-secondary">Update Food</a>
                                         <a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Food</a>
                                     </td>
@@ -189,11 +185,11 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI/');
                             echo "<tr> <td colspan='7' class='error'> Food not Added Yet. </td> </tr>";
                         }
 
-                    ?>
+                    ?> -->
 
     </table>
     
     </div>
-   
+    </div>
 </body>
 </html>
