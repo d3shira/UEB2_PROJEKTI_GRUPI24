@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost:3307";
 $username = "root";
-$password = "Replace.3";
+$password = "";
 $dbname = "ueb2";
 
 try {
