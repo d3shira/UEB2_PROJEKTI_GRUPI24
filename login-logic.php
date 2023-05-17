@@ -53,14 +53,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT user_id, username, password, user_type FROM tbl_users WHERE username = ? ";
+        $sql = "SELECT user_id, username, password, user_type FROM tbl_users WHERE username = ? AND verification_status  = ? ";
         
         if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
+            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_verification_status);
             
             // Set parameters
             $param_username = $username;
+            $param_verification_status='verified';
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
