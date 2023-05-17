@@ -1,6 +1,9 @@
+
 <?php
+
 // Include config file
 require_once "../database.php";
+require_once '../vendor/autoload.php';
  
 // Define variables and initialize with empty values
 $first_name = $last_name = $username = $password = $confirm_password = $email = $confirm_email = $token= "";
@@ -9,6 +12,7 @@ $first_name_err = $last_name_err = $username_err = $password_err = $confirm_pass
 
 $role = 'client';
  
+
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -128,15 +132,19 @@ if($stmt = mysqli_prepare($conn, $sql)) {
     if(empty($first_name_err)&&empty($last_name_err)&&empty($username_err) && empty($email_err)&&empty($token_err)&&empty($password_err) && empty($confirm_password_err)&& empty($role_err)){
 
          // Generate a verification token
-         $token = bin2hex(random_bytes(32));
+        //  $token = bin2hex(random_bytes(32));
+
+        $token = rand(100000, 999999);
 
         // Prepare an insert statement
-        $sql = "INSERT INTO tbl_users (first_name, last_name, username, email, token, password, user_type) VALUES (?, ?, ?, ?, ?, ?,?)";
-     
+        $sql = "INSERT INTO tbl_users (first_name, last_name, username, email, token, password, user_type, verification_status) VALUES (?, ?, ?, ?, ?, ?,?,?)";
+        
          
         if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssssiss", $param_first_name, $param_last_name, $param_username, $param_email, $param_token, $param_password, $param_role);
+            mysqli_stmt_bind_param($stmt, "ssssisss", $param_first_name, $param_last_name, $param_username, $param_email, $param_token, $param_password, $param_role, $param_verification_status);
+
+
             
             // Set parameters
             $param_first_name=$first_name;
@@ -146,10 +154,41 @@ if($stmt = mysqli_prepare($conn, $sql)) {
             $param_token=$token;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             $param_role = 'client';
+            $param_verification_status='pending';
+
             
+        /*$email->addContent(
+            "text/plain",
+            "To finish creating your account please click the link to verify your email: <a href='http://localhost/Online-Exam-System/verify-email.php?code={$verificationCode}'>Verify Email</a>"
+        );*/
+        
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
+
+                $user_id = mysqli_insert_id($conn);
+
+                // Send verification email using SendGrid
+                $SendEmail = new \SendGrid\Mail\Mail();
+                // Set the verification URL as a substitution value
+            // Set the HTML content of the email using your SendGrid template, with the substitution value included
+                $SendEmail->setFrom("fit_youwebsite@outlook.com", "Fit You");
+                $SendEmail->setTemplateId("d-ba05ed0bbbb545449dc35d43ac06c7b6");
+                $SendEmail->addDynamicTemplateData("token", $token);
+                $SendEmail->addDynamicTemplateData("user_id", $user_id);
+                $SendEmail->addTo($email, $first_name . " " . $last_name);
+
+                $sendgrid = new \SendGrid($SENDGRID_API_KEY);
+                try {
+                    $response = $sendgrid->send($SendEmail);
+                    // Check response status code and headers for errors
+                    if ($response->statusCode() >= 400) {
+                        throw new Exception('Error sending email: ' . $response->body());
+                    }  
+                    // Redirect to login page after successful sign up
+                } catch (Exception $e) {
+                    $errors[] = 'Error sending email: ' . $e->getMessage();
+                }
             //        // Send the verification email
             // $to = $email;
             // $subject = 'Verify Your Email Address';
@@ -171,12 +210,13 @@ if($stmt = mysqli_prepare($conn, $sql)) {
             //      exit();
 
                 // Get the user_id of the newly inserted row
-                $user_id = mysqli_insert_id($conn);
+                // $user_id = mysqli_insert_id($conn); qika qeta e kompentova une BLERTA
                   // Insert additional data into the appropriate table
+
                   if($role == "client"){
                     $sql = "INSERT INTO tbl_client_profiles (user_id, first_name, last_name) VALUES (?,?,?)";
                 } else{
-                    $sql = "INSERT INTO tbl_staff_profiles (user_id, first_name, last_name) VALUES (?,?,?)";
+                    $sql = "INSERT INTO tbl_staff_profiles (user_id, first_name, last_name) VALUES (?,?,?)"; //Qik
                 }
 
                 $stmt2 = mysqli_prepare($conn, $sql);
@@ -185,7 +225,8 @@ if($stmt = mysqli_prepare($conn, $sql)) {
                 mysqli_stmt_close($stmt2);
 
                 // Redirect the user to the appropriate dashboard page
-                header("location:../login.php");
+              //  header("location:../login.php");
+              header("Location:http://localhost/UEB2_PROJEKTI/client/register-client.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
