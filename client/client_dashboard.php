@@ -26,7 +26,7 @@ require_once('../database.php');?>
 <body>
 <br><br><br>
 <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site!</h1>
-<?php require 'client-info-logic.php'?>
+<?php require 'client-info2.php'?>
 <div class="row">
 <div class="col-md-6">
 	<div class="wrapper">

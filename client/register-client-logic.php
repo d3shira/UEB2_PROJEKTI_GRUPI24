@@ -167,7 +167,7 @@ if($stmt = mysqli_prepare($conn, $sql)) {
             if(mysqli_stmt_execute($stmt)){
 
                 $user_id = mysqli_insert_id($conn);
-
+ 
                 // Send verification email using SendGrid
                 $SendEmail = new \SendGrid\Mail\Mail();
                 // Set the verification URL as a substitution value
@@ -188,7 +188,7 @@ if($stmt = mysqli_prepare($conn, $sql)) {
                     // Redirect to login page after successful sign up
                 } catch (Exception $e) {
                     $errors[] = 'Error sending email: ' . $e->getMessage();
-                }
+                }    //// BLERTA PART
             //        // Send the verification email
             // $to = $email;
             // $subject = 'Verify Your Email Address';
@@ -225,7 +225,7 @@ if($stmt = mysqli_prepare($conn, $sql)) {
                 mysqli_stmt_close($stmt2);
 
                 // Redirect the user to the appropriate dashboard page
-              //  header("location:../login.php");
+               // header("location:../login.php");
               header("Location:http://localhost/UEB2_PROJEKTI/client/register-client.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
