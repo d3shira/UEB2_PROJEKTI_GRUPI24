@@ -47,7 +47,7 @@ error_reporting(E_ALL);
         $diet_id = $_GET['diet_id'];
 
         //SQL Query to Get the Selected Food
-        $sql2 = "SELECT * FROM tbl_diet WHERE id=$diet_id";
+        $sql2 = "SELECT * FROM tbl_diet WHERE diet_id=$diet_id";
         //execute the Query
         $res2 = mysqli_query($conn, $sql2);
 
@@ -110,8 +110,8 @@ error_reporting(E_ALL);
             <tr>
                 <td>In stock: </td>
                 <td>
-                    <input <?php if($active=="Yes") {echo "checked";} ?> type="radio" name="in_stock" value="Yes"> Yes 
-                    <input <?php if($active=="No") {echo "checked";} ?> type="radio" name="in_stock" value="No"> No 
+                    <input <?php if($in_stock=="Yes") {echo "checked";} ?> type="radio" name="in_stock" value="Yes"> Yes 
+                    <input <?php if($in_stock=="No") {echo "checked";} ?> type="radio" name="in_stock" value="No"> No 
                 </td>
             </tr>
 

@@ -1,3 +1,17 @@
+
+<?php
+require_once "../database.php";
+
+// Initialize the session
+session_start(); 
+
+// Check if the user is logged in, if not then redirect him to login page
+//if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
+  //  header("location: ../login.php");
+    //exit;
+//}
+?>
+
 <?php 
     
 
@@ -22,14 +36,14 @@
         if($res==true)
         {
             //Food Deleted
-            $_SESSION['delete'] = "<div class='success'>Food Deleted Successfully.</div>";
+            $_SESSION['delete'] = "<div class='success'>Diet Deleted Successfully.</div>";
             header('location:http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
        
         }
         else
         {
             //Failed to Delete Food
-            $_SESSION['delete'] = "<div class='error'>Failed to Delete Food.</div>";
+            $_SESSION['delete'] = "<div class='error'>Diet to Delete Food.</div>";
             header('location:http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
         }
 

@@ -197,9 +197,9 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
                                   <!-- <td><?php echo $image_path; ?></td>--> 
                                    <td>
 
-                              
-                                        <a href="<?php echo 'http://localhost/UEB2_PROJEKTI_GRUPI24/admin/update-diet.php' .$diet_id; ?>" class="btn-secondary">Update Diet</a>
-                                        <a href="<?php echo 'http://localhost/UEB2_PROJEKTI_GRUPI24/admin/delete-diet.php' .$image_path; ?>" class="btn-danger">Delete Diet</a>
+                                   <a class="btn-secondary" href="update-diet.php?diet_id=<?php echo $diet_id; ?>">Update Diet</a>
+                                   <a class="btn-danger" href="delete-diet.php?diet_id=<?php echo $diet_id; ?>">Delete Diet</a>
+                                       
                                     </td>
                                 </tr>
 
