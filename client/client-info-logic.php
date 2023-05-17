@@ -4,8 +4,6 @@ require_once('../database.php');
 
 
 // Start the session
-session_start();
-
 
 // Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='client') {
@@ -50,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $birthday = $_POST['birthday'];
     $weight = $_POST['weight'];
     $height = $_POST['height'];
+
     $formatted_birthday = date('Y-m-d', strtotime($birthday));
     echo '<div class="wrapper">';
     echo '<h2>Client Profile</h2>';

@@ -26,7 +26,7 @@ require_once('../database.php');?>
 <body>
 <br><br><br>
 <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site!</h1>
-<?php require 'client-info2.php'?>
+<?php require 'client-info-logic.php'?>
 <div class="row">
 <div class="col-md-6">
 	<div class="wrapper">
@@ -40,7 +40,7 @@ require_once('../database.php');?>
   echo '</div>';
   echo '<div class="form-group">';
   echo '<label>Weight (kg): </label>';
-  echo '<input type="decimal" name="weight" class="form-control" value="'.$client_profile['weight'].'" required>';
+  echo '<input type="number" name="weight" class="form-control" value="'.$client_profile['weight'].'" required>';
   echo '</div>';
   echo '<div class="form-group">';
   echo '<label>Height (cm): </label>';

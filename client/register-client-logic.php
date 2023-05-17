@@ -4,7 +4,6 @@
 // Include config file
 require_once "../database.php";
 require_once '../vendor/autoload.php';
- 
 // Define variables and initialize with empty values
 $first_name = $last_name = $username = $password = $confirm_password = $email = $confirm_email = $token= "";
 
