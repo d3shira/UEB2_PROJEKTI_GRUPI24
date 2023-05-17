@@ -23,6 +23,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     </style>
 </head>
 <body>
+    <br><br><br>
     <div class="wrapper">
         <h2>Register new staff</h2>
         <p>Create staff account:</p>

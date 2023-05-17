@@ -172,6 +172,43 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
         <a href="../reset-password.php" class="add-button">Reset Your Password</a>
         <a href="../logout.php" class="delete-button">Sign Out of Your Account</a>
 
+        <br><br><br><br>
+        <h1>Dashboard statistics</h1>
+        <br>
+        <?php
+        // get counts
+        $client_count_sql = "SELECT COUNT(*) as count FROM tbl_client_profiles";
+        $client_count_result = mysqli_query($conn, $client_count_sql);
+        $client_count = mysqli_fetch_assoc($client_count_result)['count'];
+        
+        $staff_count_sql = "SELECT COUNT(*) as count FROM tbl_staff_profiles";
+        $staff_count_result = mysqli_query($conn, $staff_count_sql);
+        $staff_count = mysqli_fetch_assoc($staff_count_result)['count'];
+        
+        $order_count_sql = "SELECT COUNT(*) as count FROM tbl_orders";
+        $order_count_result = mysqli_query($conn, $order_count_sql);
+        $order_count = mysqli_fetch_assoc($order_count_result)['count'];
+        
+        $diet_count_sql = "SELECT COUNT(*) as count FROM tbl_diet";
+        $diet_count_result = mysqli_query($conn, $diet_count_sql);
+        $diet_count = mysqli_fetch_assoc($diet_count_result)['count'];
+        
+        // display counts as diagrams
+        echo "<h2>Client Count: $client_count</h2>";
+        echo "<div style='background-color: #FEF36A; height: 30px; width: " . ($client_count * 10) . "px'></div>";
+        
+        echo "<h2>Staff Count: $staff_count</h2>";
+        echo "<div style='background-color: #27ae60; height: 30px; width: " . ($staff_count * 10) . "px'></div>";
+        
+        echo "<h2>Diet Count: $diet_count</h2>";
+        echo "<div style='background-color: #192a56; height: 30px; width: " . ($diet_count * 10) . "px'></div>";
+
+        echo "<h2>Order Count: $order_count</h2>";
+        echo "<div style='background-color: #666; height: 30px; width: " . ($order_count * 10) . "px'></div>";
+        
+        // close connection
+        mysqli_close($conn);
+        ?>
 
     <script> 
         const navbarLinks = document.querySelectorAll('.navbar a');

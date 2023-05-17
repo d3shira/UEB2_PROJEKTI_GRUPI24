@@ -69,11 +69,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
 </header>
 <div>
     <div class="wrapper">
-        <h3 style="text-align: left; margin:90px; font-size: 25px; color:#192a56;">Manage Staff</h3>
-        <a class ="add-button" href="admin-add-staff.php">Add Staff</a>
-        <br><br>
+        <h3 style="text-align: left; margin-top:90px; margin-left:90px; margin-right:90px; margin-bottom:45px; font-size: 25px; color:#192a56;">Manage Staff</h3>
     </div>
-
+    <a style="margin-left:150px;" class ="add-button" href="admin-add-staff.php">Add Staff</a>
+    <br><br>
 
     <!-- CONTENT SECTION -->
     <div class="tbl-container">
