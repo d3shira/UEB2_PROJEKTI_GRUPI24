@@ -7,6 +7,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diets</title>
     <link rel="stylesheet" href="admin-add-diet.css">
+    <style>
+        /* CSS for .main-content */
+.main-content {
+  padding: 100px;
+}
+
+/* CSS for .wrapper */
+.wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* CSS for .wrapper h1 */
+.wrapper h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* CSS for .wrapper table */
+.wrapper table {
+  width: 100%;
+  font-size: 18px;
+}
+
+/* CSS for .wrapper table td */
+.wrapper table td {
+  padding: 10px;
+}
+
+/* CSS for .wrapper input[type="text"], .wrapper input[type="number"], .wrapper textarea */
+.wrapper input[type="text"],
+.wrapper input[type="number"],
+.wrapper textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+/* CSS for .wrapper input[type="submit"] */
+.wrapper input[type="submit"] {
+  display: block;
+  margin: 0 auto;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* CSS for .wrapper input[type="submit"]:hover */
+.wrapper input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* CSS for .wrapper .success, .wrapper .error */
+.wrapper .success,
+.wrapper .error {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+/* CSS for .wrapper .success */
+.wrapper .success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+/* CSS for .wrapper .error */
+.wrapper .error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+    </style>
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -74,7 +149,7 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="submit" value="Add Food" class="btn-secondary">
+                        <input type="submit" name="submit" value="Add Diet" class="btn-secondary">
                     </td>
                 </tr>
 
@@ -126,24 +201,24 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
 
                 //CHeck whether data inserted or not
                 //4. Redirect with MEssage to Manage Food page
-             //   if($stmt == true)
-             //   {
+            //    if($stmt == true)
+              //  {
                     //Data inserted Successfullly
-               //     $_SESSION['add'] = "<div class='success'>Food Added Successfully.</div>";
-                 //   header('location: http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
+         // $_SESSION['add'] = "<div class='success'>Food Added Successfully.</div>";
+           //    header('location: http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
                    
-               // }
-               // else
-               // {
+            // }
+             //else
+          //{
                     //FAiled to Insert Data
-                 //   $_SESSION['add'] = "<div class='error'>Failed to Add Food.</div>";
+            //$_SESSION['add'] = "<div class='error'>Failed to Add Food.</div>";
                
-                   // header('location: http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
+              //header('location: http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
 
-               // }
+         //}
 
                 
-            }
+           }
          
 
         ?>

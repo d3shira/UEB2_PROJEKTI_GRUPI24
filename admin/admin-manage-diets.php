@@ -26,7 +26,34 @@ session_start();
     <link rel="stylesheet" href="navbar-admin.css">
     <link rel="stylesheet" href="manage-staff.css">
 
-  
+   <style>
+    .btn-secondary {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn-danger {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #FF0000;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn-secondary:hover,
+.btn-danger:hover {
+  background-color: #45a049;
+}
+   </style>
 
     <!--<script src="home.js"></script>--> 
     <script src="../navbar.js"></script> 
@@ -128,7 +155,7 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
             <th>ID</th>
             <th>Diet Name</th>
             <th>Price</th>
-            <th>In Stock</th>
+         
             <th>Actions</th>
         </tr>
         <?php 
@@ -168,11 +195,11 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
                             
                                    <!-- <td><?php echo $description; ?></td> -->
                                   <!-- <td><?php echo $image_path; ?></td>--> 
-                                   <!-- <td>
+                                   <td>
 
-                                    <a class="update-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/update-order.php?order_id=' .$order_id; ?>">Update Order</a>
-                                        <a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>" class="btn-secondary">Update Food</a>
-                                        <a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Food</a>
+                              
+                                        <a href="<?php echo 'http://localhost/UEB2_PROJEKTI_GRUPI24/admin/update-diet.php' .$diet_id; ?>" class="btn-secondary">Update Diet</a>
+                                        <a href="<?php echo 'http://localhost/UEB2_PROJEKTI_GRUPI24/admin/delete-diet.php' .$image_path; ?>" class="btn-danger">Delete Diet</a>
                                     </td>
                                 </tr>
 
@@ -181,11 +208,11 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
                         }
                         else
                         {
-                            //Food not Added in Database
+                            //Diet not Added in Database
                             echo "<tr> <td colspan='7' class='error'> Food not Added Yet. </td> </tr>";
                         }
 
-                    ?> -->
+                    ?> 
 
     </table>
     

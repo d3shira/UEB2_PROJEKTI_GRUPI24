@@ -4,7 +4,9 @@ require_once "../database.php";
 
 // Initialize the session
 session_start(); 
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // Check if the user is logged in, if not then redirect him to login page
 //if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
   //  header("location: ../login.php");
@@ -17,7 +19,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Diets</title>
+    <title>Update Diet</title>
      <!--font awesome-->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!--css-->
@@ -63,7 +65,7 @@ session_start();
     else
     {
         //Redirect to Manage Food
-        header('location:'.SITEURL.'admin/admin-manage-diets.php');
+        header('location:http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
     }
 ?>
 
@@ -164,13 +166,13 @@ session_start();
                 {
                     //Query Exectued and Food Updated
                     $_SESSION['update'] = "<div class='success'>Food Updated Successfully.</div>";
-                    header('location:'.SITEURL.'admin/manage-food.php');
+                    header('location:http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
                 }
                 else
                 {
                     //Failed to Update Food
                     $_SESSION['update'] = "<div class='error'>Failed to Update Food.</div>";
-                    header('location:'.SITEURL.'admin/manage-food.php');
+                    header('location:http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
                 }
 
                 
@@ -181,6 +183,6 @@ session_start();
     </div>
 </div>
 
-<?php include('partials/footer.php'); ?>
+<?php include('../footer.php'); ?>
 </body>
 </html>
