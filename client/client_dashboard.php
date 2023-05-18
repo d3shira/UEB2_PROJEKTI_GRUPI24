@@ -26,33 +26,8 @@ require_once('../database.php');?>
 <body>
 <br><br><br>
 <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site!</h1>
-<?php require 'client-info-logic.php'?>
-<div class="row">
-<div class="col-md-6">
-	<div class="wrapper">
-  <?php
-  echo '<div>';
-  echo '<h2>Add Client Information</h2>';
-  echo '<form method="post">';
-  echo '<div class="form-group">';
-  echo '<label>Birthday: </label>';
-  echo '<input type="date" name="birthday" class="form-control" value="'.$client_profile['birthday'].'" required>';
-  echo '</div>';
-  echo '<div class="form-group">';
-  echo '<label>Weight (kg): </label>';
-  echo '<input type="number" name="weight" class="form-control" value="'.$client_profile['weight'].'" required>';
-  echo '</div>';
-  echo '<div class="form-group">';
-  echo '<label>Height (cm): </label>';
-  echo '<input type="number" name="height" class="form-control" value="'.$client_profile['height'].'" required>';
-  echo '</div>';
-  echo '<div class="form-group">';
-  if (!isset($saved)) {
-  echo '<input type="submit" value="Save" class="btn btn-primary">';}
-  echo '</div>';
-  echo '</form>';
-  echo '</div>';
-?>
+<?php require 'client-info-logic2.php'?>
+
 
 		
 </div>
@@ -72,7 +47,7 @@ require_once('../database.php');?>
         <th>Status</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="orders-container">
       </tbody>
   </table>
       </div>
@@ -88,16 +63,39 @@ require_once('../database.php');?>
    
     <!--AJAX -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
+     <script>
   $(document).ready(function() {
     // Function to retrieve orders via Ajax
     function getOrders() {
       $.ajax({
-        url: 'client-retrieve-orders.php',
+        url: 'client-retrieve-order.php',
         method: 'GET',
         success: function(response) {
           // Handle the response from the server
-          $('#orders-container tbody').html(response);
+          var orders = JSON.parse(response);
+          var tbody = $('#orders-container tbody');
+          tbody.empty();
+
+          if (orders.length > 0) {
+            for (var i = 0; i < orders.length; i++) {
+              var order = orders[i];
+              var row = $('<tr>');
+              row.append($('<td>').text(order.order_id));
+              row.append($('<td>').text(order.diet_id));
+              row.append($('<td>').text(order.address));
+              row.append($('<td>').text(order.contact));
+              row.append($('<td>').text(order.quantity));
+              row.append($('<td>').text(order.price));
+              row.append($('<td>').text(order.order_date));
+              row.append($('<td>').text(order.status));
+              tbody.append(row);
+            }
+          } else {
+            // Show a message if no orders are available
+            var emptyRow = $('<tr>');
+            emptyRow.append($('<td colspan="8">').text('No orders found'));
+            tbody.append(emptyRow);
+          }
         },
         error: function(xhr, status, error) {
           console.log(xhr.responseText);
