@@ -3,6 +3,10 @@ require_once "../database.php";
 
 // Initialize the session
 session_start(); 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
 // Check if the user is logged in, if not then redirect him to login page
 //if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
@@ -27,6 +31,10 @@ session_start();
     <link rel="stylesheet" href="manage-staff.css">
 
    <style>
+    .tbl-full {
+        font-size: 15px;
+    }
+  
     .btn-secondary {
   display: inline-block;
   padding: 8px 16px;
@@ -64,7 +72,7 @@ session_start();
 <?php @include "navbar-admin.php"?>
 <body>
 <?php
-define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
+define('SITEURL', 'http://localhost/UEB2_PROJEKTI/');
 ?>
 <div class="main-content"> 
     <!-- Button to Add Admin-->
@@ -73,7 +81,7 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
      <!-- CONTENT SECTION -->
      <div class="tbl-content">
 
-     <a href="admin-add-diet.php" class="update-button">Add Diet</a>
+     <a href="admin-add-diet.php" class="update-button" >Add Diet</a>
       <br><br>
 
 
@@ -160,9 +168,9 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
         </tr>
         <?php 
                         //Create a SQL Query to Get all the Food
-                        $sql = "SELECT * FROM tbl_diet ORDER BY diet_id DESC LIMIT 4";
+                        $sql = "SELECT * FROM tbl_diet";
 
-
+                   
                         //Execute the qUery
                         $res = mysqli_query($conn, $sql);
 
@@ -209,7 +217,7 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
                         else
                         {
                             //Diet not Added in Database
-                            echo "<tr> <td colspan='7' class='error'> Food not Added Yet. </td> </tr>";
+                            echo "<tr> <td colspan='7' class='error'> Diet not Added Yet. </td> </tr>";
                         }
 
                     ?> 
