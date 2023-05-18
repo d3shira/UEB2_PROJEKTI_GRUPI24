@@ -35,8 +35,8 @@
             <a class="dropbtn">Staff</a>
             <div class="dropdown-content">
                 <a href="view-client.php">Clients</a>
-                <a href="#">Diets</a>
-                <a href="#">Orders</a>
+                <a href="staff-manage-diets.php">Diets</a>
+                <a href="staff-manage-orders.php">Orders</a>
                 <a href="staff-manage-questions.php">Questions</a>
             </div>
         </div>

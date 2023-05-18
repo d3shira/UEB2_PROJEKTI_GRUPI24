@@ -1,4 +1,3 @@
-
 <?php
 require_once "../database.php";
 
@@ -6,10 +5,10 @@ require_once "../database.php";
 session_start(); 
 
 // Check if the user is logged in, if not then redirect him to login page
-//if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
-  //  header("location: ../login.php");
-    //exit;
-//}
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='staff'){
+    header("location: ../login.php");
+    exit;
+}
 ?>
 
 <?php 
@@ -37,14 +36,14 @@ session_start();
         {
             //Food Deleted
             $_SESSION['delete'] = "<div class='success'>Diet Deleted Successfully.</div>";
-            header('location:http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
+            header('location:update-diet-success.php');
        
         }
         else
         {
             //Failed to Delete Food
             $_SESSION['delete'] = "<div class='error'>Failed to Delete Diet.</div>";
-            header('location:http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
+            header('location: staff-manage-diets.php');
         }
 
         
@@ -55,7 +54,7 @@ session_start();
         //Redirect to Manage Food Page
         //echo "REdirect";
         $_SESSION['unauthorize'] = "<div class='error'>Unauthorized Access.</div>";
-        header('location:http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
+        header('location: staff-manage-diets.php');
     }
 
 ?>

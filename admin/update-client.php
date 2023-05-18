@@ -179,7 +179,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
             //Query Executed and Admin Updated
             $_SESSION['update'] = "<div class='success'>Client Updated Successfully.</div>";
             //Redirect to Manage Admin Page
-            header('location:http://localhost/UEB2_PROJEKTI/admin/admin-manage-clients.php');
+            header('location: update-client-success.php');
         }
         else
         {

@@ -18,6 +18,10 @@
 <body>
 <?php define('SITEURL', 'http://localhost/UEB2_PROJEKTI/'); ?>
 <?php @include 'navbar.php' ?>
+<br> <br>
+<br>
+<br> <br>
+<br>
 <section class="order1" id="order1">
 
 <h3 class="sub-heading" style="font-size: 2rem; color:green" > Order Now</h3>

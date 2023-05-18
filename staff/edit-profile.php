@@ -4,49 +4,10 @@
 session_start(); 
 
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='staff'){
     header("location: ../login.php");
     exit;
 } 
-?>
-<?php 
-@include 'staff-navbar.php';
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <title>Document</title>
-
-    <!--font awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!--css-->
-    <link rel="stylesheet" href="../navbar.css">
-    <link rel="stylesheet" href="../home.css">
-    <link rel="stylesheet" href="../admin/navbar-admin.css">
-    <link rel="stylesheet" href="../admin/manage-staff.css">
-    <link rel="stylesheet" href="../admin/register-staff.css">
-
-    <!--<script src="home.js"></script>--> 
-    <script src="../navbar.js"></script> 
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
-
-</head>
-<body>
-    
-<br><br><br>
-<div class="wrapper">
-    <div class="form-group">
-    <h3 style="text-align: left; margin:45px; font-size: 25px; color:#192a56;">Edit Your Profile</h3>
-
-    
-<?php
-require_once "../database.php";
-include 'staff-navbar.php';
 
 // 1. Get the ID of Selected Staff
 $id = $_GET['user_id'];
@@ -109,9 +70,10 @@ if (isset($_POST['submit'])) {
     // Execute the query
     $res = mysqli_query($conn, $sql);
 
-    if ($res) {
+    if ($res==true) {
         // Query executed successfully
         $_SESSION['update'] = "<div class='success'>Staff Updated Successfully</div>";
+        echo "<script>Swal.fire('Information saved', '', 'success');</script>";
         header("location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php");
         exit();
     } else {
@@ -120,8 +82,71 @@ if (isset($_POST['submit'])) {
         header("location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php");
         exit();
     }
+    
 }
+
 ?>
+<?php 
+@include 'staff-navbar.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <title>Document</title>
+
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!--css-->
+    <link rel="stylesheet" href="../navbar.css">
+    <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="../admin/navbar-admin.css">
+    <link rel="stylesheet" href="../admin/manage-staff.css">
+    <link rel="stylesheet" href="../admin/register-staff.css">
+    <link rel="stylesheet" href="test.css">
+
+    <!--<script src="home.js"></script>--> 
+    <script src="../navbar.js"></script> 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+<header style="text-decoration:none;">
+    <a href="staff_dashboard.php" class="logo"><i class="fas fa-utensils"></i>FitYou - Staff Dashboard</a>
+    <nav class="navbar">
+        <div class="dropdown">
+            <a class="dropbtn">Staff</a>
+            <div class="dropdown-content">
+                <a href="view-client.php">Clients</a>
+                <a href="staff-manage-diets.php">Diets</a>
+                <a href="staff-manage-orders.php">Orders</a>
+                <a href="staff-manage-questions.php">Questions</a>
+            </div>
+        </div>
+        <a class="" href="home-staff.php">Home</a>
+        <a class="" href="aboutus-staff.php">About Us</a>
+        <a class="" href="staff-manage-diet">Diets</a>
+        <a class="" href="#">Review</a>
+        <!-- <a class="" href="order.php">Order</a> -->
+        <a class="" href="../faqs.php">FAQs</a> 
+    </nav>
+    <div class="icons">
+        <i class="fas fa-bars" id="menu-bars"></i>
+        <a href="staff_dashboard.php" class="fa-solid fa-user"></a>
+    </div>
+</header>
+<br><br><br>
+<div class="wrapper">
+    <div class="form-group">
+    <h3 style="text-align: left; margin:45px; font-size: 25px; color:#192a56;">Edit Your Profile</h3>
+
+
         <form action="" method="POST">
 
             <table class="tbl-30">
@@ -173,55 +198,6 @@ if (isset($_POST['submit'])) {
         </form>
     </div>
 </div>
-
-<?php 
-
-    // //Check whether the Submit Button is Clicked or not
-    // if(isset($_POST['submit']))
-    // {
-    //     //echo "Button CLicked";
-    //     //Get all the values from form to update
-    //     $id = $_POST['user_id'];
-    //     $first_name = $_POST['first_name'];
-    //     $last_name = $_POST['last_name'];
-    //     $username = $_POST['username'];
-    //     $email = $_POST['email'];
-    //     $profession = $_POST['profession'];
-
-    //     //Create a SQL Query to Update Admin
-    //     $sql = "UPDATE tbl_users
-    //     INNER JOIN tbl_staff_profiles ON tbl_users.user_id = tbl_staff_profiles.user_id
-    //     SET tbl_users.first_name = '$first_name',
-    //         tbl_users.last_name = '$last_name',
-    //         tbl_users.username = '$username',
-    //         tbl_users.email = '$email',
-    //         tbl_staff_profiles.first_name = '$first_name',
-    //         tbl_staff_profiles.last_name = '$last_name',
-    //         tbl_staff_profiles.profession = '$profession'
-    //     WHERE tbl_users.user_id = '$id'";
-
-
-    //     //Execute the Query
-    //     $res = mysqli_query($conn, $sql);
-
-    //     //Check whether the query executed successfully or not
-    //     if($res==true)
-    //     {
-    //         //Query Executed and Admin Updated
-    //         $_SESSION['update'] = "<div class='success'>Profile changes saved succesfully.</div>";
-    //         //Redirect to Manage Admin Page
-    //         header('location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php');
-    //     }
-    //     else
-    //     {
-    //         //Failed to Update Admin
-    //         $_SESSION['update'] = "<div class='error'>Failed to save changes.</div>";
-    //         //Redirect to Manage Admin Page
-    //         header('location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php');
-    //     }
-    // }
-
-?>
 
 </body>
 </html>

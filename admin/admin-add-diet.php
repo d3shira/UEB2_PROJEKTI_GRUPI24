@@ -1,4 +1,71 @@
-<?php require_once "../database.php"; ?>
+<?php
+require_once "../database.php";
+
+// Define the SQL query
+$sql2 = "INSERT INTO tbl_diet (diet_name, description, price, in_stock, image_path) VALUES (?, ?, ?, ?, ?)";
+
+// Check if the form is submitted
+if (isset($_POST['submit'])) {
+    // Process the form data
+    $diet_name = $_POST['diet_name'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
+    $in_stock = isset($_POST['in_stock']) ? $_POST['in_stock'] : "No";
+    $image_path = $_POST['image_path'];
+
+    // Check if any required fields are empty
+    $errors = array();
+    if (empty($diet_name)) {
+        $errors[] = "Diet Name is required";
+    }
+    if (empty($description)) {
+        $errors[] = "Description is required";
+    }
+    if (empty($price)) {
+        $errors[] = "Price is required";
+    }
+    if (empty($image_path)) {
+        $errors[] = "Image Path is required";
+    }
+
+    // If there are any errors, display them and stop execution
+    if (!empty($errors)) {
+        foreach ($errors as $error) {
+            echo $error . "<br>";
+        }
+        exit();
+    }
+
+    // Create a variable $stmt and assign the result of the prepared statement execution
+    $stmt = $conn->prepare($sql2);
+    $stmt->bind_param("sssss", $diet_name, $description, $price, $in_stock, $image_path);
+    $result = $stmt->execute();
+
+    // Redirect after processing the form
+    if ($result == true) {
+        header("Location: diet-success.php");
+        exit();
+    } else {
+        echo "Failed to Insert Diet";
+        exit();
+    }
+}
+?>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Head content goes here -->
+</head>
+<body>
+    <!-- HTML content goes here -->
+</body>
+</html>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +74,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diets</title>
     <link rel="stylesheet" href="admin-add-diet.css">
+    <link rel="stylesheet" href="../navbar.css">
+    <link rel="stylesheet" href="navbar-admin.css">
+     <!--<script src="home.js"></script>--> 
+     <script src="../navbar.js"></script> 
     <style>
         /* CSS for .main-content */
 .main-content {
@@ -83,14 +154,32 @@
 }
     </style>
    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    
 </head>
 <body>
-<?php @include "navbar-admin.php"?>
-<?php
-define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
-?>
+
+    <!--HEADER SECTION-->
+    <!--me nderru disa icons dhe menu-->
+    <header style="text-decoration:none;">
+    <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou -Admin Dashboard </a>
+    <nav class="navbar">
+        <div class="dropdown">
+            <a class="dropbtn">Manage Users</a>
+            <div class="dropdown-content">
+                <a href="admin-manage-staff.php">Manage Staff</a>
+                <a href="admin-manage-clients.php">Manage Clients</a>
+            </div>
+        </div>
+        <a class="" href="admin-manage-diets.php">Manage Diets</a>
+        <a class="" href="admin-manage-orders.php">Manage Orders</a>
+        <a class="" href="admin-manage-questions.php">Manage Questions</a>
+    </nav>
+    <div class="icons">
+        <i class="fas fa-bars" id="menu-bars"></i>
+        <a href="admin dashboard.php" class="fa-solid fa-user"></a>
+    </div>
+</header>
+
 
 <div class="main-content">
     <div class="wrapper">
@@ -127,7 +216,7 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
                 <tr>
                     <td>Price: </td>
                     <td>
-                        <input type="number" name="price">
+                        <input type="decimal" name="price">
                     </td>
                 </tr>
                 
@@ -201,25 +290,7 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
 
                 //CHeck whether data inserted or not
                 //4. Redirect with MEssage to Manage Food page
-            //    if($stmt == true)
-              //  {
-                    //Data inserted Successfullly
-         // $_SESSION['add'] = "<div class='success'>Food Added Successfully.</div>";
-           //    header('location: http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
-                   
-            // }
-             //else
-          //{
-                    //FAiled to Insert Data
-            //$_SESSION['add'] = "<div class='error'>Failed to Add Food.</div>";
-               
-              //header('location: http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
-
-         //}
-
-                
            }
-         
 
         ?>
 

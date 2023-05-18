@@ -1,14 +1,21 @@
 <?php
 
-
 if(isset($_COOKIE["username"])){
     $username = $_COOKIE["username"];
-    header("client/client_dashboard.php");
+   if($_SESSION["user_type"] === "client"){
+        header("location: client/client_dashboard.php");
+    } elseif ($_SESSION["user_type"] === "staff"){
+        header("location: staff/staff_dashboard.php");
+    }elseif($_SESSION["user_type"] === "admin"){
+        header("location: admin/admin dashboard.php");
+
+    }
+    exit;
 }
 
-if(isset($_COOKIE["user_type"])){
-    $user_type = $_COOKIE["user_type"];
-}
+// if(isset($_COOKIE["user_type"])){
+//     $user_type = $_COOKIE["user_type"];
+// }
 // Initialize the session
 session_start();
  
