@@ -177,7 +177,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
             //Query Executed and Admin Updated
             $_SESSION['update'] = "<div class='success'>Admin Updated Successfully.</div>";
             //Redirect to Manage Admin Page
-            header('location:http://localhost/UEB2_PROJEKTI/admin/admin-manage-staff.php');
+            header('location: update-staff-success.php');
         }
         else
         {

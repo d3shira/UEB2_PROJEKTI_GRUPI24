@@ -16,7 +16,7 @@ $res = mysqli_query($conn, $sql);
      //Create SEssion Variable to Display Message
      $_SESSION['delete'] = "<div class='success'>Staff Deleted Successfully.</div>";
      //Redirect to Manage Staff Page
-     header('location:http://localhost/UEB2_PROJEKTI/admin/admin-manage-staff.php');
+     header('location:delete-staff-success.php');
     }
 
  else

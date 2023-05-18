@@ -4,6 +4,9 @@
 // Include config file
 require_once "../database.php";
 require_once '../vendor/autoload.php';
+
+
+//qetu duhet me kon api key
 // Define variables and initialize with empty values
 $first_name = $last_name = $username = $password = $confirm_password = $email = $confirm_email = $token= "";
 

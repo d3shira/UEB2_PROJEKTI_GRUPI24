@@ -16,7 +16,7 @@ $res = mysqli_query($conn, $sql);
      //Create SEssion Variable to Display Message
      $_SESSION['delete'] = "<div class='success'>Client Deleted Successfully.</div>";
      //Redirect to Manage Staff Page
-     header('location:http://localhost/UEB2_PROJEKTI/admin/admin-manage-clients.php');
+     header('location: delete-client-success.php');
     }
 
  else
