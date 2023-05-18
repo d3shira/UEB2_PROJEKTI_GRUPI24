@@ -73,7 +73,7 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
      <!-- CONTENT SECTION -->
      <div class="tbl-content">
 
-     <a href="<?php echo SITEURL; ?>admin/admin-add-diet.php" class="update-button">Add Diet</a>
+     <a href="admin-add-diet.php" class="update-button">Add Diet</a>
       <br><br>
 
 
