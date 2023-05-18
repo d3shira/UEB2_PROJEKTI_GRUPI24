@@ -4,7 +4,7 @@
 $host = 'localhost:3307';
 $db = 'ueb2';
 $user = 'root';
-$password = '';
+$password = 'Replace.3';
 
 $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $password);
 

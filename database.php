@@ -2,7 +2,6 @@
 <?php
 $dbhost='localhost:3307';
 $dbuser='root';
-
 $dbpass='';
 $db='ueb2'; 
 $conn=mysqli_connect($dbhost,$dbuser,$dbpass,$db);

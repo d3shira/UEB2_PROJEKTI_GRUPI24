@@ -1,3 +1,4 @@
+admin-manage-questions kur u kon mire pa e nndyrhsu 
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,15 +16,12 @@
 
 
 <style>
-       body {
-            background-color: white;
-        }
-
+/* 
         .text-center {
             text-align: center;
             color: #192a56;
-        }
-
+        } */
+/* 
         .inputq {
             width: 300px;
             height: 40px;
@@ -38,8 +36,8 @@
             margin-top: 5px;
             border:1px solid black;
 
-        }
-
+        } */
+/* 
         .form-group {
             display: flex;
             flex-direction: row;
@@ -67,14 +65,49 @@
 
         .Addfaq:hover {
             background-color: #767070;
-        }
+        } */
 
+        .tbl-full{
+    width:100%;
+}
+
+
+table{
+    margin-top:100px;
+}
+table tr th{
+    border-bottom:1px solid black;
+    padding: 1%;
+    text-align: left;
+}
+
+
+.tbl-content{
+    width:80%;
+    bottom:55%;
+    left:10%;
+    right:30%;
+    position:relative;
+}
+
+table tr td{
+    padding:1%;
+}
+
+       
         .editbtn {
-            background-color: #27ae60;
+            /* background-color: #27ae60;
             border-radius: 6px;
             height: 30px;
             width: 60px;
-            color:white;
+            color:white; */
+
+            background-color: #27ae60;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-right: 10px;
         }
 
         .editbtn:hover {
@@ -83,11 +116,16 @@
         }
 
         .deletebtnn {
-            background:  #666;
+            /* background:  #666;
             border-radius: 6px;
             height: 30px;
             width: 60px;
-            color:white;
+            color:white; */
+            background-color: #666;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
         }
 
         .deletebtnn:hover {
@@ -95,51 +133,39 @@
 
         }
 
-        .tablee {
-            display: flex;
-            border: 3px solid grey;
-            margin-left: 150px;
-        }
-
-        th {
-            font-size: 20px;
-        }
-
-        #txt {
-            font-size: 20px;
-        }
+       
 </style>
 </head>
 <body>
     <?php @include 'navbar-admin.php' ?>
-    <div class="container" style="margin-top: 100px; margin-bottom: 50px;">
+    <!-- <div class="container" style="margin-top: 100px; margin-bottom: 50px;">
     <div class="row">
         <div class="offset-md-3 col-md-6">
             <h1 class="text-center">Add FAQ</h1>
  
-            <!-- for to add FAQ -->
+            for to add FAQ
             <form method="POST" action="admin-manage-questions.php">
  
-                <!-- question -->
+                question
                 <div class="form-group">
                     <label style="font-size:25px; margin-left:420px; font-weight:700px;">Enter Question</label>
                     <input class="inputq" type="text" name="question" class="form-control" required />
                 </div>
  
-                <!-- answer -->
-                <div class="form-group">
+ answer -->
+                <!-- <div class="form-group">
                     <label style="font-size:25px; margin-left:420px;font-weight:700px; ">Enter Answer</label>
                     <textarea class="inputa"name="answer" id="answer" class="form-control" required></textarea>
-                </div>
+                </div> -->
 
 
                 <!-- submit button -->
-                <input class="Addfaq" type="submit" name="submit" class="btn btn-info" value="Add FAQ" />
+                <!-- <input class="Addfaq" type="submit" name="submit" class="btn btn-info" value="Add FAQ" />
             </form>
         </div>
     </div>
  
-</div>
+</div>  -->
 
 
 <!-- lidhja me database per phpmyadmin -->
@@ -148,7 +174,7 @@
 $host = "localhost:3307";
 $dbname = "ueb2";
 $username = "root";
-$password = '';
+$password = 'Replace.3';
 
 try {
     // Connect to the database
@@ -187,15 +213,10 @@ $statement->execute();
 $faqs = $statement->fetchAll();
 
 ?>
- <!-- Duhet me shtu diqka  Per me i rendit pytjet newest to oldest...--> 
 
-
-    
-
-
- <div class="row">
-    <div class="offset-md-2 col-md-8 tablee">
-        <table class="table table-bordered">
+ <div class="container">
+    <div class="tbl-contents">
+        <table class="tbl-full">
             <!-- table heading -->
             <thead>
                 <tr>
@@ -220,7 +241,7 @@ $faqs = $statement->fetchAll();
  <!-- <a href="edit-question.php?id=<?php echo $faq['faq_id']; ?>" class="btn btn-warning btn-sm">
     Edit
 </a> -->
-<button class="editbtn" onclick="window.location.href='edit-question.php?id=<?php echo $faq['faq_id']; ?>'" class="btn btn-warning btn-sm">Edit</button>
+<button class="editbtn" onclick="window.location.href='edit-question.php?id=<?php echo $faq['faq_id']; ?>'" class="btn btn-warning btn-sm">Answer</button>
 
  <td>
                             <form method="POST" action="delete-question.php" onsubmit="return confirm('Are you sure you want to delete this FAQ ?');">

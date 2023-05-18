@@ -23,6 +23,7 @@
 <h3 class="sub-heading" style="font-size: 2rem; color:green" > Order Now</h3>
 <h1 class="heading" style="font-size: 2.8rem; color:#192a56"> FREE AND FAST</h1>
 <?php 
+
 //CHeck whether food id is set or not
 if(isset($_GET['diet_id']))
 {

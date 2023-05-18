@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost:3307";
 $username = "root";
-$password = "";
+$password = "Replace.3";
 $dbname = "ueb2";
 
 try {
@@ -135,7 +135,7 @@ try {
 
 
                <div class="butoniSubmit">
-                <input  type="submit" name="submit" class="btnSubmit" value="Edit FAQ" /></div>
+                <input  type="submit" name="submit" class="btnSubmit" value="Save" /></div>
             </form>
         </div>
     </div>
