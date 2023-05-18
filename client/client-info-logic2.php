@@ -47,7 +47,7 @@ if (!empty($client_profile['birthday']) &&!empty($client_profile['weight'] && !e
     echo '<p>Weight (kg): '.$client_profile["weight"].'</p>';
     echo '<p>Height (cm): '.$client_profile["height"].'</p>';
     echo '<p>Thank you for providing your information.</p>';
-    echo'<button class="btn btn-primary" onclick="window.location.href=\'edit-client.php\'">Edit</button>';
+   
     echo '</div>';
 } else{
     //Display the form for adding client information
