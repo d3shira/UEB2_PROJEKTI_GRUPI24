@@ -160,7 +160,7 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI_GRUPI24/');
         </tr>
         <?php 
                         //Create a SQL Query to Get all the Food
-                        $sql = "SELECT * FROM tbl_diet ORDER BY diet_id DESC LIMIT 4";
+                        $sql = "SELECT * FROM tbl_diet";
 
 
                         //Execute the qUery

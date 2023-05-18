@@ -1,21 +1,15 @@
+@ -1,104 +1,118 @@
 <?php
+
 
 if(isset($_COOKIE["username"])){
     $username = $_COOKIE["username"];
-   if($_SESSION["user_type"] === "client"){
-        header("location: client/client_dashboard.php");
-    } elseif ($_SESSION["user_type"] === "staff"){
-        header("location: staff/staff_dashboard.php");
-    }elseif($_SESSION["user_type"] === "admin"){
-        header("location: admin/admin dashboard.php");
-
-    }
-    exit;
+    header("client/client_dashboard.php");
 }
 
-// if(isset($_COOKIE["user_type"])){
-//     $user_type = $_COOKIE["user_type"];
-// }
+if(isset($_COOKIE["user_type"])){
+    $user_type = $_COOKIE["user_type"];
+}
 // Initialize the session
 session_start();
  
@@ -60,15 +54,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT user_id, username, password, user_type FROM tbl_users WHERE username = ? AND verification_status  = ? ";
+        $sql = "SELECT user_id, username, password, user_type FROM tbl_users WHERE username = ? ";
         
         if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_verification_status);
+            mysqli_stmt_bind_param($stmt, "s", $param_username);
             
             // Set parameters
             $param_username = $username;
-            $param_verification_status='verified';
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
