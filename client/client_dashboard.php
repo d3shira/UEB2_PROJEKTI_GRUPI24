@@ -30,29 +30,29 @@ require_once('../database.php');?>
 
 
 		
-</div>
-  <div class="tbl-container">
-    <div class="tbl-content">
-      <br><br>
-  <h2>Your Orders</h2>
-  <table class="tbl-full">
-      <tr>
-        <th>Order ID</th>
-        <th>Diet ID</th>
-        <th>Address</th>
-        <th>Contact</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Date</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody id="orders-container">
+<div class="tbl-container">
+  <div class="tbl-content">
+    <br><br>
+    <h2>Your Orders</h2>
+    <table class="tbl-full">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Diet ID</th>
+          <th>Address</th>
+          <th>Contact</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="orders-container">
       </tbody>
-  </table>
-      </div>
+    </table>
+  </div>
 </div>
-</div>
+
 <br><br>
       <p>
       <a href="../menu.php" class="update-button" style="margin-left:15px;">Order Now</a>
@@ -61,9 +61,9 @@ require_once('../database.php');?>
     </p>
       
    
-    <!--AJAX -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-     <script>
+  <!--AJAX -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
   $(document).ready(function() {
     // Function to retrieve orders via Ajax
     function getOrders() {
@@ -73,8 +73,8 @@ require_once('../database.php');?>
         success: function(response) {
           // Handle the response from the server
           var orders = JSON.parse(response);
-          var tbody = $('#orders-container tbody');
-          tbody.empty();
+          var tbody = $('#orders-container');
+       
 
           if (orders.length > 0) {
             for (var i = 0; i < orders.length; i++) {
@@ -85,7 +85,7 @@ require_once('../database.php');?>
               row.append($('<td>').text(order.address));
               row.append($('<td>').text(order.contact));
               row.append($('<td>').text(order.quantity));
-              row.append($('<td>').text(order.price));
+              row.append($('<td>').text(order.total_price));
               row.append($('<td>').text(order.order_date));
               row.append($('<td>').text(order.status));
               tbody.append(row);
@@ -94,7 +94,7 @@ require_once('../database.php');?>
             // Show a message if no orders are available
             var emptyRow = $('<tr>');
             emptyRow.append($('<td colspan="8">').text('No orders found'));
-            tbody.append(emptyRow);
+            tbody.html(emptyRow);
           }
         },
         error: function(xhr, status, error) {
@@ -107,7 +107,7 @@ require_once('../database.php');?>
     getOrders();
 
     // Set an interval to periodically update the orders
-    setInterval(getOrders, 5000); // Update every 5 seconds
+    /*setInterval(getOrders, 5000);*/ // Update every 5 seconds
   });
 </script>
 </body>

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once('../database.php');
 
 // Check if the user is logged in
@@ -14,6 +14,7 @@ $sql = "SELECT * FROM tbl_orders WHERE user_id = '$user_id' ORDER BY order_date 
 $result = mysqli_query($conn, $sql);
 
 // Check if any orders are found
+// blert osmani e boni array
 if (mysqli_num_rows($result) > 0) {
     $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
     // Send the orders data as JSON response
