@@ -43,7 +43,7 @@ session_start();
         else
         {
             //Failed to Delete Food
-            $_SESSION['delete'] = "<div class='error'>Diet to Delete Food.</div>";
+            $_SESSION['delete'] = "<div class='error'>Failed to Delete Diet.</div>";
             header('location:http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
         }
 
