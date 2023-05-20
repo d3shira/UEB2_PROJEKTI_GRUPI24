@@ -1,10 +1,8 @@
 <?php
 require_once "../database.php";
 
-// Define the SQL query
 $sql2 = "INSERT INTO tbl_diet (diet_name, description, price, in_stock, image_path) VALUES (?, ?, ?, ?, ?)";
 
-// Check if the form is submitted
 if (isset($_POST['submit'])) {
     // Process the form data
     $diet_name = $_POST['diet_name'];
@@ -28,7 +26,6 @@ if (isset($_POST['submit'])) {
         $errors[] = "Image Path is required";
     }
 
-    // If there are any errors, display them and stop execution
     if (!empty($errors)) {
         foreach ($errors as $error) {
             echo $error . "<br>";
@@ -36,7 +33,6 @@ if (isset($_POST['submit'])) {
         exit();
     }
 
-    // Create a variable $stmt and assign the result of the prepared statement execution
     $stmt = $conn->prepare($sql2);
     $stmt->bind_param("sssss", $diet_name, $description, $price, $in_stock, $image_path);
     $result = $stmt->execute();
@@ -53,16 +49,13 @@ if (isset($_POST['submit'])) {
 ?>
 
 
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Head content goes here -->
+
 </head>
 <body>
-    <!-- HTML content goes here -->
+
 </body>
 </html>
 
@@ -76,10 +69,9 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="admin-add-diet.css">
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="navbar-admin.css">
-     <!--<script src="home.js"></script>--> 
      <script src="../navbar.js"></script> 
     <style>
-        /* CSS for .main-content */
+
 .main-content {
   padding: 100px;
 }
@@ -157,9 +149,6 @@ if (isset($_POST['submit'])) {
     
 </head>
 <body>
-
-    <!--HEADER SECTION-->
-    <!--me nderru disa icons dhe menu-->
     <header style="text-decoration:none;">
     <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou -Admin Dashboard </a>
     <nav class="navbar">
@@ -249,36 +238,23 @@ if (isset($_POST['submit'])) {
         
         <?php 
             
-            //CHeck whether the button is clicked or not
             if(isset($_POST['submit']))
-            {
-                //Add the Food in Database
-                //echo "Clicked";
-                
-                //1. Get the DAta from Form
+            {   
                 $diet_name = $_POST['diet_name'];
                 $description = $_POST['description'];
                 $price = $_POST['price'];
    
-
-                //Check whether radion button for featured and active are checked or not
                 if(isset($_POST['in_stock']))
                 {
                     $in_stock = $_POST['in_stock'];
                 }
                 else
                 {
-                    $in_stock = "No"; //SEtting the Default Value
+                    $in_stock = "No"; 
                 }
                  
                 $image_path = $_POST['image_path'];
              
-
-                
-                //3. Insert Into Database
-
-                //Create a SQL Query to Save or Add food
-                // For Numerical we do not need to pass value inside quotes '' But for string value it is compulsory to add quotes ''
               
                 $sql2 = "INSERT INTO tbl_diet (diet_name, description, price, in_stock, image_path) VALUES (?, ?, ?, ?, ?)";
                 $stmt = $conn->prepare($sql2);

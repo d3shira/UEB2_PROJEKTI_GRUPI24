@@ -1,13 +1,11 @@
 <?php
-// Include config file
+
 require_once "../database.php";
  
-// Define variables and initialize with empty values
+
 $first_name = $last_name = $username = $password = $role = $confirm_password = $email = $confirm_email = $token= "";
 $first_name_err = $last_name_err = $username_err = $role_err = $password_err = $confirm_password_err = $email_err = $confirm_email_err = $token_err= "";
  
- 
-// Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       // Validate first name
