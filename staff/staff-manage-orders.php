@@ -2,11 +2,11 @@
 
 <?php   
 
-// Initialize the session
+
 session_start(); 
 
-// Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
+
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='staff'){
     header("location: ../login.php");
     exit;
 }     
@@ -32,7 +32,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     <title>Manage Clients</title>
    
 
-    <!--font awesome-->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!--css-->
     <link rel="stylesheet" href="../navbar.css">
@@ -42,7 +42,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
 
 
 
-    <!--<script src="home.js"></script>--> 
+ 
     <script src="../navbar.js"></script> 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
@@ -50,15 +50,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
 </head>
 <body>
 
-    <!--HEADER SECTION-->
-    <!--me nderru disa icons dhe menu-->
+   
    <?php @include 'staff-navbar.php'?>
     <div class="wrapper">
         <h3 style="text-align: left; margin:90px; font-size: 25px; color:#192a56;">Manage Orders</h3>
     </div>
 
 
-    <!-- CONTENT SECTION -->
+ 
     <br><br>
     <div class="tbl-container">
     <div class="tbl-content">
@@ -79,25 +78,22 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
            <?php 
             //Display staff + query to display staff
             $sql = "SELECT * FROM tbl_orders";
-            // FROM tbl_diet u
-            // INNER JOIN tbl_orders cp ON u.diet_id = cp.diet_id";
+        
 
-            //execyte query
+         
             $res = mysqli_query($conn, $sql);
 
-            //check if query is executed or no
+           
             if($res==TRUE){
-                //count rows to check if we have data in database or not
+             
                 $count = mysqli_num_rows($res);
                 $sn = 1;
 
-                //check number of rows
+               
                 if($count>0){
-                    //we have data in database
-                    //gets all rows from database and stores them in the $rows variable
+                
                     while($rows = mysqli_fetch_assoc($res)){
-                        //while loop gets all data from database
-                        //while loop runs as long as we have data in database
+                
 
                         //get individual data
                         $order_id = $rows['order_id'];
@@ -110,9 +106,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
                         $order_date = $rows['order_date'];
                         $status = $rows['status'];
 
-                        //display the values in our table
+                     
                         ?>
-                        <!--html code in between here to display staff-->
+                       
                         <tr>
                             <td><?php echo $sn++; ?></td> 
                             <td><?php echo $order_id; ?></td> 
@@ -155,7 +151,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
                 }
             }
             else{
-                //we do not have data in database
+               
             }
         }
 

@@ -26,7 +26,6 @@
                         Forget the junk hype and only eat foods that are fresh and ripe
                        Eat fruits plenty, keep your body healthy
                         Eating healthy keeps your heart beating!</p>
-                         <!--  <a href="#" class="btn">order now</a>-->
 
                     </div>
                     <div class="image">
@@ -41,7 +40,6 @@
                             we offer a range of diet plans to suit different goals and lifestyles.
                              Whether you are looking to lose weight, build muscle, or simply improve your overall health,
                               we have a plan for you.</p>
-                      <!--  <a href="#" class="btn">order now</a>-->
 
                     </div>
                     <div class="image">
@@ -53,7 +51,6 @@
                        
                         <h3 style="color:white; font-size:2.5rem">Reviews</h3>
                         <p style="color:white; font-size:1.4rem;">Don't just take our word for it - see what our satisfied clients have to say! </p>
-                         <!--  <a href="#" class="btn">order now</a>-->
 
                     </div>
                     <div class="image">

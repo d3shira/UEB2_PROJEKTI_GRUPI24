@@ -1,9 +1,9 @@
 <?php require_once "../database.php"; 
 
-// Initialize the session
+
 session_start(); 
 
-// Check if the user is logged in, if not then redirect him to login page
+
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='staff'){
     header("location: ../login.php");
     exit;
@@ -30,7 +30,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     <link rel="stylesheet" href="../admin/manage-staff.css">
     <link rel="stylesheet" href="../admin/register-staff.css">
 
-    <!--<script src="home.js"></script>--> 
     <script src="../navbar.js"></script> 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
@@ -47,26 +46,22 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
 <?php
 require_once "../database.php";
 
-// 1. Get the ID of Selected Staff
 $id = $_GET['user_id'];
 
-// 2. Create SQL Query to Get the Details
 $sql = "SELECT u.user_id, u.user_type, u.username, u.email, 
             s.first_name, s.last_name, s.profession
         FROM tbl_users u 
         INNER JOIN tbl_staff_profiles s ON u.user_id = s.user_id
         WHERE u.user_id = $id";
 
-// Execute the Query
 $res = mysqli_query($conn, $sql);
 
-// Check whether the query is executed or not
 if ($res) {
-    // Check whether the data is available or not
+
     $count = mysqli_num_rows($res);
-    // Check whether we have admin data or not
+
     if ($count == 1) {
-        // Get the Details
+
         $row = mysqli_fetch_assoc($res);
         $user_id = $row["user_id"];
         $first_name = $row["first_name"];
@@ -76,18 +71,18 @@ if ($res) {
         $email = $row["email"];
         $profession = $row["profession"];
     } else {
-        //Redirect to Manage Admin Page
+
         header('location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php');
         exit();
     }
 } else {
-    //Redirect to Manage Admin Page
+
     header('location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php');
     exit();
 }
 
 if (isset($_POST['submit'])) {
-    // Get all the values from form to update
+
     $id = $_POST['user_id'];
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
@@ -95,7 +90,6 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $profession = $_POST['profession'];
 
-    // Create a SQL Query to Update Admin
     $sql = "UPDATE tbl_users u
             INNER JOIN tbl_staff_profiles s ON u.user_id = s.user_id
             SET u.first_name = '$first_name',
@@ -105,23 +99,21 @@ if (isset($_POST['submit'])) {
                 s.profession = '$profession'
             WHERE u.user_id = $id";
 
-    // Execute the query
     $res = mysqli_query($conn, $sql);
 
-   // After the successful update
 if ($res) {
-    // Update the session variables with the new values
+
     $_SESSION['first_name'] = $first_name;
     $_SESSION['last_name'] = $last_name;
     $_SESSION['username'] = $username;
     $_SESSION['email'] = $email;
     $_SESSION['profession'] = $profession;
 
-    // Redirect to the staff_dashboard.php page
+
     header("location: http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php");
     exit();
 } else {
-    // Failed to update staff
+    
     $_SESSION['update'] = "<div class='error'>Failed to Update Staff</div>";
     header("location: http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php");
     exit();
