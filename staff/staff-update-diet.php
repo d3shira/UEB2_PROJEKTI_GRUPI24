@@ -114,18 +114,7 @@ if (isset($_GET['diet_id'])) {
     <link rel="stylesheet" href="manage-staff.css">
     <!-- Scripts -->
     <script src="../navbar.js"></script> 
-    <script>
-        const navbarLinks = document.querySelectorAll('.navbar a');
-
-        navbarLinks.forEach(navbarLink => {
-            navbarLink.addEventListener('click', () => {
-                navbarLinks.forEach(navbarLink => {
-                    navbarLink.classList.remove('active');
-                });
-                navbarLink.classList.add('active');
-            });
-        });
-    </script>
+  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <style>
       
@@ -201,25 +190,7 @@ if (isset($_GET['diet_id'])) {
     </style>
 </head>
 <body>
-<header style="text-decoration:none;">
-    <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou - Staff Dashboard </a>
-    <nav class="navbar">
-        <div class="dropdown">
-            <a class="dropbtn">Manage Users</a>
-            <div class="dropdown-content">
-                <a href="admin-manage-staff.php">Manage Staff</a>
-                <a href="admin-manage-clients.php">Manage Clients</a>
-            </div>
-        </div>
-        <a class="" href="admin-manage-diets.php">Manage Diets</a>
-        <a class="" href="admin-manage-orders.php">Manage Orders</a>
-        <a href="admin-manage-questions.php">Manage Questions</a>
-    </nav>
-    <div class="icons">
-        <i class="fas fa-bars" id="menu-bars"></i>
-        <a href="admin dashboard.php" class="fa-solid fa-user"></a>
-    </div>
-</header>
+<?php @include 'staff-navbar.php' ?>
 
     <div class="main-content">
         <div class="wrapper">

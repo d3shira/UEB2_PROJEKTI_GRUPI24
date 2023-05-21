@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
 
   
     if ($result == true) {
-        header("Location: diet-success.php");
+        header("Location: ../diet-success.php");
         exit();
     } else {
         echo "Failed to Insert Diet";
@@ -156,25 +156,7 @@ if (isset($_POST['submit'])) {
     
 </head>
 <body>
-    <header style="text-decoration:none;">
-    <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou -Staff Dashboard </a>
-    <nav class="navbar">
-        <div class="dropdown">
-            <a class="dropbtn">Manage Users</a>
-            <div class="dropdown-content">
-                <a href="admin-manage-staff.php">Manage Staff</a>
-                <a href="admin-manage-clients.php">Manage Clients</a>
-            </div>
-        </div>
-        <a class="" href="admin-manage-diets.php">Manage Diets</a>
-        <a class="" href="admin-manage-orders.php">Manage Orders</a>
-        <a class="" href="admin-manage-questions.php">Manage Questions</a>
-    </nav>
-    <div class="icons">
-        <i class="fas fa-bars" id="menu-bars"></i>
-        <a href="admin dashboard.php" class="fa-solid fa-user"></a>
-    </div>
-</header>
+<?php @include 'staff-navbar.php' ?>
 
 
 <div class="main-content">
