@@ -7,7 +7,6 @@
  body {
         font-family: Arial, sans-serif;
         background-color: #f2f2f2;
-        margin-top:150px;
     }
 
     .container {
@@ -17,7 +16,7 @@
         background-color: #ffffff;
         border-radius: 5px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        margin-top: 50px;
+        margin-top: 150px;
         margin-bottom: 50px;
     }
 
