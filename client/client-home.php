@@ -7,14 +7,14 @@
     <title>Home</title>
     
    
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="client-home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
    
 </head>
 <body>
-    <!--Home section-->
-    <?php @include 'navbar.php' ?>
+   
+    <?php include 'client-navbar.php' ?>
     <section class="home" id="home">
 
         <div class="swiper home-slider">
@@ -23,40 +23,42 @@
                     <div class="content">
                         
                         
-                        <p style="color:white; font-size:2.1rem ">Improve your mood by eating healthy food!
+                        <p style="color:white; font-size:1.4rem ">Improve your mood by eating healthy food!
                         Forget the junk hype and only eat foods that are fresh and ripe
                        Eat fruits plenty, keep your body healthy
                         Eating healthy keeps your heart beating!</p>
+                        
 
                     </div>
                     <div class="image">
-                        <img src="images/deshiraa.jpg" style="width:90%; height:auto;" alt="">
+                        <img src="../images/deshiraa.jpg" style="width:90%; height:auto;" alt="">
                     </div>
                 </div>
                 <div class="swiper-slide slide">
                     <div class="content">
                         
                         
-                        <p style="color:white; font-size:2.1rem">Check out our diet plans: If you are looking for a structured approach to your diet, 
+                        <p style="color:white; font-size:1.4rem">Check out our diet plans: If you are looking for a structured approach to your diet, 
                             we offer a range of diet plans to suit different goals and lifestyles.
                              Whether you are looking to lose weight, build muscle, or simply improve your overall health,
                               we have a plan for you.</p>
+                     
 
                     </div>
                     <div class="image">
-                        <img src="images/firstImg1.jpg"style="width:90%;height:auto;" alt="">
+                        <img src="../images/firstImg1.jpg"style="width:90%;height:auto;" alt="">
                     </div>
                 </div>
                 <div class=" swiper-slide slide">
                     <div class="content">
                        
                         <h3 style="color:white; font-size:2.5rem">Reviews</h3>
-                        <p style="color:white; font-size:2.1rem;">Don't just take our word for it - see what our satisfied clients have to say! </p>
-                         <!--  <a href="#" class="btn">order now</a>-->
+                        <p style="color:white; font-size:1.4rem;">Don't just take our word for it - see what our satisfied clients have to say! </p>
+                        
 
                     </div>
                     <div class="image">
-                        <img src="images/img3.jpg" alt="">
+                        <img src="../images/img3.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -66,7 +68,7 @@
              <div class="swiper-pagination"></div>
         </div>
     </section>
-    <?php @include 'footer.php' ?>
+    <?php include 'client-footer.php' ?>
     
     <!--skripta per swiper-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>

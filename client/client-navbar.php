@@ -30,11 +30,10 @@
     <header>
     <a href="#" class="logo"><i class="fas fa-utensils"></i>FitYou</a>
     <nav class="navbar">
-        <a class="" href="../home.php">Home</a>
-        <a class="" href="../aboutus.php">About Us</a>
-        <a class="" href="../menu.php">Diets</a>
-        <a class="" href="../blerta.php">Review</a>
-        <a class="" href="../faqs.php">FAQs</a>
+        <a class="" href="client-home.php">Home</a>
+        <a class="" href="client-aboutus.php">About Us</a>
+        <a class="" href="client-menu.php">Diets</a>
+        <a class="" href="client-faqs.php">FAQs</a>
     </nav>
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>

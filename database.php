@@ -12,6 +12,5 @@ if(!$conn)
   
 }
 
-// pasi qe na eshte lidh db me sukses e largova komentin
 
 ?>
