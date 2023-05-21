@@ -1,7 +1,6 @@
 <?php
 require_once "../database.php";
 
-// Query to retrieve clients from the database
 $sql = "SELECT u.user_id, u.first_name, u.last_name, u.username, u.email, u.date_time
         FROM tbl_users u
         INNER JOIN tbl_client_profiles cp ON u.user_id = cp.user_id";
@@ -9,7 +8,6 @@ $sql = "SELECT u.user_id, u.first_name, u.last_name, u.username, u.email, u.date
 // Execute the query
 $res = mysqli_query($conn, $sql);
 
-// Generate the HTML code for the table rows
 if ($res) {
     $html = "";
     $sn = 1;

@@ -10,7 +10,7 @@ $res = mysqli_query($conn, $sql);
  if($res==true)
  {
      $_SESSION['delete'] = "<div class='success'>Client Deleted Successfully.</div>";
-     header('location: delete-client-success.php');
+     header('location: admin-manage-clients.php');
     }
 
  else

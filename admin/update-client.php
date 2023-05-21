@@ -1,9 +1,7 @@
 <?php require_once "../database.php"; 
 
-// Initialize the session
 session_start(); 
 
-// Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
     header("location: ../login.php");
     exit;
@@ -18,7 +16,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     <title>Admin Dashboard</title>
     <title>Document</title>
 
-    <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!--css-->
@@ -28,7 +25,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     <link rel="stylesheet" href="manage-staff.css">
     <link rel="stylesheet" href="register-staff.css">
 
-    <!--<script src="home.js"></script>--> 
     <script src="../navbar.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -64,25 +60,24 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     <h3 style="text-align: left; margin:45px; font-size: 25px; color:#192a56;">Update Client</h3>
 
     <?php 
-    //1. Get the ID of Selected Staff
+
     $id=$_GET['user_id'];
 
-    //2. Create SQL Query to Get the Details
+
     $sql="SELECT * FROM tbl_users WHERE user_id=$id";
 
-    //Execute the Query
+
     $res=mysqli_query($conn, $sql);
 
-    //Check whether the query is executed or not
+
     if($res==true)
     {
-        // Check whether the data is available or not
+
         $count = mysqli_num_rows($res);
-        //Check whether we have admin data or not
+ 
         if($count==1)
         {
-            // Get the Details
-            //echo "Staff Available";
+
             $row=mysqli_fetch_assoc($res);
 
             $first_name = $row['first_name'];
@@ -92,7 +87,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
         }
         else
         {
-            //Redirect to Manage Admin PAge
+
             header('location:http://localhost/UEB2_PROJEKTI/admin/admin-manage-clients.php');
         }
     }
@@ -147,18 +142,17 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
 
 <?php 
 
-    //Check whether the Submit Button is Clicked or not
+
     if(isset($_POST['submit']))
     {
-        //echo "Button CLicked";
-        //Get all the values from form to update
+
         $id = $_POST['user_id'];
         $first_name = $_POST['first_name'];
         $last_name = $_POST['last_name'];
         $username = $_POST['username'];
         $email = $_POST['email'];
 
-        //Create a SQL Query to Update Admin
+
         $sql = "UPDATE tbl_users
         INNER JOIN tbl_client_profiles ON tbl_users.user_id = tbl_client_profiles.user_id
         SET tbl_users.first_name = '$first_name',
@@ -170,22 +164,22 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
         WHERE tbl_users.user_id = '$id'";
 
 
-        //Execute the Query
+
         $res = mysqli_query($conn, $sql);
 
-        //Check whether the query executed successfully or not
+
         if($res==true)
         {
-            //Query Executed and Admin Updated
+
             $_SESSION['update'] = "<div class='success'>Client Updated Successfully.</div>";
-            //Redirect to Manage Admin Page
+
             header('location: admin-manage-clients.php');
         }
         else
         {
-            //Failed to Update Admin
+
             $_SESSION['update'] = "<div class='error'>Failed to Delete Client.</div>";
-            //Redirect to Manage Admin Page
+
             header('location:http://localhost/UEB2_PROJEKTI/admin/admin-manage-clients.php');
         }
     }

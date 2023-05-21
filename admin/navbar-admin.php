@@ -7,7 +7,7 @@
     <title>Healthy Lifestyle Website</title>
     
 
-    <!--font awesome-->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!--css-->
     <link rel="stylesheet" href="../navbar.css">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="navbar-admin.css">
     <link rel="stylesheet" href="manage-staff.css">
 
-    <!--<script src="home.js"></script>--> 
+
     <script src="../navbar.js"></script> 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
@@ -24,11 +24,6 @@
 </head>
 <body>
     
-
-    <!--HEADER SECTION-->
-    <!--me nderru disa icons dhe menu-->
-       <!--HEADER SECTION-->
-    <!--me nderru disa icons dhe menu-->
     <header style="text-decoration:none;">
     <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou - Admin Dashboard </a>
     <nav class="navbar">

@@ -62,7 +62,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
 
     $sql="SELECT * FROM tbl_users WHERE user_id=$id";
 
-    //Execute the Query
+ 
     $res=mysqli_query($conn, $sql);
 
     if($res==true)
