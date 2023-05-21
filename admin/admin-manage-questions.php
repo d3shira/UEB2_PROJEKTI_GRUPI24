@@ -99,8 +99,7 @@ try {
     $faqs = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($faqs as $faq) {
-        // echo "Question: " . $faq["question"] . "<br>";
-        // echo "Answer: " . $faq["answer"] . "<br><br>";
+       
     }
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
