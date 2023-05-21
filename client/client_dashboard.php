@@ -24,8 +24,8 @@ require_once('../database.php');?>
 </head>
 
 <body>
-<br><br><br><br>
-/<h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site!</h1>
+<br><br><br><br><br>
+<h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site!</h1>
 <?php require 'client-info-logic2.php'?>
 
 

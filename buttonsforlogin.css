@@ -49,7 +49,6 @@ p {
   align-items: center;
 }
 
-/* Additional CSS to position the buttons in the middle of the page */
 body {
   margin: 0;
   padding: 0;
@@ -67,12 +66,10 @@ p {
   margin-right: 15px;
 }
 
-/* Set the width of the buttons to auto to make them adjust to the text content */
 .add-button, .update-button {
   width: auto;
 }
 
-/* Optional: Set a maximum width for the buttons */
 .add-button, .update-button {
   max-width: 250px;
 }

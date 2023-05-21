@@ -1,6 +1,6 @@
 
 section{
-    /* me e shiku kete version */
+  
     padding:9rem 9%;
     text-align:center;
     position: relative;
@@ -42,7 +42,7 @@ section:nth-child(even){
     flex: 1 1 45rem;
 
 }
-/*Ndryshim*/
+
 .home.home-slider.slide.image{
     flex: 1 1 45rem;
     height: 25rem;
@@ -263,11 +263,4 @@ section {
     line-height: 2;
   }
   
-  /**/
-  /* .sub-heading {
-    font-size: 5rem;
-  }
-  
-  .heading {
-    font-size: 20rem;
-  } */
+ 
