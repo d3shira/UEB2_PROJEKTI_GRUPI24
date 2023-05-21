@@ -36,7 +36,6 @@
     </nav>
     <div class="icons">
         <i class="fas fa-bars" id="menu-bars"></i>
-        <!-- <a href="#" class="fas fa-shopping-cart"></a>    -->
         <a href="question.php" class="fas fa-question-circle"></a>
         <a href="buttonsforlogin.php" class="fa-solid fa-user"></a>
      
