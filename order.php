@@ -28,56 +28,49 @@
 <h1 class="heading" style="font-size: 2.8rem; color:#192a56"> FREE AND FAST</h1>
 <?php 
 
-//CHeck whether food id is set or not
 if(isset($_GET['diet_id']))
 {
-    //Get the Food id and details of the selected food
     $diet_id = $_GET['diet_id'];
 
-    //Get the Details of the Selected Food
     $sql = "SELECT * FROM tbl_diet WHERE diet_id='{$diet_id}'";
-    //Execute the Query
     $res = mysqli_query($conn, $sql);
-    //Count the rows
     $count = mysqli_num_rows($res);
-    //CHeck whether the data is available or not
     if($count==1)
     {
-        //WE Have Data
-        //Get the Data from Database
+        
         $row = mysqli_fetch_assoc($res);
 
         $diet_name = $row['diet_name'];
         $price = $row['price'];
         $in_stock = $row['in_stock'];
 
-        $food_found = true; // Set the flag to true since food details are found
+        $food_found = true; 
     }
     else
     {
-        $food_found = false; // Set the flag to false since food details are not found
+        $food_found = false; 
     }
 }
 else
 {
-    $food_found = false; // Set the flag to false since food id is not set
+    $food_found = false; 
 }
 ?>
 
-<!-- Rest of your HTML code -->
+
 
 <?php 
 if ($food_found) {
-    // Display the form for ordering the food
+
     ?>
     <section class="food-search">
         <div class="container">
-            <!-- Your form code here -->
+           
         </div>
     </section>
     <?php
 } else {
-    // Display a message or perform any other action
+    
     echo "Food not available.";
 }
 ?>
@@ -140,19 +133,18 @@ if(isset($_POST['Order']))
         
         $sql2 = "INSERT INTO tbl_orders (diet_id, user_id, address, contact, quantity, total_price, order_date, status) 
                  VALUES ('{$diet_id}', '{$user_id}', '{$address}', '{$contact}', '{$quantity}', '{$total_price}', '{$order_date}', '{$status}')";
-          //Execute the Query
+          
           $res2 = mysqli_query($conn, $sql2);
 
-          //Check whether query executed successfully or not
+          
           if($res2==true)
           {
-              //Query Executed and Order Saved
+              //ekzekutohet query edhe ruhen te dhenat
               $_SESSION['order'] = "<div class='success text-center'>Food Ordered Successfully.</div>";
-           //   header('location: http://localhost/UEB2_PROJEKTI/order.php?diet_id=41');
           }
           else
           {
-              //Failed to Save Order
+              //nese deshton me u rujt order
               $_SESSION['order'] = "<div class='error text-center'>Failed to Order Food.</div>";
               header('location: http://localhost/UEB2_PROJEKTI/order.php?diet_id=41');
           }

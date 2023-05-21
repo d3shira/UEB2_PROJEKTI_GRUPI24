@@ -7,13 +7,10 @@
     <title>Healthy Lifestyle Website</title>
     
 
-    <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!--css-->
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="home.css">
 
-    <!--<script src="home.js"></script>--> 
     <script src="navbar.js"></script> 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
@@ -23,15 +20,13 @@
 <body>
     
 
-    <!--HEADER SECTION-->
-    <!--me nderru disa icons dhe menu-->
+    
     <header>
     <a href="#" class="logo"><i class="fas fa-utensils"></i>FitYou</a>
     <nav class="navbar">
         <a class="" href="home.php">Home</a>
         <a class="" href="aboutus.php">About Us</a>
         <a class="" href="menu.php">Diets</a>
-        <!-- <a class="" href="order.php">Order</a> -->
         <a class="" href="faqs.php">FAQs</a>
     </nav>
     <div class="icons">
