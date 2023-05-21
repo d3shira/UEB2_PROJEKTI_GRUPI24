@@ -84,13 +84,13 @@ if ($food_found) {
 <form action="" method="POST" class="order">
     <div class="order-label1">
 <div class="order-label"><b>Full Name</b></div>
-<input type="text" name="full-name" placeholder="E.g. Vijay Thapa" class="input-responsive" required>
+<input type="text" name="full-name" placeholder="E.g. Filan Fisteku" class="input-responsive" required>
 
 <div class="order-label"><b>Phone Number</b></div>
-<input type="tel" name="contact" placeholder="E.g. 9843xxxxxx" class="input-responsive" required>
+<input type="tel" name="contact" placeholder="E.g. +383-xx-xxx-xxx" class="input-responsive" required>
 
 <div class="order-label"><b>Email</b></div>
-<input type="email" name="email" placeholder="E.g. hi@vijaythapa.com" class="input-responsive" required>
+<input type="email" name="email" placeholder="E.g. hi@gmail.com" class="input-responsive" required>
 
 <div class="order-label"><b>Quantity</b></div>
 <input name="quantity" placeholder="1,2,3..." class="input-responsive" required>

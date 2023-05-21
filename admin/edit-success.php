@@ -39,7 +39,6 @@
     <div class="container">
         <h1>Question/Answer Edited Successfully!</h1>
         <p>Thank you for editing the question/answer.</p>
-        <!-- Additional content or actions can be added here -->
     </div>
 </body>
 </html>
