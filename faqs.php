@@ -84,13 +84,10 @@ try {
     $sql = "SELECT question, answer FROM tbl_faq WHERE answer <> '' ORDER BY date_time DESC LIMIT 4";
     $statement = $conn->prepare($sql);
     
-    // Execute the statement
     $statement->execute();
     
-    // Fetch all the FAQs as an associative array
     $faqs = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    // Iterate over the fetched FAQs and display them dynamically
     foreach ($faqs as $faq) {
         echo '<div class="faq">';
         echo '<div class="question">';
@@ -105,22 +102,17 @@ try {
         echo '</div>';
     }
 } catch (PDOException $e) {
-    // Handle any database errors
     echo "Connection failed: " . $e->getMessage();
 }
 
-// Close the database connection
 $conn = null;
 ?>
 
 <script>
-    // Get all the question elements
     const questions = document.querySelectorAll('.question');
 
-    // Add click event listeners to each question
     questions.forEach(question => {
         question.addEventListener('click', () => {
-            // Toggle the answer visibility by selecting the next sibling element
             const answer = question.nextElementSibling;
             answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
         });
