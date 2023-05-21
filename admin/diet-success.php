@@ -39,7 +39,6 @@
     <div class="container">
         <h1>Diet Added/Updated Successfully!</h1>
         <p>You can view the diet list <a href="admin-manage-diets.php">here</a></p>
-        <!-- Additional content or actions can be added here -->
     </div>
 </body>
 </html>
