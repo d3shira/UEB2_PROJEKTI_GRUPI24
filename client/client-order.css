@@ -90,7 +90,6 @@ fieldset{
 }
 
 
-/* CSSS for navbar section */
 
 .logo{
     width: 10%;
@@ -110,7 +109,6 @@ fieldset{
 }
 
 
-/* CSS for Food SEarch Section */
 
 .food-search{
     background-image: url(../images/bg.jpg);
@@ -129,7 +127,6 @@ fieldset{
 }
 
 
-/* CSS for Categories */
 .categories{
     padding: 4% 0;
 }
@@ -142,7 +139,6 @@ fieldset{
 
 
 
-/* CSS for Social */
 .social ul{
     list-style-type: none;
 }
@@ -151,7 +147,6 @@ fieldset{
     padding: 1%;
 }
 
-/* for Order Section */
 
 .order{
     width: 90rem;
@@ -171,7 +166,6 @@ fieldset{
     
     
 }
-/* Stilizimi i inputeve */
 .input-responsive {
     width: 100%;
     padding: 10px;
@@ -181,12 +175,10 @@ fieldset{
     margin-bottom: 10px;
   }
   
-  /* Stilizimi i textarea */
   textarea.input-responsive {
     height: 100px;
   }
   
-  /* Stilizimi i butonit */
   .btn {
     background-color: #7c847c;
     color: white;
@@ -207,7 +199,6 @@ fieldset{
     margin-bottom: 5px;
   }
   
-  /* Stilizimi i formës */
   .order {
     max-width: 500px;
     margin: 0 auto;
