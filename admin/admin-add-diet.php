@@ -1,6 +1,13 @@
 <?php
 require_once "../database.php";
 
+session_start(); 
+
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
+    header("location: ../login.php");
+    exit;
+}
+
 $sql2 = "INSERT INTO tbl_diet (diet_name, description, price, in_stock, image_path) VALUES (?, ?, ?, ?, ?)";
 
 if (isset($_POST['submit'])) {

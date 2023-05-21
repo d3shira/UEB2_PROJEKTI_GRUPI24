@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <p>YOI HAVE SUCCESSFULLY ADDED A STAFF TO DATABASE</p>
+    <p>YOU HAVE SUCCESSFULLY ADDED A STAFF TO DATABASE</p>
 </body>
 </html>
