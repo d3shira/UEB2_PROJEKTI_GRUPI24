@@ -10,8 +10,7 @@
 </head>
 <body  style="background:#fff">
 <?php @include 'staff-navbar.php' ?>
-    <!--MISBELA
-    ABOUT US-->
+
 <section class="about" id="about">
         <h1 class="sub-heading" style="font-size: 4.5rem; color:#192a56">About Us</h1>
         <h2 class="heading" style="font-size: 3rem; color:#192a56"></h2>

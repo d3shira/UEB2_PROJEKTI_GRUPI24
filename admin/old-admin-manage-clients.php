@@ -1,4 +1,7 @@
-<?php require_once "../database.php"; ?>
+<?php
+//NOT IN USE
+
+require_once "../database.php"; ?>
 
 <?php           
 session_start(); 

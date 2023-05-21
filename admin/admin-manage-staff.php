@@ -96,7 +96,7 @@ if (isset($_SESSION['update'])) {
                 });
             });
 
-            // Load staff data using AJAX
+            //------------------------------ajax-----------------------//
             window.addEventListener('DOMContentLoaded', () => {
                 const staffTableBody = document.getElementById('staff-table-body');
 
