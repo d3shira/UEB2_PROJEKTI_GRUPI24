@@ -14,7 +14,6 @@
 <body>
 <?php //@include 'navbar.php' ?>
     
-<!-- footer section starts -->
 <section class="footer">
     <div class="box-container">
         <div class="box">
@@ -47,13 +46,6 @@
 </div>
 <div class="credit">copyright @ 2021 by <span>mr. web designer</span></div>
 </section>
-
-<!-- footer section ends -->
-
-<!-- LOADER PART -->
-<!-- <div class="loader-container">
-    <img src="images/loader.gif">
-</div> -->
 
 </body>
 </html>
