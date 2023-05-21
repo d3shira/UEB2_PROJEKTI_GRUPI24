@@ -153,25 +153,6 @@ if($stmt = mysqli_prepare($conn, $sql)) {
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-            //        // Send the verification email
-            // $to = $email;
-            // $subject = 'Verify Your Email Address';
-            // $message = '
-            //     Hello '.$username.',<br><br>
-            //     Thank you for signing up! To activate your account, please click the link below:<br><br>
-            //     <a href="http://yourwebsite.com/verify.php?email='.$email.'&token='.$token.'">Verify Email Address</a><br><br>
-            //     If you did not create an account on our website, please ignore this email.<br><br>
-            //     Best regards,<br>
-            //     Your Website Team
-            // ';
-            // $headers = 'From: yourwebsite@example.com' . "\r\n" .
-            //             'Reply-To: yourwebsite@example.com' . "\r\n" .
-            //             'Content-Type: text/html; charset=UTF-8' . "\r\n" .
-            //             'X-Mailer: PHP/' . phpversion();
-            // mail($to, $subject, $message, $headers);
-            //      // Redirect to login page
-            //      header("location: login.php");
-            //      exit();
 
                 // Get the user_id of the newly inserted row
                 $user_id = mysqli_insert_id($conn);
@@ -188,7 +169,7 @@ if($stmt = mysqli_prepare($conn, $sql)) {
                 mysqli_stmt_close($stmt2);
 
                 // Redirect the user to the appropriate dashboard page
-                header("location: register-staff-success.php");
+                header("location: admin-manage-staff.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
