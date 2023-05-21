@@ -67,7 +67,7 @@
              <div class="swiper-pagination"></div>
         </div>
     </section>
-    <?php @include 'footer.php' ?>
+    <?php @include '../footer.php' ?>
     
     <!--skripta per swiper-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>

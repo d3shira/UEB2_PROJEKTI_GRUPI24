@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="add.css">
 <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css" />
 <link rel="stylesheet" type="text/css" href="richtext/richtext.min.css" />
+<link rel="stylesheet" href="../navbar.css">
  
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
