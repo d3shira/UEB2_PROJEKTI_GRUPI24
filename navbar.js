@@ -1,4 +1,3 @@
-//rrotullohen ikonat kur klikohen
 let menu = document.querySelector('#menu-bars');
 let navbar = document.querySelector('.navbar');
 

@@ -68,7 +68,7 @@
 .menu .box-container .box .content h3 {
     color: var(--black);
     font-size: 2.5rem;
-    text-align:center;  /*try left later*/
+    text-align:center;  
     padding-right:12rem;
 
 }

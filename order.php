@@ -127,7 +127,6 @@ if(isset($_POST['Order']))
         $email = $_POST['email'];
         $address = $_POST['address'];
 
-        // Përpilojeni për të marrë user_id të klientit
         $status = "Ordered";
         $order_date = date("Y-m-d h:i:sa");
         
@@ -139,12 +138,10 @@ if(isset($_POST['Order']))
           
           if($res2==true)
           {
-              //ekzekutohet query edhe ruhen te dhenat
               $_SESSION['order'] = "<div class='success text-center'>Food Ordered Successfully.</div>";
           }
           else
           {
-              //nese deshton me u rujt order
               $_SESSION['order'] = "<div class='error text-center'>Failed to Order Food.</div>";
               header('location: http://localhost/UEB2_PROJEKTI/order.php?diet_id=41');
           }
