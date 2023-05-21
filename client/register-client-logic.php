@@ -4,7 +4,6 @@
 // Include config file
 require_once "../database.php";
 require_once '../vendor/autoload.php';
-
 //qetu duhet me kon api key
 
 // Define variables and initialize with empty values
@@ -133,8 +132,7 @@ if($stmt = mysqli_prepare($conn, $sql)) {
     // Check input errors before inserting in database
     if(empty($first_name_err)&&empty($last_name_err)&&empty($username_err) && empty($email_err)&&empty($token_err)&&empty($password_err) && empty($confirm_password_err)&& empty($role_err)){
 
-         // Generate a verification token
-        //  $token = bin2hex(random_bytes(32));
+     
 
         $token = rand(100000, 999999);
 
@@ -158,11 +156,6 @@ if($stmt = mysqli_prepare($conn, $sql)) {
             $param_role = 'client';
             $param_verification_status='pending';
 
-            
-        /*$email->addContent(
-            "text/plain",
-            "To finish creating your account please click the link to verify your email: <a href='http://localhost/Online-Exam-System/verify-email.php?code={$verificationCode}'>Verify Email</a>"
-        );*/
         
 
             // Attempt to execute the prepared statement
@@ -191,29 +184,6 @@ if($stmt = mysqli_prepare($conn, $sql)) {
                 } catch (Exception $e) {
                     $errors[] = 'Error sending email: ' . $e->getMessage();
                 }    //// BLERTA PART
-            //        // Send the verification email
-            // $to = $email;
-            // $subject = 'Verify Your Email Address';
-            // $message = '
-            //     Hello '.$username.',<br><br>
-            //     Thank you for signing up! To activate your account, please click the link below:<br><br>
-            //     <a href="http://yourwebsite.com/verify.php?email='.$email.'&token='.$token.'">Verify Email Address</a><br><br>
-            //     If you did not create an account on our website, please ignore this email.<br><br>
-            //     Best regards,<br>
-            //     Your Website Team
-            // ';
-            // $headers = 'From: yourwebsite@example.com' . "\r\n" .
-            //             'Reply-To: yourwebsite@example.com' . "\r\n" .
-            //             'Content-Type: text/html; charset=UTF-8' . "\r\n" .
-            //             'X-Mailer: PHP/' . phpversion();
-            // mail($to, $subject, $message, $headers);
-            //      // Redirect to login page
-            //      header("location: login.php");
-            //      exit();
-
-                // Get the user_id of the newly inserted row
-                // $user_id = mysqli_insert_id($conn); qika qeta e kompentova une BLERTA
-                  // Insert additional data into the appropriate table
 
                   if($role == "client"){
                     $sql = "INSERT INTO tbl_client_profiles (user_id, first_name, last_name) VALUES (?,?,?)";
