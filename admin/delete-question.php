@@ -85,14 +85,12 @@
 <body>
     <?php @include 'navbar-admin.php' ?>
     <?php
-    // Connect to the database
     $host = "localhost:3307";
     $dbname = "ueb2";
     $username = "root";
     $password = '';
 
     try {
-        // Create a new PDO connection
         $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
