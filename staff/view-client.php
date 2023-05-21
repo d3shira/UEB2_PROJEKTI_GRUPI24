@@ -1,9 +1,9 @@
 <?php require_once "../database.php"; 
 
-// Initialize the session
+
 session_start(); 
 
-// Check if the user is logged in, if not then redirect him to login page
+
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
     header("location: ../login.php");
     exit;
@@ -18,7 +18,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     <title>View Clients</title>
    
 
-    <!--font awesome-->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!--css-->
     <link rel="stylesheet" href="../navbar.css">
@@ -27,7 +27,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     <link rel="stylesheet" href="staff.css">
     <link rel="stylesheet" href="../admin/manage-staff.css">
 
-    <!--<script src="home.js"></script>--> 
+    
     <script src="../navbar.js"></script> 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
@@ -58,27 +58,25 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
             </tr>
 
            <?php 
-            //Display staff + query to display staff
+           
             $sql = "SELECT u.user_id, u.first_name, u.last_name, u.username, u.email,  cp.weight, u.date_time
             FROM tbl_users u
             INNER JOIN tbl_client_profiles cp ON u.user_id = cp.user_id";
 
-            //execyte query
+         
             $res = mysqli_query($conn, $sql);
 
-            //check if query is executed or no
+           
             if($res==TRUE){
-                //count rows to check if we have data in database or not
+               
                 $count = mysqli_num_rows($res);
                 $sn = 1;
 
                 //check number of rows
                 if($count>0){
-                    //we have data in database
-                    //gets all rows from database and stores them in the $rows variable
+                 
                     while($rows = mysqli_fetch_assoc($res)){
-                        //while loop gets all data from database
-                        //while loop runs as long as we have data in database
+                     
 
                         //get individual data
                         $id = $rows['user_id'];
@@ -89,11 +87,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
                         $weight = $rows['weight'];
                         $date_time = $rows['date_time'];
 
-                        //display the values in our table
+                    
                         ?>
-                        <!--html code in between here to display staff-->
+                    
                         <tr>
-                            <td><?php echo $sn++; ?></td>   <!--numrat me rend 1,2,3..-->
+                            <td><?php echo $sn++; ?></td> 
                             <td><?php echo $id?></td>
                             <td><?php echo $first_name; ?></td>
                             <td><?php echo $last_name; ?></td>
@@ -109,7 +107,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
                 }
             }
             else{
-                //we do not have data in database
+               
             }
         }
 
