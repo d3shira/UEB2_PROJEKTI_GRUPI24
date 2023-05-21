@@ -2,7 +2,7 @@
 
 <?php
 session_start();
-// Check if the user is logged in, if not then redirect him to the login page
+
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type'] !== 'admin') {
     header("location: ../login.php");
     exit;
@@ -29,9 +29,8 @@ if (isset($_SESSION['update'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Clients</title>
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- CSS -->
+
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="navbar-admin.css">
@@ -67,7 +66,6 @@ if (isset($_SESSION['update'])) {
             <h3 style="text-align: left; margin-top:90px; margin-left:90px; margin-right:90px; margin-bottom:45px; font-size: 25px; color:#192a56;">Manage Clients</h3>
         </div>
 
-        <!-- CONTENT SECTION -->
         <br><br>
         <div class="tbl-container">
             <div class="tbl-content">
@@ -85,21 +83,19 @@ if (isset($_SESSION['update'])) {
                         </tr>
                     </thead>
                     <tbody class="clients-table-body">
-                        <!-- Clients will be inserted here dynamically -->
+                    
                     </tbody>
                 </table>
             </div>
         </div>
-
+                                                       <!--ajax-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script>
             $(document).ready(function() {
-                // Retrieve clients from the database using Ajax
                 $.ajax({
-                    url: "get-clients.php", // Path to the PHP script that will handle the database retrieval
+                    url: "get-clients.php", 
                     type: "GET",
                     success: function(response) {
-                        // Insert the retrieved clients into the table
                         $(".clients-table-body").html(response);
                     }
                 });

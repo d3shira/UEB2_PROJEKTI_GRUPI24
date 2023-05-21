@@ -261,11 +261,7 @@ if (isset($_POST['submit'])) {
                 $stmt->bind_param("sssss", $diet_name , $description,$price, $in_stock, $image_path);
                 $stmt->execute();
               
-                //Execute the Query
-               
-
-                //CHeck whether data inserted or not
-                //4. Redirect with MEssage to Manage Food page
+    
            }
 
         ?>

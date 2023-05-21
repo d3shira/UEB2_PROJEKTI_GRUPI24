@@ -91,8 +91,6 @@ if(isset($_SESSION['update']))
 </head>
 <body>
 
-    <!--HEADER SECTION-->
-    <!--me nderru disa icons dhe menu-->
     <header style="text-decoration:none;">
     <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou - Admin Dashboard </a>
     <nav class="navbar">

@@ -2,7 +2,6 @@
 <?php  
 session_start(); 
 
-// Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type'] !== 'admin') {
     header("location: ../login.php");
     exit;
@@ -27,18 +26,15 @@ if (isset($_SESSION['update'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Staff</title>
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- CSS -->
+    
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="navbar-admin.css">
     <link rel="stylesheet" href="manage-staff.css">
 
-    <!--<script src="home.js"></script>--> 
     <script src="../navbar.js"></script> 
 
-    <!-- Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
 </head>
 <body>

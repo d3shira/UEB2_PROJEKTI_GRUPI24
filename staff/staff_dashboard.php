@@ -1,41 +1,33 @@
 <?php
 require_once "../database.php";
-// Initialize the session
+
 session_start(); 
-// Check if the user is logged in, if not then redirect him to login page
+
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: ../login.php");
     exit;
 }
 
-// if(isset($_SESSION['update']))
-// {
-//     echo $_SESSION['update'];
-//     unset($_SESSION['update']);
-// }
+ if(isset($_SESSION['update']))
+ {
+    echo $_SESSION['update'];
+     unset($_SESSION['update']);
+ }
 
- //1. Get the ID of Selected Staff
  $id=$_SESSION["user_id"];
 
- //2. Create SQL Query to Get the Details
  $sql = "SELECT tbl_users.*, tbl_staff_profiles.* FROM tbl_users 
         INNER JOIN tbl_staff_profiles 
         ON tbl_users.user_id = tbl_staff_profiles.user_id
         WHERE tbl_users.user_id = $id";
 
- //Execute the Query
  $res=mysqli_query($conn, $sql);
 
- //Check whether the query is executed or not
  if($res==true)
  {
-     // Check whether the data is available or not
      $count = mysqli_num_rows($res);
-     //Check whether we have admin data or not
      if($count==1)
      {
-         // Get the Details
-         //echo "Staff Available";
          $row=mysqli_fetch_assoc($res);
 
          $id = $row["user_id"];
@@ -48,7 +40,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
      }
      else
      {
-         //Redirect to Manage Admin Page
+
          if ($_SERVER['PHP_SELF'] != '/UEB2_PROJEKTI/staff/staff_dashboard.php') {
              header('location:http://localhost/UEB2_PROJEKTI/staff/staff_dashboard.php');
              exit;
@@ -69,7 +61,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <link rel = "stylesheet" href="staff.css">
   
 
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
     <style>
         table {
 			border-collapse: collapse;
@@ -153,7 +144,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <h1>Dashboard statistics</h1>
         <br>
         <?php
-        // get counts
+    
         $client_count_sql = "SELECT COUNT(*) as count FROM tbl_client_profiles";
         $client_count_result = mysqli_query($conn, $client_count_sql);
         $client_count = mysqli_fetch_assoc($client_count_result)['count'];
@@ -170,7 +161,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         $diet_count_result = mysqli_query($conn, $diet_count_sql);
         $diet_count = mysqli_fetch_assoc($diet_count_result)['count'];
         
-        // display counts as diagrams
         echo "<h2>Client Count: $client_count</h2>";
         echo "<div style='background-color: #FEF36A; height: 30px; width: " . ($client_count * 10) . "px'></div>";
         
@@ -183,7 +173,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         echo "<h2>Order Count: $order_count</h2>";
         echo "<div style='background-color: #666; height: 30px; width: " . ($order_count * 10) . "px'></div>";
         
-        // close connection
         mysqli_close($conn);
         ?>
 
