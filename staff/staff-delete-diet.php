@@ -33,7 +33,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
         {
           
             $_SESSION['delete'] = "<div class='success'>Diet Deleted Successfully.</div>";
-            header('location:update-diet-success.php');
+            header('location:../diet-success.php');
        
         }
         else
