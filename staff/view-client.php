@@ -20,7 +20,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!--css-->
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="staff-navbar.css">
@@ -41,7 +40,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     </div>
 
 
-    <!-- CONTENT SECTION -->
     <br><br><br><br>
     <div class="tbl-container">
     <div class="tbl-content">
@@ -72,13 +70,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
                 $count = mysqli_num_rows($res);
                 $sn = 1;
 
-                //check number of rows
                 if($count>0){
                  
                     while($rows = mysqli_fetch_assoc($res)){
                      
 
-                        //get individual data
                         $id = $rows['user_id'];
                         $first_name = $rows['first_name'];
                         $last_name = $rows['last_name'];

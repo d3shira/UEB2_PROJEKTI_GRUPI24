@@ -64,12 +64,12 @@
              <div class="swiper-pagination"></div>
         </div>
     </section>
-    <?php @include '../footer.php' ?>
+
     
-    <!--skripta per swiper-->
+  
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
    
-  <!-- <script src="home.js"></script>-->
+ 
     <script>
         var swiper = new Swiper(".home-slider", {
           spaceBetween: 30,

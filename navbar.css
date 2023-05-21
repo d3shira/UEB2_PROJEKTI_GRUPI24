@@ -2,7 +2,6 @@
     --green:#27ae60;
     --black:#192a56;
     --light-color:#666;
-    /*--box-shadow:0.5rem 1.5rem rgba(0,0,0,.1);*/ /*Vija e hint ner navbar*/
     --box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -30,7 +29,6 @@ html{
 
 }
 section{
-    /* me e shiku kete version */
     padding:19rem 9%;
 }
 
@@ -51,7 +49,6 @@ section:nth-child(even){
     text-align:center;
 }
 .btn:hover{
-    /* background: var(--green); */
     letter-spacing: .1rem;
 
 }
@@ -162,14 +159,11 @@ header .icons #menu-bars{
     padding: 50px 0;
     line-height: 1.5;
 }
-/*image and text*/
 .swiper-slide.slide{
     position: relative;
-   /* text-align:center; */
     color: white
 }
 
-/*text*/
 .content{
     width:30%;
     position: absolute;

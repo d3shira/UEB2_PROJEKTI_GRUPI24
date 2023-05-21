@@ -76,7 +76,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
             </tr>
             
            <?php 
-            //Display staff + query to display staff
             $sql = "SELECT * FROM tbl_orders";
         
 
@@ -95,7 +94,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
                     while($rows = mysqli_fetch_assoc($res)){
                 
 
-                        //get individual data
                         $order_id = $rows['order_id'];
                         $diet_id = $rows['diet_id'];
                         $user_id = $rows['user_id'];

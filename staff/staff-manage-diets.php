@@ -1,10 +1,8 @@
 <?php
 require_once "../database.php";
 
-// Initialize the session
 session_start(); 
 
-// Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='staff'){
     header("location: ../login.php");
     exit;
@@ -55,7 +53,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
 }
    </style>
 
-    <!--<script src="home.js"></script>--> 
     <script src="../navbar.js"></script> 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
@@ -70,7 +67,7 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI/');
  
      <div class="tbl-content">
 
-     <a href="admin-add-diet.php" class="update-button">Add Diet</a>
+     <a href="staff-add-diet.php" class="update-button">Add Diet</a>
       <br><br>
 
 

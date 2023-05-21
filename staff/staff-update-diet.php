@@ -58,7 +58,7 @@ if (isset($_POST['submit'], $_GET['diet_id'])) {
 
   
     if ($result) {
-        header("Location: diet-success.php");
+        header("Location: staff-manage-diets.php");
         exit();
     } else {
         echo "Failed to update the diet";
@@ -105,6 +105,7 @@ if (isset($_GET['diet_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Diet</title>
     <!--font awesome-->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!--css-->
     <link rel="stylesheet" href="admin-add-diet.css">
