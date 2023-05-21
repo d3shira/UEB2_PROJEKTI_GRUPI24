@@ -13,10 +13,7 @@
    
 </head>
 <body>
-<<<<<<< Updated upstream
    
-=======
->>>>>>> Stashed changes
     <?php @include 'navbar.php' ?>
     <section class="home" id="home">
 
