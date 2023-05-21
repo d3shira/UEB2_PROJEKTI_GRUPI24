@@ -30,6 +30,7 @@
                 <a href="staff-manage-diets.php">Diets</a>
                 <a href="staff-manage-orders.php">Orders</a>
                 <a href="staff-manage-questions.php">Questions</a>
+                <a href="staff-manage-mquestions.php">Manage Questions</a>
             </div>
         </div>
         <a class="" href="home-staff.php">Home</a>

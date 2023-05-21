@@ -46,7 +46,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     </div>
 </header>
 <body>
+
     <?php @include 'register-staff.php'?>
+
     <section class="home" id="home">
     <div class="content">
         <br><br><br>
