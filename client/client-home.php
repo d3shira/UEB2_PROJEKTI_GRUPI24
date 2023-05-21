@@ -7,13 +7,14 @@
     <title>Home</title>
     
    
-    <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="client-home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
    
+</head>
 <body>
-    <!--Home section-->
-    <?php @include 'staff-navbar.php' ?>
+   
+    <?php include 'client-navbar.php' ?>
     <section class="home" id="home">
 
         <div class="swiper home-slider">
@@ -26,7 +27,7 @@
                         Forget the junk hype and only eat foods that are fresh and ripe
                        Eat fruits plenty, keep your body healthy
                         Eating healthy keeps your heart beating!</p>
-                         <!--  <a href="#" class="btn">order now</a>-->
+                        
 
                     </div>
                     <div class="image">
@@ -41,7 +42,7 @@
                             we offer a range of diet plans to suit different goals and lifestyles.
                              Whether you are looking to lose weight, build muscle, or simply improve your overall health,
                               we have a plan for you.</p>
-                      <!--  <a href="#" class="btn">order now</a>-->
+                     
 
                     </div>
                     <div class="image">
@@ -53,7 +54,7 @@
                        
                         <h3 style="color:white; font-size:2.5rem">Reviews</h3>
                         <p style="color:white; font-size:1.4rem;">Don't just take our word for it - see what our satisfied clients have to say! </p>
-                         <!--  <a href="#" class="btn">order now</a>-->
+                        
 
                     </div>
                     <div class="image">
@@ -67,12 +68,11 @@
              <div class="swiper-pagination"></div>
         </div>
     </section>
-    <?php @include '../footer.php' ?>
+    <?php include 'client-footer.php' ?>
     
     <!--skripta per swiper-->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
    
-  <!-- <script src="home.js"></script>-->
     <script>
         var swiper = new Swiper(".home-slider", {
           spaceBetween: 30,

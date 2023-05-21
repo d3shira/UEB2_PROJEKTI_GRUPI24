@@ -78,37 +78,33 @@ label {
 
 
 <?php
-// Check if the form is submitted
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get the question from the form submission
+  
     $question = $_POST['question'];
 
-    // Database connection parameters
     $servername = "localhost:3307";
     $username = "root";
     $password = "Replace.3";
     $dbname = "ueb2";
 
     try {
-        // Create a new PDO instance
+      
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        
-        // Set the PDO error mode to exception
+ 
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Prepare the SQL statement to insert the question into tbl_faq
         $sql = "INSERT INTO tbl_faq (question) VALUES (:question)";
         $statement = $conn->prepare($sql);
         
-        // Bind the question parameter and execute the statement
         $statement->bindParam(':question', $question);
         $statement->execute();
 
-        // Redirect the user to a success page or perform any additional actions
+        
         header("Location: success.php");
         exit();
     } catch (PDOException $e) {
-        // Handle any database errors
+        
         echo "Connection failed: " . $e->getMessage();
     }
 }

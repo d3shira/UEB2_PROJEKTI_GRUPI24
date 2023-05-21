@@ -13,7 +13,7 @@
    
 </head>
 <body>
-    <!--Home section-->
+   
     <?php @include 'navbar.php' ?>
     <section class="home" id="home">
 
@@ -52,7 +52,7 @@
                        
                         <h3 style="color:white; font-size:2.5rem">Reviews</h3>
                         <p style="color:white; font-size:2.1rem;">Don't just take our word for it - see what our satisfied clients have to say! </p>
-                         <!--  <a href="#" class="btn">order now</a>-->
+                        
 
                     </div>
                     <div class="image">

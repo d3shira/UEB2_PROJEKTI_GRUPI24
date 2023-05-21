@@ -53,16 +53,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
                 <th>Last Name</th>
                 <th>Username</th>
                 <th>E-mail</th>
-                <th>Height (cm)</th>
                 <th>Weight (kg)</th>
-                <th>BMI</th>
                 <th>Date created</th>
             </tr>
 
            <?php 
             //Display staff + query to display staff
-            $sql = "SELECT u.user_id, u.first_name, u.last_name, u.username, u.email, cp.height, cp.weight, 
-            cp.bmi, u.date_time
+            $sql = "SELECT u.user_id, u.first_name, u.last_name, u.username, u.email,  cp.weight, u.date_time
             FROM tbl_users u
             INNER JOIN tbl_client_profiles cp ON u.user_id = cp.user_id";
 
@@ -89,8 +86,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
                         $last_name = $rows['last_name'];
                         $username = $rows['username'];
                         $email = $rows['email'];
-                        $bmi = $rows['bmi'];
-                        $height = $rows['height'];
                         $weight = $rows['weight'];
                         $date_time = $rows['date_time'];
 
@@ -104,13 +99,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
                             <td><?php echo $last_name; ?></td>
                             <td><?php echo $username; ?></td>
                             <td><?php echo $email; ?></td>
-                            <td><?php echo $height; ?></td>
                             <td><?php echo $weight; ?></td>
-                            <td><?php echo $bmi; ?></td>
                             <td><?php echo $date_time; ?></td>
-                            <td>
-                            <a class="update-button" href=" "></a>
-                            </td>
                         </tr>
                         <?php
 

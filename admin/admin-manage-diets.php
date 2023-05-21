@@ -1,6 +1,8 @@
 <?php
 require_once "../database.php";
 
+session_start();
+
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
    header("location: ../login.php");
     exit;

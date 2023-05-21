@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="add.css">
 <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css" />
 <link rel="stylesheet" type="text/css" href="richtext/richtext.min.css" />
-<link rel="stylesheet" href="../navbar.css">
  
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
@@ -73,7 +72,7 @@ table tr td{
 </style>
 </head>
 <body>
-    <?php @include 'navbar-admin.php' ?>
+    <?php @include 'staff-navbar.php' ?>
 <?php
 $host = "localhost:3307";
 $dbname = "ueb2";
@@ -136,10 +135,10 @@ $faqs = $statement->fetchAll();
  <!-- <a href="edit-question.php?id=<?php echo $faq['faq_id']; ?>" class="btn btn-warning btn-sm">
     Edit
 </a> -->
-<button class="editbtn" onclick="window.location.href='edit-question.php?id=<?php echo $faq['faq_id']; ?>'" class="btn btn-warning btn-sm">Answer</button>
+<button class="editbtn" onclick="window.location.href='staff-edit-question.php?id=<?php echo $faq['faq_id']; ?>'" class="btn btn-warning btn-sm">Answer</button>
 
  <td>
-                            <form method="POST" action="delete-question.php" onsubmit="return confirm('Are you sure you want to delete this FAQ ?');">
+                            <form method="POST" action="staff-delete-question.php" onsubmit="return confirm('Are you sure you want to delete this FAQ ?');">
     <input type="hidden" name="id" value="<?php echo $faq['faq_id']; ?>" required />
     <input class="deletebtnn"type="submit" value="Delete" class="btn btn-danger btn-sm" />
 </form>
