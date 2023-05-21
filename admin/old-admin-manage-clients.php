@@ -1,13 +1,10 @@
 <?php require_once "../database.php"; ?>
 
-<?php   
-
+<?php           
 session_start(); 
-
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
     header("location: ../login.php");
-    exit;
-}     
+    exit;}
                 if(isset($_SESSION['delete']))
                     {
                         echo $_SESSION['delete'];
@@ -36,8 +33,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="navbar-admin.css">
-    <link rel="stylesheet" href="manage-order.css">
-    <link rel="stylesheet" href="admin-manage-order.php">
+    <link rel="stylesheet" href="manage-staff.css">
 
     <script src="../navbar.js"></script> 
 
@@ -67,7 +63,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
 </header>
 <div>
     <div class="wrapper">
-        <h3 style="text-align: left; margin:90px; font-size: 25px; color:#192a56;">Manage Orders</h3>
+    <h3 style="text-align: left; margin-top:90px; margin-left:90px; margin-right:90px; margin-bottom:45px; font-size: 25px; color:#192a56;">Manage Clients</h3>
     </div>
 
     <br><br>
@@ -75,20 +71,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     <div class="tbl-content">
         <table class="tbl-full">
             <tr>
-                <th>Nr</th>
-                <th>Order_id</th>
-                <th>Diet_id</th>
-                <th>User_id</th>
-                <th>Address</th>
-                <th>Contact</th>
-                <th>Quantity</th>
-                <th>Total_price</th>
-                <th>Order_date</th>
-                <th>Status</th>
+                <th>No</th>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+                <th>E-mail</th>
+                <th>Date created</th>
+                <th>Actions</th>
             </tr>
-            
+
            <?php 
-            $sql = "SELECT * FROM tbl_orders";
+            $sql = "SELECT u.user_id, u.first_name, u.last_name, u.username, u.email, u.date_time
+            FROM tbl_users u
+            INNER JOIN tbl_client_profiles cp ON u.user_id = cp.user_id";
 
             $res = mysqli_query($conn, $sql);
 
@@ -98,53 +94,31 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
 
                 if($count>0){
                     while($rows = mysqli_fetch_assoc($res)){
-
-                        $order_id = $rows['order_id'];
-                        $diet_id = $rows['diet_id'];
-                        $user_id = $rows['user_id'];
-                        $address = $rows['address'];
-                        $contact = $rows['contact'];
-                        $quantity = $rows['quantity'];
-                        $total_price = $rows['total_price'];
-                        $order_date = $rows['order_date'];
-                        $status = $rows['status'];
-
+                        $id = $rows['user_id'];
+                        $first_name = $rows['first_name'];
+                        $last_name = $rows['last_name'];
+                        $username = $rows['username'];
+                        $email = $rows['email'];
+                        $date_time = $rows['date_time'];
                         ?>
                         <tr>
-                            <td><?php echo $sn++; ?></td> 
-                            <td><?php echo $order_id; ?></td> 
-                            <td><?php echo $diet_id; ?></td> 
-                            <td><?php echo $user_id; ?></td>                             
-                            <td><?php echo $address; ?></td>
-                            <td><?php echo $contact; ?></td>
-                            <td><?php echo $quantity; ?></td>
-                            <td><?php echo $total_price; ?></td>
-                            <td><?php echo $order_date; ?></td>
-                          
+                            <td><?php echo $sn++; ?></td>  
+                            <td><?php echo $id?></td>
+                            <td><?php echo $first_name; ?></td>
+                            <td><?php echo $last_name; ?></td>
+                            <td><?php echo $username; ?></td>
+                            <td><?php echo $email; ?></td>
+                            <td><?php echo $date_time; ?></td>
                             <td>
-                                <?php
-                                if($status=="Ordered")
-                                {
-                                    echo "<label>$status</label>";
-                                }
-                                elseif($status=="On Delivery")
-                                {
-                                    echo "<label style='color: purple;'>$status</label>";
-                                }
-                                elseif($status=="Delivered")
-                                {
-                                    echo "<label style='color: green;'>$status</label>";
-                                }
-                                elseif($status=="Cancelled")
-                                {
-                                    echo "<label style='color: red;'>$status</label>";
-                                }
-                                ?>
-                            </td>
-                            <td>
-                            <a class="update-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/update-order.php?order_id=' .$order_id; ?>">Update Order</a>
+                            <a class="update-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/update-client.php?user_id=' .$id; ?>">Update Client</a>
+                            <a class="delete-button" href="<?php echo 'http://localhost/UEB2_PROJEKTI/admin/delete-client.php?user_id=' .$id; ?>">Delete Client</a>
                             </td>
                         </tr>
+                        <script>Swal.fire(
+            'Information saved',
+            '',
+            'success'
+        )</script>
                         <?php
 
 
@@ -152,7 +126,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
                 }
             }
             else{
-        
             }
         }
 

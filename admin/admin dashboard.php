@@ -1,41 +1,31 @@
 <?php
 require_once "../database.php";
 
-// Initialize the session
 session_start(); 
 
-// Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
     header("location: ../login.php");
     exit;
 }
 
-// if(isset($_SESSION['update']))
-// {
-//     echo $_SESSION['update'];
-//     unset($_SESSION['update']);
-// }
+if(isset($_SESSION['update']))
+ {
+     echo $_SESSION['update'];
+     unset($_SESSION['update']);
+ }
 
- //1. Get the ID of Selected Staff
  $id=$_SESSION["user_id"];
 
- //2. Create SQL Query to Get the Details
  $sql = "SELECT * FROM tbl_users
         WHERE user_type = 'admin'";
 
- //Execute the Query
  $res=mysqli_query($conn, $sql);
 
- //Check whether the query is executed or not
  if($res==true)
  {
-     // Check whether the data is available or not
      $count = mysqli_num_rows($res);
-     //Check whether we have admin data or not
      if($count==1)
      {
-         // Get the Details
-         //echo "Staff Available";
          $row=mysqli_fetch_assoc($res);
 
          $id = $row["user_id"];
@@ -47,8 +37,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
      }
      else
      {
-         //Redirect to Manage Admin Page
-         if ($_SERVER['PHP_SELF'] != '/UEB2_PROJEKTI/staff/staff_dashboard.php') {
+         if ($_SERVER['PHP_SELF'] != '/UEB2_PROJEKTI/admin/admin dashboard.php') {
              header('location:http://localhost/UEB2_PROJEKTI/login.php');
              exit;
          }
@@ -64,7 +53,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
 
-    <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!--css-->
     <link rel="stylesheet" href="../navbar.css">
@@ -74,7 +62,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     <link rel="stylesheet" href="staff/staff.css">
     
 
-    <!--<script src="home.js"></script>--> 
     <script src="../navbar.js"></script> 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
@@ -193,7 +180,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
         $diet_count_result = mysqli_query($conn, $diet_count_sql);
         $diet_count = mysqli_fetch_assoc($diet_count_result)['count'];
         
-        // display counts as diagrams
         echo "<h2>Client Count: $client_count</h2>";
         echo "<div style='background-color: #FEF36A; height: 30px; width: " . ($client_count * 10) . "px'></div>";
         
@@ -206,7 +192,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
         echo "<h2>Order Count: $order_count</h2>";
         echo "<div style='background-color: #666; height: 30px; width: " . ($order_count * 10) . "px'></div>";
         
-        // close connection
         mysqli_close($conn);
         ?>
 

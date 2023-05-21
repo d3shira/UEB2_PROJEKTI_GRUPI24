@@ -1,10 +1,8 @@
 <?php
 require_once "../database.php";
 
-// Initialize the session
 session_start(); 
 
-// Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
     header("location: ../login.php");
     exit;
@@ -22,7 +20,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="navbar-admin.css">
 
-    <!--<script src="home.js"></script>--> 
     <script src="../navbar.js"></script> 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>

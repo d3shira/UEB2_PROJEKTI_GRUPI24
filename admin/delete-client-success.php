@@ -38,8 +38,7 @@
 <?php @include 'navbar-admin.php' ?>
     <div class="container">
         <h1>Client deleted successfully!</h1>
-        <p>You can view the clients list <a href="admin-manage-clients.php">here</a></p>
-        <!-- Additional content or actions can be added here -->
+        <p>You can view the clients list <a style="color:red" href="admin-manage-clients.php">here</a></p>
     </div>
 </body>
 </html>
