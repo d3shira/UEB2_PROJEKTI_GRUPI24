@@ -58,7 +58,7 @@ if (isset($_POST['submit'], $_GET['diet_id'])) {
 
   
     if ($result) {
-        header("Location: diet-success.php");
+        header("Location: staff-manage-diets.php");
         exit();
     } else {
         echo "Failed to update the diet";

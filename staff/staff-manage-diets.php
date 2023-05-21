@@ -67,7 +67,7 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI/');
  
      <div class="tbl-content">
 
-     <a href="admin-add-diet.php" class="update-button">Add Diet</a>
+     <a href="staff-add-diet.php" class="update-button">Add Diet</a>
       <br><br>
 
 
