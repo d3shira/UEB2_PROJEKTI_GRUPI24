@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
 
   
     if ($result == true) {
-        header("Location: diet-success.php");
+        header("Location: ../diet-success.php");
         exit();
     } else {
         echo "Failed to Insert Diet";
