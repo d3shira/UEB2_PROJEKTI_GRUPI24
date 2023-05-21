@@ -103,16 +103,15 @@ table tr td{
             color:white; */
 
             background-color: #27ae60;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 4px;
-    text-decoration: none;
-    margin-right: 10px;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-right: 10px;
         }
 
         .editbtn:hover {
             background-color:  #168d48 ;
-;
         }
 
         .deletebtnn {
@@ -122,10 +121,10 @@ table tr td{
             width: 60px;
             color:white; */
             background-color: #666;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 4px;
-    text-decoration: none;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-decoration: none;
         }
 
         .deletebtnn:hover {
@@ -174,7 +173,7 @@ table tr td{
 $host = "localhost:3307";
 $dbname = "ueb2";
 $username = "root";
-$password = 'Replace.3';
+$password = '';
 
 try {
     // Connect to the database
