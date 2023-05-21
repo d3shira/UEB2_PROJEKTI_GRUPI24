@@ -37,7 +37,6 @@ $faqs = $statement->fetchAll(PDO::FETCH_ASSOC);
  
   }
   th {
-    /* background-color: #f2f2f2; */
     font-weight: bold;
     border-bottom: 1px solid black; 
     color:#192a56;
