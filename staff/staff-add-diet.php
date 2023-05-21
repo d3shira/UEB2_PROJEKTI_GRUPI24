@@ -3,7 +3,7 @@ require_once "../database.php";
 
 session_start(); 
 
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='staff'){
     header("location: ../login.php");
     exit;
 }
@@ -11,14 +11,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
 $sql2 = "INSERT INTO tbl_diet (diet_name, description, price, in_stock, image_path) VALUES (?, ?, ?, ?, ?)";
 
 if (isset($_POST['submit'])) {
-    
+  
     $diet_name = $_POST['diet_name'];
     $description = $_POST['description'];
     $price = $_POST['price'];
     $in_stock = isset($_POST['in_stock']) ? $_POST['in_stock'] : "No";
     $image_path = $_POST['image_path'];
 
-    
+ 
     $errors = array();
     if (empty($diet_name)) {
         $errors[] = "Diet Name is required";
@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
     $stmt->bind_param("sssss", $diet_name, $description, $price, $in_stock, $image_path);
     $result = $stmt->execute();
 
-    
+  
     if ($result == true) {
         header("Location: diet-success.php");
         exit();
@@ -128,9 +128,11 @@ if (isset($_POST['submit'])) {
   cursor: pointer;
 }
 
+
 .wrapper input[type="submit"]:hover {
   background-color: #45a049;
 }
+
 
 .wrapper .success,
 .wrapper .error {
@@ -155,7 +157,7 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
     <header style="text-decoration:none;">
-    <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou -Admin Dashboard </a>
+    <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou -Staff Dashboard </a>
     <nav class="navbar">
         <div class="dropdown">
             <a class="dropbtn">Manage Users</a>

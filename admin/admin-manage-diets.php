@@ -67,10 +67,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_typ
 define('SITEURL', 'http://localhost/UEB2_PROJEKTI/');
 ?>
 <div class="main-content"> 
-    <!-- Button to Add Admin-->
     
- 
-     <!-- CONTENT SECTION -->
      <div class="tbl-content">
 
      <a href="admin-add-diet.php" class="update-button" >Add Diet</a>
@@ -158,7 +155,7 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI/');
                         }
                         else
                         {
-                            //Diet not Added in Database
+                          
                             echo "<tr> <td colspan='7' class='error'> Diet not Added Yet. </td> </tr>";
                         }
 
