@@ -104,11 +104,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $statement->bindParam(':question', $question);
         $statement->execute();
 
-        // Redirect the user to a success page or perform any additional actions
+        
         header("Location: success.php");
         exit();
     } catch (PDOException $e) {
-        // Handle any database errors
+        
         echo "Connection failed: " . $e->getMessage();
     }
 }

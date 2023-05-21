@@ -1,4 +1,4 @@
-<?php require_once("database.php"); session_start();?>;
+<?php require_once("../database.php"); session_start();?>;
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="../home.css">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="client-order.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
@@ -17,7 +17,7 @@
 </head>
 <body>
 <?php define('SITEURL', 'http://localhost/UEB2_PROJEKTI/'); ?>
-<?php @include 'navbar.php' ?>
+<?php include 'client-navbar.php' ?>
 <br> <br>
 <br>
 <br> <br>
@@ -37,6 +37,7 @@ if(isset($_GET['diet_id']))
     $count = mysqli_num_rows($res);
     if($count==1)
     {
+        
         $row = mysqli_fetch_assoc($res);
 
         $diet_name = $row['diet_name'];
@@ -57,9 +58,10 @@ else
 ?>
 
 
+
 <?php 
 if ($food_found) {
-   
+
     ?>
     <section class="food-search">
         <div class="container">
@@ -68,20 +70,20 @@ if ($food_found) {
     </section>
     <?php
 } else {
-   
+    
     echo "Food not available.";
 }
 ?>
 <form action="" method="POST" class="order">
     <div class="order-label1">
 <div class="order-label"><b>Full Name</b></div>
-<input type="text" name="full-name" placeholder="E.g. Dafina Thapa" class="input-responsive" required>
+<input type="text" name="full-name" placeholder="E.g. Filan Fisteku" class="input-responsive" required>
 
 <div class="order-label"><b>Phone Number</b></div>
-<input type="tel" name="contact" placeholder="E.g. 9843xxxxxx" class="input-responsive" required>
+<input type="tel" name="contact" placeholder="E.g. +383-xx-xxx-xxx" class="input-responsive" required>
 
 <div class="order-label"><b>Email</b></div>
-<input type="email" name="email" placeholder="E.g. hi@vijaythapa.com" class="input-responsive" required>
+<input type="email" name="email" placeholder="E.g. hi@gmail.com" class="input-responsive" required>
 
 <div class="order-label"><b>Quantity</b></div>
 <input name="quantity" placeholder="1,2,3..." class="input-responsive" required>
@@ -131,14 +133,18 @@ if(isset($_POST['Order']))
         
         $sql2 = "INSERT INTO tbl_orders (diet_id, user_id, address, contact, quantity, total_price, order_date, status) 
                  VALUES ('{$diet_id}', '{$user_id}', '{$address}', '{$contact}', '{$quantity}', '{$total_price}', '{$order_date}', '{$status}')";
+          
           $res2 = mysqli_query($conn, $sql2);
 
+          
           if($res2==true)
           {
+              //ekzekutohet query edhe ruhen te dhenat
               $_SESSION['order'] = "<div class='success text-center'>Food Ordered Successfully.</div>";
           }
           else
           {
+              //nese deshton me u rujt order
               $_SESSION['order'] = "<div class='error text-center'>Failed to Order Food.</div>";
               header('location: http://localhost/UEB2_PROJEKTI/order.php?diet_id=41');
           }

@@ -24,8 +24,8 @@ require_once('../database.php');?>
 </head>
 
 <body>
-<br><br><br>
-<h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site!</h1>
+<br><br><br><br>
+/<h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site!</h1>
 <?php require 'client-info-logic2.php'?>
 
 
@@ -55,7 +55,7 @@ require_once('../database.php');?>
 
 <br><br>
       <p>
-      <a href="../menu.php" class="update-button" style="margin-left:15px;">Order Now</a>
+      <a href="client-menu.php" class="update-button" style="margin-left:15px;">Order Now</a>
         <a href="../reset-password.php" class="add-button">Reset Your Password</a>
         <a href="../logout.php" class="delete-button">Sign Out of Your Account</a>
     </p>
@@ -65,13 +65,13 @@ require_once('../database.php');?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
   $(document).ready(function() {
-    // Function to retrieve orders via Ajax
+
     function getOrders() {
       $.ajax({
         url: 'client-retrieve-order.php',
         method: 'GET',
         success: function(response) {
-          // Handle the response from the server
+        
           var orders = JSON.parse(response);
           var tbody = $('#orders-container');
        
@@ -91,7 +91,7 @@ require_once('../database.php');?>
               tbody.append(row);
             }
           } else {
-            // Show a message if no orders are available
+           
             var emptyRow = $('<tr>');
             emptyRow.append($('<td colspan="8">').text('No orders found'));
             tbody.html(emptyRow);
@@ -103,11 +103,8 @@ require_once('../database.php');?>
       });
     }
 
-    // Call the getOrders function initially to load orders
     getOrders();
 
-    // Set an interval to periodically update the orders
-    /*setInterval(getOrders, 5000);*/ // Update every 5 seconds
   });
 </script>
 </body>
