@@ -89,6 +89,10 @@ try {
     .btnSubmit:hover {
         background-color: #45a049;
     }
+
+    .container{
+        margin-top:150px;
+    }
 </style>
 
 <!DOCTYPE html>
@@ -113,7 +117,7 @@ try {
 
 
 
-<div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+<div class="container" style="margin-top: 150px; margin-bottom: 50px;">
     <div class="row">
         <div class="offset-md-3 col-md-6">
             <h1 class="text-center">Edit FAQ</h1>

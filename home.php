@@ -13,7 +13,6 @@
    
 </head>
 <body>
-   
     <?php @include 'navbar.php' ?>
     <section class="home" id="home">
 
