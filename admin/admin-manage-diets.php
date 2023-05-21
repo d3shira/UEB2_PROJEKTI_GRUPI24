@@ -1,18 +1,10 @@
 <?php
 require_once "../database.php";
 
-// Initialize the session
-session_start(); 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-
-// Check if the user is logged in, if not then redirect him to login page
-//if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
-  //  header("location: ../login.php");
-    //exit;
-//}
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='admin'){
+   header("location: ../login.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,74 +111,24 @@ define('SITEURL', 'http://localhost/UEB2_PROJEKTI/');
     }
 
 ?>
-<!--
-    <table class="tbl-full">
+  <table class="tbl-full">
         <tr>
             <th>ID</th>
             <th>Diet Name</th>
             <th>Price</th>
-            <th>In Stock</th>
-            <th>Actions</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>
-                <a class="update-button" href="#">Update Diet</a>
-                <a class="delete-button" href="#">Delete Diet</a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>
-                <a class="update-button" href="#">Update Diet</a>
-                <a class="delete-button" href="#">Delete Diet</a>
-            </td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>test</td>
-            <td>test</td>
-            <td>test</td>
-            <td>
-                <a class="update-button" href="#">Update Diet</a>
-                <a class="delete-button" href="#">Delete Diet</a>
-            </td>
-        </tr>
-        -->  <table class="tbl-full">
-        <tr>
-            <th>ID</th>
-            <th>Diet Name</th>
-            <th>Price</th>
-         
             <th>Actions</th>
         </tr>
         <?php 
-                        //Create a SQL Query to Get all the Food
                         $sql = "SELECT * FROM tbl_diet";
-
-                   
-                        //Execute the qUery
                         $res = mysqli_query($conn, $sql);
-
-                        //Count Rows to check whether we have foods or not
                         $count = mysqli_num_rows($res);
-
-                        //Create Serial Number VAriable and Set Default VAlue as 1
                         $sn=1;
 
                         if($count>0)
                         {
-                            //We have food in Database
-                            //Get the Foods from Database and Display
                             while($row=mysqli_fetch_assoc($res))
                             {
-                                //get the values from individual columns
+                              
                                 $diet_id = $row['diet_id'];
                                 $diet_name = $row['diet_name'];
                                 $price = $row['price'];

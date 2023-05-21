@@ -23,7 +23,7 @@
                     <div class="content">
                         
                         
-                        <p style="color:white; font-size:1.4rem ">Improve your mood by eating healthy food!
+                        <p style="color:white; font-size:2.1rem ">Improve your mood by eating healthy food!
                         Forget the junk hype and only eat foods that are fresh and ripe
                        Eat fruits plenty, keep your body healthy
                         Eating healthy keeps your heart beating!</p>
@@ -38,7 +38,7 @@
                     <div class="content">
                         
                         
-                        <p style="color:white; font-size:1.4rem">Check out our diet plans: If you are looking for a structured approach to your diet, 
+                        <p style="color:white; font-size:2.1rem">Check out our diet plans: If you are looking for a structured approach to your diet, 
                             we offer a range of diet plans to suit different goals and lifestyles.
                              Whether you are looking to lose weight, build muscle, or simply improve your overall health,
                               we have a plan for you.</p>
@@ -53,7 +53,7 @@
                     <div class="content">
                        
                         <h3 style="color:white; font-size:2.5rem">Reviews</h3>
-                        <p style="color:white; font-size:1.4rem;">Don't just take our word for it - see what our satisfied clients have to say! </p>
+                        <p style="color:white; font-size:2.1rem;">Don't just take our word for it - see what our satisfied clients have to say! </p>
                          <!--  <a href="#" class="btn">order now</a>-->
 
                     </div>
