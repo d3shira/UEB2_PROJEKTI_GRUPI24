@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="faqs.css">
     <style>
         body {
+            margin-top:80px;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             padding: 20px;
