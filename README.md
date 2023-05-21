@@ -13,7 +13,7 @@ Në website ka tri role: client, staff dhe admin.
 Rolet a lartcekura janë të ndara në folderat përkatës admin\ , staff\ , client\ .
 
 # Dokumentimi i projektit 
-google docs ...
+[FIT YOU](https://docs.google.com/document/d/1jMyWCZ1olQhMWhCz-SMrm8aZCBEyo4mqKt212MbTJpA/edit?usp=sharing)
 
 # Grupi punues:
 •[Dafina Balaj](https://github.com/dafinabalaj) 
@@ -31,8 +31,12 @@ google docs ...
 •[Besmira Berisha](https://github.com/Besmira75)
 
 
-
-Prof. As. Dr. Dhuratë Hyseni, MSc. Dalinë Vranovci
+# Lënda 
+Programimi në WEB 2
+# Profesoreshë
+Prof. As. Dr. Dhuratë Hyseni 
+# Asistente
+MSc. Dalinë Vranovci
 
 
 
