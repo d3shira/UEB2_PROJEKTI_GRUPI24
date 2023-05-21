@@ -16,6 +16,9 @@
 
 
 <style>
+    body{
+        margin:50px;
+    }
         .tbl-full{
     width:100%;
 }

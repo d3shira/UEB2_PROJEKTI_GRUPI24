@@ -1,4 +1,11 @@
-<?php require_once("database.php"); session_start();?>;
+<?php require_once("database.php"); session_start();
+
+
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true && ['user_type']!=='client'){
+    header("location:client/register-client.php");
+    exit;
+}
+?>;
 
 <!DOCTYPE html>
 <html lang="en">
