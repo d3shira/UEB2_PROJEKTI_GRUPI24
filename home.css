@@ -1,9 +1,14 @@
 
+body{
+    margin-top:0;
+}
+
 section{
     padding:9rem 9%;
     text-align:center;
     position: relative;
     padding:2rem 9%;
+    
 
 }
 section:nth-child(even){
@@ -34,7 +39,7 @@ section:nth-child(even){
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
-    padding-top: 9rem;
+    padding-top: 0;
     
 
 }
@@ -85,4 +90,13 @@ swiper-pagination-bullet-active{
     top: 50%;
     left: 20%;
     transform: translate(-50%, -50%)
+}
+
+
+.home{
+    /* margin-top:0; */
+    padding:100px;
+    padding-bottom:0px;
+    margin-bottom:0px;
+
 }
