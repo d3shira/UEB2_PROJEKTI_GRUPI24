@@ -10,7 +10,7 @@ if(isset($_COOKIE["username"])){
 if(isset($_COOKIE["user_type"])){
     $user_type = $_COOKIE["user_type"];
 }
-// Initialize the session
+
 session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page

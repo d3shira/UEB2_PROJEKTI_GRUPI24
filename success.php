@@ -39,7 +39,6 @@
     <div class="container">
         <h1>Success</h1>
         <p>Your question has been submitted successfully.</p>
-        <!-- Additional content or actions can be added here -->
-    </div>
+        </div>
 </body>
 </html>

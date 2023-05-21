@@ -6,9 +6,7 @@
 <link rel="stylesheet" href="footer.css">
 <script src="footer.js"></script> 
 <link rel="stylesheet" href="navbar.css">
-    <!-- <link rel="stylesheet" href="home.css"> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/> -->
+    
 </head>
 
 <body>

@@ -81,13 +81,11 @@
     box-sizing: border-box;
     text-align: center;
     padding-right:12rem;
-    /*width: 200px;
-    height: 100px;*/
+    height: 100px;
 
 }
 .menu .box-container .box .content .price {
     color: var(--green);
-    /* color:rgb(7, 81, 7); */
     margin: 1rem;
     font-size: 2rem;
     padding: 0.5rem;
