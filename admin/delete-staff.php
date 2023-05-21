@@ -8,7 +8,7 @@ $res = mysqli_query($conn, $sql);
  if($res==true)
  {
      $_SESSION['delete'] = "<div class='success'>Staff Deleted Successfully.</div>";
-     header('location:delete-staff-success.php');
+     header('location:admin-manage-staff.php');
     }
 
  else
