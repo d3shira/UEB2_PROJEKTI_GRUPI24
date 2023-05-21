@@ -1,13 +1,10 @@
-
 <?php
 require_once "../database.php";
 
-// Define the SQL query
-$sql2 = "INSERT INTO tbl_diet (diet_name, description, price, in_stock, image_path) VALUES (?, ?, ?, ?, ?)";
-
-// Check if the form is submitted
-if (isset($_POST['submit'])) {
+// Check if the form is submitted and diet_id is set
+if (isset($_POST['submit'], $_GET['diet_id'])) {
     // Process the form data
+    $diet_id = $_GET['diet_id'];
     $diet_name = $_POST['diet_name'];
     $description = $_POST['description'];
     $price = $_POST['price'];
@@ -37,19 +34,58 @@ if (isset($_POST['submit'])) {
         exit();
     }
 
-    // Create a variable $stmt and assign the result of the prepared statement execution
-    $stmt = $conn->prepare($sql2);
-    $stmt->bind_param("sssss", $diet_name, $description, $price, $in_stock, $image_path);
+    // Update the diet in the database
+    $sql3 = "UPDATE tbl_diet SET 
+        diet_name = ?,
+        description = ?,
+        price = ?,
+        in_stock = ?,
+        image_path = ?
+        WHERE diet_id = ?";
+    $stmt = $conn->prepare($sql3);
+    $stmt->bind_param("sssssi", $diet_name, $description, $price, $in_stock, $image_path, $diet_id);
     $result = $stmt->execute();
 
     // Redirect after processing the form
-    if ($result == true) {
+    if ($result) {
         header("Location: diet-success.php");
         exit();
     } else {
-        echo "Failed to Insert Diet";
+        echo "Failed to update the diet";
         exit();
     }
+}
+
+// Check if the diet_id is set
+if (isset($_GET['diet_id'])) {
+    $diet_id = $_GET['diet_id'];
+
+    // SQL Query to Get the Selected Diet
+    $sql2 = "SELECT * FROM tbl_diet WHERE diet_id = ?";
+    $stmt = $conn->prepare($sql2);
+    $stmt->bind_param("i", $diet_id);
+    $stmt->execute();
+
+    // Get the result
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        // Fetch the diet details
+        $row = $result->fetch_assoc();
+        $diet_name = $row['diet_name'];
+        $description = $row['description'];
+        $price = $row['price'];
+        $in_stock = $row['in_stock'];
+        $image_path = $row['image_path'];
+    } else {
+        // Redirect if diet not found
+        header('Location: admin-manage-diets.php');
+        exit();
+    }
+} else {
+    // Redirect if diet_id is not set
+    header('Location: admin-manage-diets.php');
+    exit();
 }
 ?>
 
@@ -60,20 +96,28 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Diet</title>
-     <!--font awesome-->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!--css-->
     <link rel="stylesheet" href="admin-add-diet.css">
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="navbar-admin.css">
     <link rel="stylesheet" href="manage-staff.css">
-
-  
-
-    <!--<script src="home.js"></script>--> 
+    <!-- Scripts -->
     <script src="../navbar.js"></script> 
+    <script>
+        const navbarLinks = document.querySelectorAll('.navbar a');
 
+        navbarLinks.forEach(navbarLink => {
+            navbarLink.addEventListener('click', () => {
+                navbarLinks.forEach(navbarLink => {
+                    navbarLink.classList.remove('active');
+                });
+                navbarLink.classList.add('active');
+            });
+        });
+    </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <style>
         /* CSS for .main-content */
@@ -152,11 +196,7 @@ if (isset($_POST['submit'])) {
     </style>
 </head>
 <body>
-<!--HEADER SECTION-->
-    <!--me nderru disa icons dhe menu-->
-       <!--HEADER SECTION-->
-    <!--me nderru disa icons dhe menu-->
-    <header style="text-decoration:none;">
+<header style="text-decoration:none;">
     <a href="admin dashboard.php" class="logo"><i class="fas fa-utensils"></i> FitYou - Admin Dashboard </a>
     <nav class="navbar">
         <div class="dropdown">
@@ -188,138 +228,52 @@ navbarLinks.forEach(navbarLink => {
 });
 
 </script>
-<?php 
-    //CHeck whether id is set or not 
-    if(isset($_GET['diet_id']))
-    {
-        //Get all the details
-        $diet_id = $_GET['diet_id'];
+    <div class="main-content">
+        <div class="wrapper">
+            <h1>Update Diet</h1>
+            <br><br>
 
-        //SQL Query to Get the Selected Food
-        $sql2 = "SELECT * FROM tbl_diet WHERE diet_id=$diet_id";
-        //execute the Query
-        $res2 = mysqli_query($conn, $sql2);
+            <form action="<?php echo $_SERVER['PHP_SELF'] . '?diet_id=' . $diet_id; ?>" method="POST" enctype="multipart/form-data">
+                <table class="tbl-30">
+                    <tr>
+                        <td>Diet Name: </td>
+                        <td><input type="text" name="diet_name" value="<?php echo $diet_name; ?>"></td>
+                    </tr>
 
-        //Get the value based on query executed
-        $row2 = mysqli_fetch_assoc($res2);
+                    <tr>
+                        <td>Description: </td>
+                        <td><textarea name="description" cols="30" rows="5"><?php echo $description; ?></textarea></td>
+                    </tr>
 
-        //Get the Individual Values of Selected Food
-        $diet_name= $row2['diet_name'];
-        $description = $row2['description'];
-        $price = $row2['price'];
-        $in_stock = $row2['in_stock'];
-        $image_path = $row2['image_path'];
+                    <tr>
+                        <td>Price: </td>
+                        <td><input type="decimal" name="price" value="<?php echo $price; ?>"></td>
+                    </tr>
 
-    }
-    else
-    {
-        //Redirect to Manage Food
-        header('location:http://localhost/UEB2_PROJEKTI_GRUPI24/admin/admin-manage-diets.php');
-    }
-?>
+                    <tr>
+                        <td>Image Path: </td>
+                        <td><input type="text" name="image_path" value="<?php echo $image_path; ?>"></td>
+                    </tr>
 
+                    <tr>
+                        <td>In stock: </td>
+                        <td>
+                            <input type="radio" name="in_stock" value="Yes" <?php if ($in_stock == "Yes") echo 'checked'; ?>> Yes 
+                            <input type="radio" name="in_stock" value="No" <?php if ($in_stock == "No") echo 'checked'; ?>> No 
+                        </td>
+                    </tr>
 
-<div class="main-content">
-    <div class="wrapper">
-        <h1>Update Diet</h1>
-        <br><br>
-
-        <form action="" method="POST" enctype="multipart/form-data">
-        
-        <table class="tbl-30">
-
-            <tr>
-                <td>Diet name: </td>
-                <td>
-                    <input type="text" name="diet_name" value="<?php echo $diet_name; ?>">
-                </td>
-            </tr>
-
-            <tr>
-                <td>Description: </td>
-                <td>
-                    <textarea name="description" cols="30" rows="5"><?php echo $description; ?></textarea>
-                </td>
-            </tr>
-
-            <tr>
-                <td>Price: </td>
-                <td>
-                    <input type="decimal" name="price" value="<?php echo $price; ?>">
-                </td>
-            </tr>
-
-            <tr>
-                    <td>Image Path: </td>
-                    <td>
-                        <textarea name="image_path" cols="30" rows="5" placeholder="The image path."></textarea>
-                    </td>
-                </tr>
-
-            <tr>
-                <td>In stock: </td>
-                <td>
-                    <input <?php if($in_stock=="Yes") {echo "checked";} ?> type="radio" name="in_stock" value="Yes"> Yes 
-                    <input <?php if($in_stock=="No") {echo "checked";} ?> type="radio" name="in_stock" value="No"> No 
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <input type="hidden" name="diet_id" value="<?php echo $diet_id; ?>">
-                    
-                    <input type="submit" name="submit" value="Update Food" class="btn-secondary">
-                </td>
-            </tr>
-        
-        </table>
-        
-        </form>
-
-        <?php 
-        
-            if(isset($_POST['submit']))
-            {
-                //echo "Button Clicked";
-
-                //1. Get all the details from the form
-                $diet_id = $_POST['diet_id'];
-                $diet_name = $_POST['diet_name'];
-                $description = $_POST['description'];
-                $price = $_POST['price'];
-                $image_path = $_POST['image_path'];
-           
-
-          
-                $in_stock = $_POST['in_stock'];
-
-        
-
-                
-
-                //4. Update the Food in Database
-                $sql3 = "UPDATE tbl_diet SET 
-                    diet_id = '$diet_id',
-                    description = '$description',
-                    price = $price,
-                    image_path = '$image_path',
-                    in_stock = '$in_stock'
-                    WHERE diet_id=$diet_id
-                ";
-
-                //Execute the SQL Query
-                $res3 = mysqli_query($conn, $sql3);
-
-                //CHeck whether the query is executed or not 
-            
-                
-            }
-        
-        ?>
-
+                    <tr>
+                        <td>
+                            <input type="hidden" name="diet_id" value="<?php echo $diet_id; ?>">
+                            <input type="submit" name="submit" value="Update Diet" class="btn-secondary">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
-</div>
-
-<?php include('../footer.php'); ?>
+    
+   
 </body>
 </html>
